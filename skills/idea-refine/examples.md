@@ -1,238 +1,238 @@
-# Ideation Session Examples
+# 아이디어 세션 예시
 
-These examples demonstrate what good ideation sessions look like across different kinds of ideas. Study the rhythm, tone, and structure — not just the content. The skill should feel equally at home with a vague startup concept, a feature for an existing product, or a process improvement.
-
----
-
-## Example 1: Vague Early-Stage Concept (Full 3-Phase Session)
-
-**User invokes:** `/ideate I want to help small local restaurants compete with the big delivery platforms`
-
-### Phase 1: Understand & Expand
-
-**Skill response:**
-
-> **How might we** give independent restaurants the reach and convenience customers expect from delivery platforms, without forcing them into a model that erodes their margins and brand?
-
-That's a big space. Let me sharpen it:
-
-1. **Which part of "compete"?** Customer acquisition? Delivery logistics? Online ordering UX? Loyalty/retention? Margin pressure from platform fees?
-2. **Who are you building for?** The restaurant owner? The diner? Both?
-3. **What's the constraint?** Are you thinking software? A cooperative model? Something physical?
-
-**User responds:** "Restaurant owners. The core pain is that they're paying 25-30% commission to delivery apps but feel they can't opt out because that's where the customers are. I'm thinking software but I'm open."
-
-**Skill continues:**
-
-So the problem isn't delivery logistics — it's **customer dependency**. The platforms own the customer relationship, and restaurants are renting access to their own customers at 30% of revenue. That's the leverage to break.
-
-Here are 6 variations:
-
-1. **Direct Channel Toolkit:** Give restaurants their own branded ordering — web, SMS, maybe a lightweight app — so they can move existing customers off-platform. The core bet: customers who *already know* a restaurant will order direct if it's easy enough. You don't need to compete with DoorDash for discovery, just for reordering.
-
-2. **Inversion — Charge the Customer, Not the Restaurant:** What if the delivery fee model flipped? Customers pay a small premium for direct ordering, restaurants pay zero commission. Position it as "support your local spot." The bet: enough customers care about supporting local businesses to pay $1-2 more per order.
-
-3. **Constraint Removal — What If Delivery Weren't Required?** The platforms bundle discovery + ordering + delivery, but most of their cost (and the restaurant's commission) is delivery. What if you only solved ordering and pickup? Pickup-first model. Restaurants keep 100% of revenue, customers save the delivery fee. Works best in dense neighborhoods.
-
-4. **Combination — Restaurant Collective:** A co-op model where 20-50 local restaurants in an area share a platform, split costs, and cross-promote each other. Individual restaurants can't afford marketing — but a neighborhood collective can. Think "local food hall" but digital.
-
-5. **Audience Shift — For Regular Customers:** Don't try to acquire new customers. Build exclusively for a restaurant's existing regulars — the people who come in weekly. A loyalty/reorder tool that's dead simple: "Your usual?" one-tap reorder. The 80/20 bet: 20% of customers drive 80% of revenue, and those people don't need DoorDash to discover the restaurant.
-
-6. **Expert Lens — What Restaurant Owners Actually Do:** Most small restaurant owners aren't looking at dashboards. They're in the kitchen. Any tool that requires them to "manage" something will fail. The winning approach might be something that runs itself — auto-texts regulars when they haven't ordered in 2 weeks, auto-posts the daily special, auto-handles reorders. Zero restaurant-side effort.
-
-Variation 5 and 6 together are interesting. Instead of trying to out-platform the platforms, you'd build something hyper-narrow: a reordering and retention tool for a restaurant's best existing customers. No discovery, no delivery, no marketplace. Just "keep your regulars ordering direct."
-
-Which directions interest you?
+이러한 예는 다양한 종류의 아이디어에 걸쳐 좋은 아이디어 세션이 어떤 모습인지 보여줍니다. 내용뿐만 아니라 리듬, 톤, 구조도 연구하세요. skill는 모호한 시작 개념, 기존 제품의 기능 또는 프로세스 개선으로 똑같이 편안함을 느껴야 합니다.
 
 ---
 
-### Phase 2: Evaluate & Converge
+## 예시 1: 모호한 초기 개념 (전체 3단계 세션)
 
-**User responds:** "I love the regulars angle (5 and 6). The direct channel toolkit (1) feels necessary but boring. The co-op idea (4) is interesting but complex. Let me focus on 1 + 5 + 6 combined."
+**사용자 호출:** `/ideate I want to help small local restaurants compete with the big delivery platforms`
 
-**Skill response:**
+### 1단계: 이해 및 확장
 
-Good instincts. That combination has a clear thesis: **own the relationship with your best customers, make reordering effortless, and require zero effort from the restaurant owner.** Let me stress-test it.
+**Skill 응답:**
 
-**Direction A: The "Regulars Engine" (Variations 5 + 6 fused)**
-A tool focused entirely on a restaurant's existing repeat customers. Auto-reorder, auto-engagement, zero management.
+> **우리는** 독립 restaurants에게 마진과 브랜드를 침식하는 모델을 강요하지 않고 배송 플랫폼orm에서 고객이 기대하는 도달 범위와 편의성을 제공할 수 있을까요?
 
-- **Core bet:** A restaurant's top 20% of customers will shift to direct ordering if the experience is frictionless and personal. The restaurant doesn't need *new* customers — it needs to stop paying 30% on customers it already has.
-- **User value:** High and immediate. Every direct reorder saves the restaurant 25-30% commission. If a regular orders $30/week, that's ~$400/year in saved fees per customer. 50 regulars = $20K/year. That's real money for a small restaurant.
-- **Feasibility:** Medium. The ordering/payment tech is commodity. The hard parts: (a) how do you identify and onboard "regulars" without the restaurant doing manual work? (b) How do you handle the cold start — the first reorder needs an order history that lives on the delivery platform, not with you.
-- **Differentiation:** High for the niche. Platforms optimize for marketplace dynamics (new customer discovery, driver logistics). Nobody is optimizing specifically for "keep your regulars ordering direct." It's too small for DoorDash to care about, which is exactly why it's a good wedge.
-- **Hidden assumptions:**
-  - Regulars will install/use yet another ordering method (assumption most likely to be wrong)
-  - Restaurant owners will share customer contact info or let you access it
-  - Direct ordering won't cannibalize dine-in revenue
-- **What could kill it:** If customers simply won't switch channels. Habit is powerful — even if DoorDash costs more, it's already on their phone.
+그것은 큰 공간입니다. 날카롭게하겠습니다:
 
-**Direction B: Direct Channel + Retention Hybrid (Variation 1 + 5)**
-Branded ordering for the restaurant *plus* the retention automation. More complete but more complex.
+1. **"경쟁"의 어떤 부분입니까?** 고객 acquisition? 배송 물류? 온라인 주문 UX? 충성도/retention? platform 수수료로 인한 마진 압박이 있나요?
+2. **당신은 누구를 위한 building입니까?** restaurant 소유자입니까? 식당? 둘 다?
+3. **제약사항은 무엇입니까?** 소프트웨어를 생각하고 계십니까? 협력모델? 뭔가 물리적인 것?
 
-- **Core bet:** Restaurants need both the channel (a way to accept orders) and the engine (a way to keep customers coming back through that channel).
-- **User value:** Higher ceiling, but only if both parts work together. The ordering channel alone is a commodity (Square, Toast already do this). The retention layer alone has no channel to retain customers *on*.
-- **Feasibility:** Lower. You're building two products and hoping they're better together.
-- **Differentiation:** Medium. The combination is interesting, but each piece individually has competitors.
-- **Hidden assumption:** That bundling these is better than partnering (e.g., retention layer on top of Square Online).
-- **What could kill it:** Scope. Building two things well is exponentially harder than building one thing well.
+**사용자 응답:** "Restaurant 소유자. 가장 큰 문제는 배달 앱에 25~30%의 수수료를 지불하지만 고객이 있는 곳이기 때문에 이를 거부할 수 없다고 느낀다는 것입니다. 소프트웨어를 생각하고 있지만 개방적입니다."
 
-**The honest read:** Direction A is the sharper bet. Direction B is safer but less differentiated. The biggest risk for A is the channel-switching problem — getting customers to order through a new method. If you can crack that (and variation 6's "zero effort" approach might help — an SMS-based reorder doesn't require a new app), the rest follows.
+**Skill 계속:**
 
-One thing I want to push back on: you said variation 1 feels "necessary but boring." That instinct to include the "necessary" thing is how products lose focus. If the regulars engine works, you can add a branded ordering channel later. But if you build the channel first, you're just another Square Online competitor.
+따라서 문제는 배송 물류가 아니라 **고객 의존성**입니다. platform는 고객 관계를 소유하고 있으며 restaurants는 수익의 30%로 자체 고객에게 액세스 권한을 임대하고 있습니다. 그것이 깨질 수 있는 지렛대이다.
 
----
+다음은 6가지 변형입니다.
 
-### Phase 3: Sharpen & Ship
+1. **직접 채널 툴킷:** restaurants에게 자체 브랜드 주문(웹, SMS, 가벼운 앱 등)을 제공하여 기존 고객을 off-platform로 이동할 수 있도록 합니다. 핵심은 restaurant를 *이미 알고* 있는 고객이 충분히 쉽다면 직접 주문할 것이라는 점입니다. 단지 재주문을 위해 검색을 위해 DoorDash와 경쟁할 필요는 없습니다.
 
-**Skill produces:**
+2. **역전 — Restaurant가 아닌 고객에게 청구:** 배송비 모델이 바뀌면 어떻게 될까요? 고객은 직접 주문 시 약간의 프리미엄을 지불하고 restaurants는 수수료를 전혀 지불하지 않습니다. "지역 현장 지원"으로 포지셔닝하십시오. 내기: 충분한 고객이 주문당 1~2달러를 더 지불하도록 지역 기업을 지원하는 데 관심이 있습니다.
 
-# ReOrder: Keep Your Regulars Ordering Direct
+3. **제약 조건 제거 - 배송이 Required가 아닌 경우 어떻게 해야 합니까?** platforms 번들 검색 + 주문 + 배송이 필요하지만 비용(및 restaurant의 수수료)의 대부분은 배송입니다. 주문과 픽업만 해결했다면? 픽업 우선 모델. Restaurants는 수익의 100%를 유지하고 고객은 배송비를 절약합니다. 밀집된 지역에서 가장 잘 작동합니다.
 
-## Problem Statement
-How might we help independent restaurants retain their best existing customers through direct ordering, eliminating the 25-30% platform commission on the revenue that matters most?
+4. **조합 — Restaurant Collective:** 한 지역의 20-50개의 로컬 restaurant가 플랫폼orm, 분할 비용 및 cross-promote를 서로 공유하는 co-op 모델입니다. 개인 restaurants는 마케팅 비용을 감당할 수 없지만 이웃 집단은 마케팅 비용을 감당할 수 있습니다. "로컬 푸드 홀"을 생각하지만 디지털입니다.
 
-## Recommended Direction
-Build a **regulars-only retention engine** — not a marketplace, not a full ordering platform. Hyper-focused on one job: make it effortless for a restaurant's repeat customers to reorder directly.
+5. **대상 이동 — 일반 고객의 경우:** 신규 고객을 확보하려고 하지 마십시오. restaurant의 기존 단골 고객(매주 찾아오는 사람들)만을 위한 Build입니다. 매우 단순한 충성도/reorder 도구: "평소에 사용하시나요?" one-tap 재주문. 80/20 내기: 고객의 20%가 수익의 80%를 창출하며 이러한 사람들은 restaurant를 발견하기 위해 DoorDash가 필요하지 않습니다.
 
-The key insight is that restaurants don't need help *finding* their best customers — they know who walks in every Tuesday. They need help moving those relationships off-platform. And the tool needs to run itself, because the owner is in the kitchen, not at a dashboard.
+6. **전문가의 관점 — Restaurant 소유자가 실제로 하는 일:** 대부분의 소규모 restaurant 소유자는 dashboards를 보지 않습니다. 그들은 부엌에 있어요. 무언가를 "관리"하기 위해 필요한 모든 도구는 실패합니다. 승리하는 접근 방식은 저절로 실행되는 것일 수 있습니다. auto-texts는 2주 동안 주문하지 않은 단골 고객이고, auto-posts는 일일 특별 상품이며, auto-handles는 재주문합니다. restaurant-side 노력이 전혀 필요하지 않습니다.
 
-SMS-first (not app-first) is likely the right channel. A text saying "Hey, want your usual Thursday order from Marco's?" with a one-tap confirmation is lower friction than any app install.
+변형 5와 6은 함께 interesting입니다. platform를 out-platform하려고 시도하는 대신 restaurant의 최고의 기존 고객을 위한 재정렬 및 ​​유지 도구인 hyper-narrow를 build로 시도합니다. 검색 없음, 배달 없음, marketplace 없음. 그냥 "단골 손님이 직접 주문하도록 하세요."
 
-## Key Assumptions to Validate
-- [ ] Repeat customers will reorder via SMS/direct link instead of their usual delivery app — test with 5 restaurants, 20 regulars each, measure conversion over 4 weeks
-- [ ] Restaurant owners can identify their top 20-30 regulars and share contact info — test by asking 10 restaurant owners if they'd do this
-- [ ] The commission savings ($8-10 per order) is motivating enough for owners to invest initial setup effort — interview 10 owners about platform fee pain
-
-## MVP Scope
-- SMS-based reordering for a restaurant's self-identified regular customers
-- Restaurant owner adds regulars manually (name + phone + usual order) — 15-minute setup
-- Customer receives a text with their usual order, confirms with a reply, pays via link
-- Restaurant receives the order via text/simple dashboard
-- No delivery — pickup only in v1
-- No discovery, no marketplace, no app
-
-## Not Doing (and Why)
-- **Delivery logistics** — delivery is the expensive, complex part and not the core problem. Pickup-first validates demand without operational burden.
-- **Customer acquisition/discovery** — that's the platform's game. Competing on discovery means competing with DoorDash's budget. We compete on retention instead.
-- **Branded restaurant apps/websites** — commodity. Square and Toast already do this. Another branded channel doesn't solve the behavioral problem.
-- **Menu management, POS integration** — scope creep. "Your usual" doesn't need a dynamic menu. Start with static orders.
-- **Analytics dashboards** — the owner is in the kitchen. Build reporting that's passive (weekly text summary) not active (log in and look at charts).
-
-## Open Questions
-- What's the legal/compliance landscape for SMS marketing to restaurant customers?
-- How do you handle menu/price changes for "usual" orders?
-- Is there a way to bootstrap the regular customer list from existing POS data instead of manual entry?
-- What's the pricing model? Per-order fee? Monthly subscription?
+당신은 어느 방향으로 rest를 보나요?
 
 ---
 
-## Example 2: Feature Idea Within an Existing Product (Codebase-Aware)
+### 2단계: 평가 및 수렴
 
-**User invokes:** `/ideate adding real-time collaboration to our document editor`
+**사용자 응답:** "나는 일반 각도(5와 6)를 좋아합니다. 직접 채널 툴킷(1)은 필요하다고 느껴지지만 지루합니다. co-op 아이디어(4)는 통합적이지만 복잡합니다. 결합된 1 + 5 + 6에 집중하겠습니다."
 
-### Phase 1: Understand & Expand
+**Skill 응답:**
 
-**Skill response:**
+좋은 본능. 이 조합에는 다음과 같은 명확한 주제가 있습니다. **최고의 고객과의 관계를 유지하고, 쉽게 재주문할 수 있으며, restaurant 소유자의 노력이 전혀 필요하지 않습니다.** stress-test하겠습니다.
 
-> **How might we** let multiple people work on the same document simultaneously in a way that feels natural, not chaotic?
+**방향 A: "일반 엔진"(변형 5 + 6 융합)**
+restaurant의 기존 반복 고객에게 전적으로 초점을 맞춘 도구입니다. 자동 재주문, auto-engagement, 제로 관리.
 
-I scanned your codebase and see you're using a block-based editor architecture with a REST API for persistence. No WebSocket infrastructure currently. That's important context. A few questions:
+- **핵심 베팅:** A restaurant의 상위 20% 고객은 경험이 원활하고 개인적인 경우 직접 주문으로 전환합니다. restaurant에는 *신규* 고객이 필요하지 않습니다. 즉, 이미 보유하고 있는 고객에 대해 30% 지불을 중단해야 합니다.
+- **사용자 가치:** 높고 즉각적입니다. 직접 재주문할 때마다 restaurant 25-30% 수수료가 절약됩니다. 일반 사용자가 $30/week를 주문하면 고객당 ~$400/year의 수수료가 절감됩니다. 정규병 50명 = $20K/year. 그것은 작은 restaurant에 대한 실제 돈입니다.
+- **타당성:** 중간. /payment 기술 주문은 필수품입니다. 어려운 부분: (a) restaurant가 수동 작업을 수행하지 않고 "정규"를 어떻게 식별하고 온보딩합니까? (b) 콜드 스타트를 어떻게 처리합니까? 첫 번째 재주문에는 귀하가 아닌 배송 플랫폼orm에 있는 주문 내역이 필요합니다.
+- **차별성:** 틈새 시장에 비해 높습니다. Platform는 marketplace 역학(신규 고객 발견, 운전자 물류)에 맞게 최적화됩니다. "단골 손님이 직접 주문하도록" 특별히 최적화하는 사람은 없습니다. DoorDash가 신경 쓰기에는 너무 작기 때문에 좋은 웨지입니다.
+- **숨겨진 가정:**
+  - 일반 사용자는 /use를 또 다른 주문 방법으로 설치합니다(잘못될 가능성이 가장 높다는 가정).
+  - Restaurant 소유자는 고객 연락처 정보를 공유하거나 귀하가 액세스할 수 있도록 허용합니다.
+  - 직접 주문은 dine-in 수익을 잠식하지 않습니다.
+- **죽일 수 있는 점:** 고객이 단순히 채널을 전환하지 않는 경우. 습관은 강력합니다. DoorDash의 가격이 더 비싸더라도 이미 휴대폰에 탑재되어 있습니다.
 
-1. **What's the collaboration pattern?** Are people editing the same paragraph at the same time (Google Docs style)? Or working in different sections (Notion style)? Or reviewing/commenting while one person edits?
-2. **How many simultaneous users?** 2-3 (pair editing)? 10+ (team workspace)?
-3. **What's driving this now?** Customer requests? Competitive pressure? Internal need?
+**방향 B: 직접 채널 + 보유 하이브리드(변형 1 + 5)**
+restaurant *및 보존 자동화*에 대한 브랜드 주문. 더 완벽하지만 더 복잡합니다.
 
-**User responds:** "2-5 people, usually working in different sections. Customers keep asking. We're losing deals to Notion because they assume any modern editor has this."
+- **핵심 내기:** Restaurants에는 채널(주문을 수락하는 방법)과 엔진(고객이 해당 채널을 통해 계속 돌아오게 하는 방법)이 모두 필요합니다.
+- **사용자 가치:** 천장이 높지만 두 부분이 함께 작동하는 경우에만 해당됩니다. 주문 채널만으로도 상품입니다(Square, Toast는 이미 이 작업을 수행하고 있습니다). 유지 계층만으로는 고객을 *유지*할 수 있는 채널이 없습니다.
+- **타당성:** 낮음. 당신은 두 가지 제품을 함께 사용하면서 더 나은 결과를 얻기를 바라고 있습니다.
+- **차별성:** 중간. The combination is interesting, but each piece individually has competitors.
+- **숨겨진 가정:** 이를 묶는 것이 파트너 관계보다 낫다는 것입니다(예: Square Online 위에 보존 레이어).
+- **죽일 수 있는 것:** 범위. Build 두 가지를 잘하는 것은 build 한 가지를 잘하는 것보다 기하급수적으로 어렵습니다.
 
-**Skill continues:**
+**정직한 읽기:** 방향 A가 더 날카로운 베팅입니다. B방향은 더 안전하지만 덜 차별화됩니다. A의 가장 큰 위험은 고객이 새로운 방법을 통해 주문하게 만드는 channel-switching 문제입니다. 이를 해독할 수 있다면(변형 6의 "노력 없음" 접근 방식이 도움이 될 수 있음 - SMS 기반 재정렬은 새 앱을 요구하지 않음) rest가 뒤따릅니다.
 
-The competitive pressure framing matters — this might be a checkbox feature (must-have to stay in the consideration set) rather than a differentiator. That changes how much you should invest.
-
-I see your document model uses independent blocks with a flat ordering system (`src/models/document.ts:45`). That's actually favorable — block-level granularity means conflicts are rarer than character-level editing.
-
-Here are 5 variations:
-
-1. **Block-Level Locking (Simplest Path):** When someone starts editing a block, it's locked for others. They see a presence indicator ("Alex is editing...") but can edit any other block freely. No conflict resolution needed. Your existing block model supports this with minimal changes — add a `locked_by` field and a WebSocket layer for presence.
-
-2. **Inversion — Async-First Collaboration:** Instead of real-time co-editing, lean into async. Inline suggestions, comments, and proposed edits that the document owner merges. Like suggestion mode, but as the *primary* collaboration model. Bet: for 2-5 people in different sections, async might actually be *better* than real-time.
-
-3. **Simplification — Presence Without Co-Editing:** Show who's viewing the document and what section they're looking at (cursors, avatars in margins), but don't enable simultaneous editing. People coordinate verbally. Sounds primitive, but might be 80% of the value at 10% of the engineering cost.
-
-4. **Combination — Collaboration + Version Branches:** Let people create "branches" of a document, edit independently, then merge. Each person gets their own space, no conflicts during editing, and you build a merge UI. Plays to your existing versioning system.
-
-5. **10x Version — AI-Mediated Collaboration:** Multiple people describe what they want in a section, and AI synthesizes their inputs into a draft they all iterate on. Nobody directly edits the same text — they all influence it. Radical, possibly too early, but worth naming.
-
-Given your architecture and the competitive context, I'd push you toward variation 1 or 3. You need to close deals, which means you need this shipped, which means you need the simplest version that checks the box. Variation 1 gives you real co-editing. Variation 3 is even cheaper but might not satisfy the "we need real-time" checkbox.
+One thing I want to push back on: you said variation 1 feels "necessary but boring." "필요한" 것을 포함하려는 본능이 제품이 초점을 잃게 만드는 이유입니다. 일반 엔진이 작동하면 나중에 브랜드 주문 채널을 추가할 수 있습니다. 하지만 채널을 먼저 build한다면 귀하는 또 다른 Square Online 경쟁자일 뿐입니다.
 
 ---
 
-*Phase 2 would cluster into "minimum viable co-editing (1 or 3)" vs. "differentiated collaboration model (2 or 4)" — evaluating whether to check the competitive box quickly or invest in something that becomes a selling point.*
+### 3단계: 선명화 및 배송
 
-*Phase 3 would produce a one-pager recommending block-level locking as the MVP, with a "Not Doing" list that includes character-level CRDT (too complex), offline sync (not needed for 2-5 users), and AI features (premature).*
+**Skill는 다음을 생성합니다.**
 
----
+# ReOrder: 단골 손님이 직접 주문하도록 하세요
 
-## Example 3: Process/Workflow Idea (Non-Product)
+## 문제 설명
+독립적인 restaurants가 직접 주문을 통해 가장 중요한 수익에 대해 25-30% platform 수수료를 없애고 최고의 기존 고객을 유지하도록 어떻게 도울 수 있습니까?
 
-**User invokes:** `/ideate a better way to run our weekly team retrospectives — they've gotten stale and people dread them`
+## 추천 방향
+Build a **regulars-only 보존 엔진** — marketplace도 아니고 전체 주문 플랫폼orm도 아닙니다. 한 가지 작업에 극도로 집중: restaurant의 반복 고객이 직접 재주문하는 것을 쉽게 만듭니다.
 
-### Phase 1: Understand & Expand
+핵심 통찰력은 restaurants가 최고의 고객을 *찾는* 데 도움이 필요하지 않다는 것입니다. 그들은 매주 화요일에 누가 방문하는지 알고 있습니다. 이러한 관계를 이동하는 데 도움이 필요합니다 off-platform. 그리고 소유자가 대시보드가 ​​아닌 주방에 있기 때문에 도구는 자체적으로 실행되어야 합니다.
 
-**Skill response:**
+SMS-first(app-first 아님)가 올바른 채널일 가능성이 높습니다. "안녕하세요. 평소 목요일에 Marco에서 주문한 상품을 원하시나요?"라는 문자 메시지가 표시됩니다. one-tap 확인을 사용하면 앱 설치보다 마찰이 적습니다.
 
-> **How might we** make retrospectives genuinely useful — something the team looks forward to — instead of a recurring meeting people endure?
+## 검증을 위한 주요 가정
+- [ ] 반복 고객은 일반적인 배달 앱 대신 SMS/direct 링크를 통해 재주문합니다. 5개의 restaurants, 각각 20명의 일반 사용자로 테스트하고 4주에 걸쳐 전환을 측정합니다.
+- [ ] Restaurant 소유자는 상위 20~30명의 단골 고객을 식별하고 연락처 정보를 공유할 수 있습니다. 10명의 restaurant 소유자에게 이 작업을 수행할 것인지 질문하여 테스트하세요.
+- [ ] 커미션 절감(주문당 $8-10)은 소유자가 초기 설정 노력에 투자할 만큼 충분한 동기를 부여합니다. platform 수수료 문제에 대해 소유자 10명과 인터뷰합니다.
 
-Before expanding:
+## MVP 범위
+- restaurant의 self-identified 일반 고객을 위한 SMS 기반 재주문
+- Restaurant 소유자가 단골 고객을 수동으로 추가합니다(이름 + 전화 + 일반 주문) — 15분 설정
+- 고객은 평소 주문에 대한 문자 메시지를 받고, 답변으로 확인하고, 링크를 통해 결제합니다.
+- Restaurant는 text/simple 대시보드를 통해 주문을 받습니다.
+- 배송 불가 — v1에서는 픽업만 가능
+- 검색 없음, marketplace 없음, 앱 없음
 
-1. **What's stale about them?** Same format every time? Same people talking? Action items that never get done? Topics feel repetitive?
-2. **Team size and dynamic?** 5 people who all speak up, or 15 where 3 dominate?
-3. **What does a *good* retro look like to you?** Have you had one that worked? What made it different?
+## 하지 않는 일(그리고 그 이유)
+- **배송 물류** — 배송은 비용이 많이 들고 복잡한 부분이지 핵심 문제는 아닙니다. 픽업 우선은 운영 부담 없이 수요를 검증합니다.
+- **Customer acquisition/discovery** — that's the platform's game. 발견을 위한 경쟁은 DoorDash의 예산과 경쟁하는 것을 의미합니다. 대신 우리는 유지율을 놓고 경쟁합니다.
+- **브랜드 restaurant apps/websites** — 필수품. Square와 Toast는 이미 이 작업을 수행하고 있습니다. 다른 브랜드 채널은 행동 문제를 해결하지 못합니다.
+- **메뉴 관리, POS 통합** — 범위 확장. "평소"에는 동적 메뉴가 필요하지 않습니다. 고정된 주문으로 시작하세요.
+- **Analytics dashboards** — 주인이 주방에 있습니다. Build reporting은 활성(로그인하고 차트 보기)이 아닌 수동(주간 텍스트 요약)입니다.
 
-**User responds:** "8 people, maybe 3-4 actually talk. Same 'what went well / what didn't / action items' format for a year. The action items pile up and nothing changes. People think it's theater."
-
-**Skill continues:**
-
-The action item problem is the real signal. If nothing changes after the retro, people rationally disengage. The meeting isn't stale — it's **broken at the output layer**. The format might be fine if the follow-through worked.
-
-Here are 6 variations:
-
-1. **Fix the Output, Not the Meeting:** Keep the retro format but completely change what happens after. One action item max per retro. Assigned an owner and a deadline during the meeting. Next retro starts with a 5-minute demo of the completed action. If it's not done, that *becomes* the retro topic. The constraint of one item forces prioritization.
-
-2. **Inversion — Kill the Meeting:** Replace the synchronous retro with an async one. Everyone submits reflections in writing during the week. A rotating facilitator synthesizes themes and proposes one change. The "meeting" is a 15-minute standup to agree or disagree. Bet: writing produces more honest feedback than speaking in a group.
-
-3. **Audience Shift — Retro for the Quiet Ones:** Design the format for the 4-5 people who don't talk. Anonymous submission of topics. Dot-voting to prioritize. Small-group breakouts (pairs) before full-group discussion. The loud voices still participate, but the structure prevents them from dominating.
-
-4. **Simplification — The One Question Retro:** Each retro has exactly one question, and it changes every week. "What's one thing that slowed you down?" "What did you learn that the team should know?" "If you could change one thing about how we work, what?" The constraint forces depth over breadth.
-
-5. **Combination — Retro + Experimentation:** Treat each retro output as a hypothesis. "We believe that [change] will improve [outcome]." Run it as a 2-week experiment. Next retro: did it work? Keep, modify, or kill. Turns the retro into a continuous improvement engine with built-in accountability.
-
-6. **Expert Lens — What Facilitators Know:** Experienced facilitators say the #1 retro killer is lack of safety, not format. People won't say what's really wrong if they fear consequences. The fix might not be structural — it might be starting with an anonymous "team health check" score (1-5) each week. When safety is high, retros naturally improve.
-
-The interesting tension: variations 1 and 5 fix the *output* problem (nothing changes). Variations 2, 3, and 4 fix the *input* problem (same voices, same topics). Variation 6 says both are symptoms of a deeper issue. Where do you think the real bottleneck is?
+## 공개 질문
+- restaurant 고객을 대상으로 한 SMS 마케팅의 법적 /compliance 환경은 무엇입니까?
+- "일반적인" 주문에 대한 menu/price 변경 사항을 어떻게 처리합니까?
+- 수동 입력 대신 기존 POS 데이터에서 일반 고객 목록을 부트스트랩하는 방법이 있습니까?
+- 가격 모델은 무엇입니까? 주문당 수수료? 월간 구독?
 
 ---
 
-*Phase 2 would evaluate in terms of: effort to try (most are free — just change how you run the next meeting), risk (variation 2 is the biggest departure), and whether the team's real problem is output (action items die) or input (not enough honesty).*
+## 예 2: 기존 제품 내의 기능 아이디어(코드베이스 인식)
 
-*Phase 3 would produce a one-pager recommending starting with variation 1 (one action item, demo next week) as a zero-cost experiment, combined with variation 3's anonymous submission. "Not Doing" list: new tools, elaborate facilitation techniques, or anything requiring budget. The first fix should take 0 minutes of prep and $0.*
+**사용자 호출:** `/ideate adding real-time collaboration to our document editor`
+
+### 1단계: 이해 및 확장
+
+**Skill 응답:**
+
+> **어떻게 하면** 여러 사람이 혼란스럽지 않고 자연스럽게 느껴지는 방식으로 동일한 문서에서 동시에 작업할 수 있습니까?
+
+귀하의 코드베이스를 스캔한 결과 지속성을 위해 REST API와 함께 block-based 편집기 아키텍처를 사용하고 있음을 확인했습니다. 현재 WebSocket 인프라가 없습니다. 그것은 중요한 맥락입니다. 몇 가지 질문:
+
+1. **협업 패턴은 무엇입니까?** 사람들이 동시에 같은 단락을 편집하고 있습니까(Google Docs 스타일)? 아니면 다른 섹션(Notion 스타일)에서 작업하시나요? 아니면 한 사람이 편집하는 동안 /commenting를 검토하고 계십니까?
+2. **동시 사용자 수는 몇 명입니까?** 2-3(페어 편집)? 10+(팀 작업 공간)?
+3. **현재 이 현상을 촉진하는 요인은 무엇입니까?** 고객 요청은 무엇입니까? 경쟁 압박? 내부적 필요?
+
+**사용자 응답:** "보통 2~5명이 서로 다른 섹션에서 일합니다. 고객이 계속 요구합니다. 현대 편집자에게 이것이 있다고 가정하기 때문에 우리는 Notion과의 거래를 잃고 있습니다."
+
+**Skill 계속:**
+
+경쟁 압력 프레이밍이 중요합니다. 이는 차별화 요소라기보다는 체크박스 기능(고려 범위를 유지하기 위한 must-have)일 수 있습니다. 그러면 투자해야 할 금액이 달라집니다.
+
+귀하의 문서 모델이 평면 주문 시스템(`src/models/document.ts:45`)을 사용하는 독립 블록을 사용하는 것을 확인했습니다. 실제로는 유리합니다. block-level 세분성은 character-level 편집보다 충돌이 더 드물다는 것을 의미합니다.
+
+다음은 5가지 변형입니다.
+
+1. **블록 수준 잠금(가장 간단한 경로):** 누군가 블록 편집을 시작하면 다른 사람에게는 잠겨집니다. 현재 상태 표시기("Alex가 편집 중입니다...")가 표시되지만 다른 블록은 자유롭게 편집할 수 있습니다. 충돌 해결이 필요하지 않습니다. 기존 블록 모델은 최소한의 변경으로 이를 지원합니다. 존재를 위해 `locked_by` 필드와 WebSocket 레이어를 추가합니다.
+
+2. **반전 — 비동기 우선 협업:** real-time co-editing 대신 비동기식으로 기울입니다. 문서 소유자가 병합하는 인라인 제안, 댓글, 제안된 편집 내용입니다. 제안 모드와 비슷하지만 *기본* 협업 모델입니다. 내기: 서로 다른 섹션에 2~5명이 있는 경우 비동기가 실제로 real-time보다 *나을* 수 있습니다.
+
+3. **단순화 — 공동 편집 없이 존재:** 문서를 보고 있는 사람과 그들이 보고 있는 섹션(cursors, 여백에 아바타)을 표시하지만 동시 편집을 활성화하지 마십시오. 사람들은 말로 조정합니다. 원시적으로 들리지만 엔지니어링 비용의 10%로 가치의 80%를 얻을 수 있습니다.
+
+4. **조합 — 공동 작업 + 버전 분기:** 사람들이 문서의 "분기"를 만들고 독립적으로 편집한 다음 병합할 수 있습니다. 각 사람은 자신만의 공간을 가지며 편집 중에 충돌이 발생하지 않으며 UI를 병합할 수 있습니다. 기존 버전 관리 시스템으로 재생됩니다.
+
+5. **10x 버전 — AI-중재형 협업:** 여러 사람이 섹션에서 원하는 것을 설명하면 AI는 입력 내용을 모두가 반복하는 초안으로 합성합니다. 동일한 텍스트를 직접 편집하는 사람은 아무도 없으며 모두 영향을 미칩니다. 급진적이며 너무 이르지만 이름을 붙일 가치가 있습니다.
+
+귀하의 아키텍처와 경쟁 상황을 고려하여 변형 1 또는 3을 선택하겠습니다. 거래를 성사시켜야 하며 이는 제품 출시가 필요함을 의미하며 확인란을 선택하는 가장 간단한 버전이 필요함을 의미합니다. 변형 1은 실제 co-editing를 제공합니다. 변형 3은 훨씬 저렴하지만 "real-time가 필요합니다" 확인란을 만족하지 못할 수도 있습니다.
 
 ---
 
-## What to Notice in These Examples
+*2단계에서는 "최소 실행 가능한 co-editing(1 또는 3)" 대 "차별화된 협업 모델(2 또는 4)"로 클러스터링되어 quickly 경쟁 상자를 확인할지 아니면 판매 포인트가 되는 것에 투자할지 평가합니다.*
 
-1. **The restatement changes the frame.** "Help restaurants compete" becomes "retain existing customers." "Add real-time collaboration" becomes "let people work simultaneously without chaos." "Fix stale retros" becomes "fix the output layer."
+*3단계에서는 character-level CRDT(너무 복잡함), 오프라인 동기화(2~5명의 사용자에게는 필요하지 않음) 및 AI 기능(미숙).*
 
-2. **Questions diagnose before prescribing.** Each question determines which *type* of problem this actually is. The retro example reveals the problem is action item follow-through, not meeting format — and that changes every variation.
+---
 
-3. **Variations have reasons.** Each one explains *why* it exists (what lens generated it), not just *what* it is. The label (Inversion, Simplification, etc.) teaches the user to think this way themselves.
+## 예시 3: Process/Workflow 아이디어(비제품)
 
-4. **The skill has opinions.** "I'd push you toward 1 or 3." "Variation 6 is worth sitting with." It tells you what it thinks matters and why — not just neutral options.
+**사용자 호출:** `/ideate a better way to run our weekly team retrospectives — they've gotten stale and people dread them`
 
-5. **Phase 2 is honest.** Ideas get called out for low differentiation or high complexity. The skill pushes back: "That instinct to include the 'necessary' thing is how products lose focus."
+### 1단계: 이해 및 확장
 
-6. **The output is actionable.** The one-pager ends with things you can *do* (validate assumptions, build the MVP, try the experiment), not things to *think about*.
+**Skill 응답:**
 
-7. **The "Not Doing" list does real work.** It's specific and reasoned. Each item is something you might *want* to do but shouldn't yet.
+> **어떻게 하면** 사람들이 견뎌야 하는 반복적인 회의 대신 회고 genuinely 유용하게(팀이 기대하는 것) 만들 수 있을까요?
 
-8. **The skill adapts to context.** A codebase-aware example references actual architecture. A process idea generates zero-cost experiments instead of products. The framework stays the same but the output matches the domain.
+확장하기 전:
+
+1. **그들의 진부한 점은 무엇입니까?** 매번 같은 format입니까? 같은 사람들이 말하는 걸까요? 결코 완료되지 않는 작업 항목? 주제가 반복적으로 느껴지나요?
+2. **팀 규모와 역동성?** 5명이 모두 발언하거나 15명이 3개의 dominate를 사용합니까?
+3. **당신에게 *좋은* 복고풍은 어떤 모습인가요?** 효과가 있었던 복고풍이 있나요? 무엇이 달랐나요?
+
+**사용자 응답:** "8명, 어쩌면 3~4명이 실제로 이야기합니다. '잘된 점/하지 않은 점/작업 항목' format을 1년 동안 동일하게 수행합니다. 작업 항목은 쌓이고 아무것도 변하지 않습니다. 사람들은 그것을 연극이라고 생각합니다."
+
+**Skill 계속:**
+
+조치 항목 문제는 실제 신호입니다. 레트로 이후에도 아무런 변화가 없다면 사람들은 합리적으로 이탈하게 됩니다. 회의는 오래되지 않았습니다. **출력 레이어에서 중단되었습니다**. follow-through가 작동하면 format도 괜찮을 수 있습니다.
+
+다음은 6가지 변형입니다.
+
+1. **회의가 아닌 출력 수정:** 복고풍 format를 유지하되 이후에 발생하는 상황을 완전히 변경합니다. 레트로당 작업 항목은 최대 1개입니다. 회의 중에 소유자와 마감일을 지정했습니다. 다음 레트로는 완료된 작업의 5분 데모로 시작됩니다. 만약 그것이 이루어지지 않는다면, 그것은 복고풍 주제가 *됩니다*. 한 항목의 제약으로 인해 우선순위가 강제됩니다.
+
+2. **반전 - 회의 중단:** 동기식 레트로를 비동기식 레트로로 교체합니다. 모든 사람은 주중에 서면으로 성찰을 제출합니다. 순환 진행자는 주제를 종합하고 한 가지 변화를 제안합니다. "회의"는 15분 동안 서서 동의 여부를 결정하는 것입니다. 내기: 글을 쓰면 그룹에서 말하는 것보다 더 정직한 피드백이 생성됩니다.
+
+3. **청중 이동 — Quiet One을 위한 복고풍:** 말을 하지 않는 4~5인을 위해 format를 디자인합니다. 주제를 익명으로 제출합니다. 우선순위를 정하기 위해 점 투표를 하세요. full-group 토론 전 소그룹 브레이크아웃(쌍). 큰 목소리는 여전히 참여하지만 구조로 인해 dominating이 방지됩니다.
+
+4. **단순화 — 하나의 질문 레트로:** 각 레트로에는 정확히 하나의 질문이 있으며 매주 변경됩니다. "당신을 느리게 만든 한 가지는 무엇입니까?" "팀이 알아야 할 것 중 무엇을 배웠나요?" "우리가 일하는 방식에서 한 가지를 바꿀 수 있다면 무엇을 바꾸시겠습니까?" 제약 조건은 너비보다 깊이를 강제합니다.
+
+5. **조합 - 레트로 + 실험:** 각 레트로 출력을 가설로 처리합니다. "우리는 [변화]가 [결과]를 향상시킬 것이라고 믿습니다." 2주간의 실험으로 실행해 보세요. 다음 레트로: 효과가 있었나요? 유지, 수정 또는 종료합니다. built-in 책임을 통해 레트로를 지속적인 개선 엔진으로 전환합니다.
+
+6. **전문가의 관점 - 진행자가 아는 것:** 경험 많은 진행자는 최고의 복고풍 킬러는 format가 아니라 안전 부족이라고 말합니다. 사람들은 결과를 두려워하면 실제로 무엇이 잘못되었는지 말하지 않을 것입니다. 수정 사항은 구조적이지 않을 수도 있습니다. 매주 익명의 "팀 상태 점검" 점수(1~5)로 시작될 수도 있습니다. 안전성이 높으면 레트로는 자연스럽게 좋아진다.
+
+interesting 긴장: 변형 1과 5는 *출력* 문제를 해결합니다(아무 것도 변경되지 않음). 변주곡 2, 3, 4는 *입력* 문제(동일한 음성, 동일한 주제)를 수정합니다. 변형 6에서는 둘 다 더 심각한 문제의 증상이라고 말합니다. 실제 병목 현상이 발생하는 곳은 어디라고 생각하시나요?
+
+---
+
+*2단계에서는 시도하려는 노력(대부분은 무료입니다. 다음 회의 진행 방법만 변경하면 됩니다), 위험(변형 2가 가장 큰 일탈), 팀의 실제 문제가 출력(작업 항목 소멸)인지 입력(충분하지 않은 정직성)인지 여부를 평가합니다.*
+
+*3단계에서는 변형 3의 익명 제출과 결합된 zero-cost 실험으로 변형 1(1개의 작업 항목, 다음 주 데모)부터 시작하도록 권장하는 one-pager를 생성합니다. "하지 않는 것" 목록: 새로운 도구, 정교한 촉진 기술 또는 예산이 필요한 모든 것. 첫 번째 수정에는 준비 시간이 0분, 비용이 0이 소요됩니다.*
+
+---
+
+## 이 예에서 주의할 점
+
+1. **restatement는 프레임을 변경합니다.** "restaurants가 경쟁하도록 도와주세요"는 "기존 고객 유지"가 됩니다. "real-time 협업 추가"는 "사람들이 혼란 없이 동시에 작업할 수 있게 해주세요"가 됩니다. "낡은 레트로 수정"은 "출력 레이어 수정"이 됩니다.
+
+2. **처방하기 전에 진단하는 질문입니다.** 각 질문은 이것이 실제로 어떤 *유형*의 문제인지를 결정합니다. 복고풍 예에서는 문제가 format를 충족하지 않는 작업 항목 follow-through이며 이는 모든 변형을 변경한다는 것을 보여줍니다.
+
+3. **변형에는 이유가 있습니다.** 각각은 *무엇*이 아니라 *왜* 존재하는지(어떤 렌즈가 그것을 생성했는지) 설명합니다. 라벨(역전, 단순화 등)은 사용자가 스스로 이런 식으로 생각하도록 가르칩니다.
+
+4. **skill에는 의견이 있습니다.** "저는 1번이나 3번 중 하나를 선택하겠습니다." "변형 6은 함께 할 가치가 있습니다." 중립적인 옵션뿐만 아니라 무엇이 중요하다고 생각하는지, 그 이유가 무엇인지 알려줍니다.
+
+5. **2단계는 정직합니다.** 차별화가 낮거나 복잡성이 높은 아이디어가 호출됩니다. skill는 다음과 같이 반박합니다. "'필요한' 것을 포함하려는 본능이 제품이 초점을 잃는 방식입니다."
+
+6. **결과는 실행 가능합니다.** one-pager는 *생각*할 일이 아니라 *할 수 있는* 일(가정 검증, build MVP, 실험 시도)로 끝납니다.
+
+7. **"하지 않음" 목록은 실제로 작동합니다.** 구체적이고 합리적입니다. 각 항목은 *하고 싶지* 아직은 해서는 안 되는 일입니다.
+
+8. **skill는 상황에 맞게 조정됩니다.** codebase-aware 예제는 실제 아키텍처를 참조합니다. 프로세스 아이디어는 제품 대신 zero-cost 실험을 생성합니다. 프레임워크는 동일하게 유지되지만 출력은 domain과 일치합니다.

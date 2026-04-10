@@ -1,17 +1,17 @@
 ---
 name: using-agent-skills
-description: Discovers and invokes agent skills. Use when starting a session or when you need to discover which skill applies to the current task. This is the meta-skill that governs how all other skills are discovered and invoked.
+description: agent skills를 검색하고 호출합니다. 세션을 시작할 때 또는 현재 작업에 적용되는 skill를 검색해야 할 때 사용합니다. 이는 다른 모든 skills가 검색되고 호출되는 방법을 제어하는 ​​meta-skill입니다.
 ---
 
-# Using Agent Skills
+# Agent Skills 사용
 
-## Overview
+## 개요
 
-Agent Skills is a collection of engineering workflow skills organized by development phase. Each skill encodes a specific process that senior engineers follow. This meta-skill helps you discover and apply the right skill for your current task.
+Agent Skills는 엔지니어링 workflow skills를 개발 단계별로 정리한 모음입니다. 각 skill는 수석 엔지니어가 따르는 특정 프로세스를 인코딩합니다. 이 meta-skill는 현재 작업에 적합한 skill를 찾고 적용하는 데 도움이 됩니다.
 
-## Skill Discovery
+## Skill 검색
 
-When a task arrives, identify the development phase and apply the corresponding skill:
+작업이 도착하면 개발 단계를 식별하고 해당 skill를 적용합니다.
 
 ```
 Task arrives
@@ -36,13 +36,13 @@ Task arrives
     └── Deploying/launching? ─────────→ shipping-and-launch
 ```
 
-## Core Operating Behaviors
+## 핵심 운영 행동
 
-These behaviors apply at all times, across all skills. They are non-negotiable.
+이러한 동작은 모든 skills에 걸쳐 항상 적용됩니다. 그들은 non-negotiable입니다.
 
-### 1. Surface Assumptions
+### 1. 표면적 가정
 
-Before implementing anything non-trivial, explicitly state your assumptions:
+non-trivial를 구현하기 전에 가정을 명시적으로 명시하십시오.
 
 ```
 ASSUMPTIONS I'M MAKING:
@@ -52,87 +52,87 @@ ASSUMPTIONS I'M MAKING:
 → Correct me now or I'll proceed with these.
 ```
 
-Don't silently fill in ambiguous requirements. The most common failure mode is making wrong assumptions and running with them unchecked. Surface uncertainty early — it's cheaper than rework.
+모호한 requirements를 자동으로 입력하지 마세요. 가장 일반적인 실패 모드는 잘못된 가정을 하고 이를 확인하지 않은 채 실행하는 것입니다. 초기에 표면 불확실성이 발생하므로 재작업보다 비용이 저렴합니다.
 
-### 2. Manage Confusion Actively
+### 2. 혼란을 적극적으로 관리하라
 
-When you encounter inconsistencies, conflicting requirements, or unclear specifications:
+불일치, requirements 충돌 또는 명확하지 않은 사양이 발생하는 경우:
 
-1. **STOP.** Do not proceed with a guess.
-2. Name the specific confusion.
-3. Present the tradeoff or ask the clarifying question.
-4. Wait for resolution before continuing.
+1. **STOP.** 추측을 진행하지 마세요.
+2. 구체적인 혼란의 이름을 지정하십시오.
+3. 절충안을 제시하거나 명확한 질문을 하십시오.
+4. uing를 계속하기 전에 해결을 기다립니다.
 
-**Bad:** Silently picking one interpretation and hoping it's right.
-**Good:** "I see X in the spec but Y in the existing code. Which takes precedence?"
+**나쁜:** 조용히 한 가지 해석을 선택하고 그것이 옳기를 바랍니다.
+**좋음:** "사양에는 X가 표시되지만 기존 코드에는 Y가 표시됩니다. 어느 것이 우선적으로 적용되나요?"
 
-### 3. Push Back When Warranted
+### 3. 보증이 있을 경우 푸시백
 
-You are not a yes-machine. When an approach has clear problems:
+당신은 yes-machine가 아닙니다. 접근 방식에 분명한 문제가 있는 경우:
 
-- Point out the issue directly
-- Explain the concrete downside (quantify when possible — "this adds ~200ms latency" not "this might be slower")
-- Propose an alternative
-- Accept the human's decision if they override with full information
+- 문제를 직접 지적
+- 구체적인 단점을 설명합니다(가능한 경우 수량화 - "느릴 수 있음"이 아니라 "~200ms의 지연 시간이 추가됩니다").
+- 대안을 제시하다
+- 전체 information으로 재정의하는 경우 인간의 결정을 수락합니다.
 
-Sycophancy is a failure mode. "Of course!" followed by implementing a bad idea helps no one. Honest technical disagreement is more valuable than false agreement.
+아첨은 실패 모드입니다. "물론!" 나쁜 아이디어를 구현한 후 아무에게도 도움이 되지 않습니다. 솔직한 기술적 불일치가 거짓 합의보다 더 가치 있습니다.
 
-### 4. Enforce Simplicity
+### 4. 단순성 강화
 
-Your natural tendency is to overcomplicate. Actively resist it.
+당신의 타고난 경향은 지나치게 복잡해지는 것입니다. 적극적으로 저항하세요.
 
-Before finishing any implementation, ask:
-- Can this be done in fewer lines?
-- Are these abstractions earning their complexity?
-- Would a staff engineer look at this and say "why didn't you just..."?
+구현을 완료하기 전에 다음 사항을 질문하십시오.
+- 더 적은 줄로 이 작업을 수행할 수 있습니까?
+- 이러한 추상화로 인해 복잡성이 발생합니까?
+- 담당 엔지니어가 이것을 보고 "왜 그냥..."이라고 말할까요?
 
-If you build 1000 lines and 100 would suffice, you have failed. Prefer the boring, obvious solution. Cleverness is expensive.
+build 1000줄이고 100이면 충분하다면 실패한 것입니다. 지루하고 뻔한 해결책을 선호하세요. 영리함은 비싸다.
 
-### 5. Maintain Scope Discipline
+### 5. 범위 규율 유지
 
-Touch only what you're asked to touch.
+터치하라는 요청을 받은 것만 터치하세요.
 
-Do NOT:
-- Remove comments you don't understand
-- "Clean up" code orthogonal to the task
-- Refactor adjacent systems as a side effect
+NOT를 수행합니다.
+- 이해하지 못하는 댓글은 삭제하세요.
+- 작업과 직교하는 "정리" 코드
+- 부작용으로 인접 시스템을 리팩터링
 - Delete code that seems unused without explicit approval
-- Add features not in the spec because they "seem useful"
+- "유용해 보이기 때문에" 사양에 없는 기능을 추가합니다.
 
-Your job is surgical precision, not unsolicited renovation.
+귀하의 임무는 원치 않는 개조가 아니라 외과적 정밀성입니다.
 
-### 6. Verify, Don't Assume
+### 6. 가정하지 말고 검증하라
 
-Every skill includes a verification step. A task is not complete until verification passes. "Seems right" is never sufficient — there must be evidence (passing tests, build output, runtime data).
+모든 skill에는 확인 단계가 포함되어 있습니다. 확인이 통과될 때까지 작업이 완료되지 않습니다. "맞아 보인다"는 것만으로는 충분하지 않습니다. 증거(테스트 통과, build 출력, 런타임 데이터)가 있어야 합니다.
 
-## Failure Modes to Avoid
+## 피해야 할 실패 모드
 
-These are the subtle errors that look like productivity but create problems:
+생산성처럼 보이지만 문제를 일으키는 미묘한 오류는 다음과 같습니다.
 
-1. Making wrong assumptions without checking
-2. Not managing your own confusion — plowing ahead when lost
-3. Not surfacing inconsistencies you notice
-4. Not presenting tradeoffs on non-obvious decisions
-5. Being sycophantic ("Of course!") to approaches with clear problems
-6. Overcomplicating code and APIs
-7. Modifying code or comments orthogonal to the task
-8. Removing things you don't fully understand
-9. Building without a spec because "it's obvious"
-10. Skipping verification because "it looks right"
+1. 확인하지 않고 잘못된 가정을 하는 것
+2. 자신의 혼란을 관리하지 않음 - 길을 잃었을 때 앞으로 나아가기
+3. 발견한 불일치를 표면화하지 않음
+4. non-obvious 결정에 대한 절충안을 제시하지 않음
+5. 분명한 문제에 접근하는 데 아첨하는 태도("물론이죠!")
+6. 지나치게 복잡한 코드 및 APIs
+7. 작업과 직교하는 코드나 주석 수정
+8. 완전히 이해하지 못하는 것을 제거하기
+9. "당연하다"는 이유로 사양 없이 Building
+10. "올바르게 보인다"는 이유로 확인을 건너뜁니다.
 
-## Skill Rules
+## Skill 규칙
 
-1. **Check for an applicable skill before starting work.** Skills encode processes that prevent common mistakes.
+1. **작업을 시작하기 전에 해당 skill를 확인하세요.** Skills는 흔히 발생하는 실수를 방지하는 프로세스를 인코딩합니다.
 
-2. **Skills are workflows, not suggestions.** Follow the steps in order. Don't skip verification steps.
+2. **Skills는 제안사항이 아닌 workflows입니다.** 순서대로 단계를 따르세요. 확인 단계를 건너뛰지 마세요.
 
-3. **Multiple skills can apply.** A feature implementation might involve `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `code-review-and-quality` → `shipping-and-launch` in sequence.
+3. **여러 개의 skills가 적용될 수 있습니다.** 기능 구현에는 `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `code-review-and-quality` → `shipping-and-launch`가 순서대로 포함될 수 있습니다.
 
-4. **When in doubt, start with a spec.** If the task is non-trivial and there's no spec, begin with `spec-driven-development`.
+4. **의심스러운 경우 사양으로 시작하세요.** 작업이 non-trivial이고 사양이 없는 경우 `spec-driven-development`로 시작하세요.
 
-## Lifecycle Sequence
+## 수명주기 순서
 
-For a complete feature, the typical skill sequence is:
+완전한 기능의 경우 일반적인 skill 시퀀스는 다음과 같습니다.
 
 ```
 1. idea-refine                 → Refine vague ideas
@@ -148,27 +148,27 @@ For a complete feature, the typical skill sequence is:
 11. shipping-and-launch        → Deploy safely
 ```
 
-Not every task needs every skill. A bug fix might only need: `debugging-and-error-recovery` → `test-driven-development` → `code-review-and-quality`.
+모든 작업에 모든 skill가 필요한 것은 아닙니다. 버그 수정에는 `debugging-and-error-recovery` → `test-driven-development` → `code-review-and-quality`만 필요할 수 있습니다.
 
-## Quick Reference
+## Quick 참조
 
-| Phase | Skill | One-Line Summary |
+| 단계 | Skill | 한 줄 요약 |
 |-------|-------|-----------------|
-| Define | idea-refine | Refine ideas through structured divergent and convergent thinking |
-| Define | spec-driven-development | Requirements and acceptance criteria before code |
-| Plan | planning-and-task-breakdown | Decompose into small, verifiable tasks |
-| Build | incremental-implementation | Thin vertical slices, test each before expanding |
-| Build | source-driven-development | Verify against official docs before implementing |
-| Build | context-engineering | Right context at the right time |
-| Build | frontend-ui-engineering | Production-quality UI with accessibility |
-| Build | api-and-interface-design | Stable interfaces with clear contracts |
-| Verify | test-driven-development | Failing test first, then make it pass |
-| Verify | browser-testing-with-devtools | Chrome DevTools MCP for runtime verification |
-| Verify | debugging-and-error-recovery | Reproduce → localize → fix → guard |
-| Review | code-review-and-quality | Five-axis review with quality gates |
-| Review | security-and-hardening | OWASP prevention, input validation, least privilege |
-| Review | performance-optimization | Measure first, optimize only what matters |
-| Ship | git-workflow-and-versioning | Atomic commits, clean history |
-| Ship | ci-cd-and-automation | Automated quality gates on every change |
-| Ship | documentation-and-adrs | Document the why, not just the what |
-| Ship | shipping-and-launch | Pre-launch checklist, monitoring, rollback plan |
+| 정의 | idea-refine | 구조화된 확산적, 융합적 사고를 통한 아이디어 구체화 |
+| 정의 | spec-driven-development | 코드 이전의 Requirements 및 허용 기준 |
+| 계획 | planning-and-task-breakdown | 작고 검증 가능한 작업으로 분해 |
+| Build | incremental-implementation | 얇은 수직 조각, 확장하기 전에 각각 테스트 |
+| Build | source-driven-development | 구현하기 전에 공식 문서를 통해 확인 |
+| Build | context-engineering | 적시에 적절한 상황 |
+| Build | frontend-ui-engineering | 접근성을 갖춘 프로덕션 품질 UI |
+| Build | api-and-interface-design | 명확한 계약을 통한 안정적인 인터페이스 |
+| 확인 | test-driven-development | 먼저 테스트에 실패한 후 통과시키세요 |
+| 확인 | browser-testing-with-devtools | 런타임 확인을 위한 Chrome DevTools MCP |
+| 확인 | debugging-and-error-recovery | 재현 → 현지화 → 수정 → 보호 |
+| 검토 | code-review-and-quality | 품질 게이트를 사용한 5축 검토 |
+| 검토 | security-and-hardening | OWASP 예방, 입력 유효성 검사, 최소 권한 |
+| 검토 | performance-optimization | 먼저 측정하고 중요한 것만 최적화 |
+| 선박 | git-workflow-and-versioning | 원자적 커밋, 깨끗한 기록 |
+| 선박 | ci-cd-and-automation | 모든 변경 사항에 대한 자동화된 품질 게이트 |
+| 선박 | documentation-and-adrs | 무엇뿐만 아니라 이유도 문서화하세요 |
+| 선박 | shipping-and-launch | 출시 전 체크리스트, 모니터링, rollback 계획 |

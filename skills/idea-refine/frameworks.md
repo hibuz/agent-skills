@@ -1,99 +1,99 @@
-# Ideation Frameworks Reference
+# 아이디어 프레임워크 참조
 
-Use these frameworks selectively. Pick the lens that fits the idea — don't mechanically run every framework. The goal is to unlock thinking, not to follow a checklist.
+이러한 프레임워크를 선택적으로 사용하세요. 아이디어에 맞는 렌즈를 선택하세요. 모든 프레임워크를 기계적으로 실행하지 마세요. 목표는 체크리스트를 따르는 것이 아니라 사고의 잠금을 해제하는 것입니다.
 
 ## SCAMPER
 
-A structured way to transform an existing idea by applying seven different operations:
+7가지 다른 작업을 적용하여 기존 아이디어를 orm로 변환하는 구조화된 방법:
 
-- **Substitute:** What component, material, or process could you swap out? What if you replaced the core technology? The target audience? The business model?
-- **Combine:** What if you merged this with another product, service, or idea? What two things that don't usually go together would create something new?
-- **Adapt:** What else is like this? What ideas from other industries, domains, or time periods could you borrow? What parallel exists in nature?
-- **Modify (Magnify/Minimize):** What if you made it 10x bigger? 10x smaller? What if you exaggerated one feature? What if you stripped it to the absolute minimum?
-- **Put to other uses:** Who else could use this? What other problems could it solve? What happens if you use it in a completely different context?
-- **Eliminate:** What happens if you remove a feature entirely? What's the version with zero configuration? What would it look like with half the steps?
-- **Reverse/Rearrange:** What if you did the steps in the opposite order? What if the user did the work instead of the system (or vice versa)? What if you reversed the value chain?
+- **대체:** 어떤 구성 요소, 재료 또는 프로세스를 교체할 수 있습니까? 핵심기술을 교체한다면 어떨까요? 타겟 청중? 비즈니스 모델?
+- **결합:** 이것을 다른 제품, 서비스 또는 아이디어와 병합하면 어떻게 될까요? 일반적으로 함께 어울리지 않는 두 가지가 새로운 것을 만들어 내는 것은 무엇입니까?
+- **적응:** 이와 같은 것은 또 무엇일까요? 다른 산업, domains 또는 기간에서 어떤 아이디어를 빌릴 수 있나요? 자연에는 어떤 유사점이 존재합니까?
+- **수정(Magnify/Minimize):** 10배 더 크게 만들면 어떨까요? 10배 더 작나요? 한 가지 특징을 과장한다면 어떨까요? 그것을 절대 최소한으로 제거하면 어떨까요?
+- **다른 용도로 사용:** 또 누가 이것을 사용할 수 있나요? 또 어떤 문제를 해결할 수 있을까요? 완전히 다른 맥락에서 사용하면 어떻게 될까요?
+- **제거:** 기능을 완전히 제거하면 어떻게 되나요? 구성이 없는 버전은 무엇입니까? 반 단계만 거치면 어떤 모습일까요?
+- **Reverse/Rearrange:** 단계를 반대 순서로 수행했다면 어떻게 될까요? 사용자가 시스템 대신 작업을 수행했다면(또는 그 반대) 어떻게 될까요? 가치사슬을 거꾸로 뒤집으면 어떻게 될까요?
 
-**Best for:** Improving or reimagining existing products/features. Less useful for greenfield ideas.
+**최적의 용도:** 기존 제품/features를 개선하거나 재구성합니다. 그린필드 아이디어에는 덜 유용합니다.
 
-## How Might We (HMW)
+## 우리는 어떻게 될까요 (HMW)
 
-Reframe problems as opportunities using the "How Might We..." format:
+"우리가 어떻게..." format를 사용하여 문제를 기회로 재구성합니까?
 
-- Start with an observation or pain point
-- Reframe it as "How might we [desired outcome] for [specific user] without [key constraint]?"
-- Generate multiple HMW framings of the same problem — different framings unlock different solutions
+- 관찰이나 불만 사항부터 시작하세요.
+- "[키 제약 조건] 없이 [특정 사용자]에 대해 [원하는 결과]를 어떻게 얻을 수 있습니까?"로 재구성합니다.
+- 동일한 문제에 대해 여러 개의 HMW 프레이밍을 생성합니다. 서로 다른 프레이밍은 서로 다른 솔루션을 제공합니다.
 
-**Good HMW qualities:**
-- Narrow enough to be actionable ("...help new users find relevant content in their first 5 minutes")
-- Broad enough to allow creative solutions (not "...add a recommendation sidebar")
-- Contains a tension or constraint that forces creativity
+**좋은 HMW 품질:**
+- 실행 가능하도록 충분히 좁음("...신규 사용자가 처음 5분 안에 관련 콘텐츠를 찾을 수 있도록 지원")
+- 창의적인 솔루션을 허용할 만큼 충분히 광범위합니다("...추천 사이드바 추가"가 아님).
+- 창의성을 강요하는 긴장이나 제약이 포함되어 있음
 
-**Bad HMW qualities:**
-- Too broad: "How might we make users happy?"
-- Too narrow: "How might we add a button to the settings page?"
-- Solution-embedded: "How might we build a chatbot for support?"
+**나쁜 HMW 품질:**
+- 너무 광범위함: "어떻게 하면 사용자를 행복하게 만들 수 있을까요?"
+- 너무 좁음: "설정 페이지에 버튼을 어떻게 추가할 수 있나요?"
+- 솔루션 내장: "지원을 위한 챗봇을 어떻게 만들 수 있을까요?"
 
-**Best for:** Reframing stuck thinking. When someone is anchored on a solution, pull them back to the problem.
+**최적의 용도:** 고착된 생각을 재구성합니다. 누군가가 해결책에 닻을 내리면 다시 문제로 끌어당깁니다.
 
-## First Principles Thinking
+## 첫 번째 원칙 사고
 
-Break the idea down to its fundamental truths, then rebuild from there:
+아이디어를 근본적인 진실로 분해한 다음 거기서부터 rebuild를 실행합니다.
 
-1. **What do we know is true?** (not assumed, not conventional — actually true)
-2. **What are we assuming?** List every assumption, even the ones that feel obvious
-3. **Which assumptions can we challenge?** For each, ask: "Is this actually a law of physics, or just how it's been done?"
-4. **Rebuild from the truths.** If you only had the fundamental truths, what would you build?
+1. **우리가 알고 있는 사실은 무엇입니까?** (가정이 아니며, 관습적이지 않음 - 실제로는 사실임)
+2. **우리는 무엇을 가정하고 있습니까?** 명백하다고 느껴지는 가정까지 포함하여 모든 가정을 나열하십시오.
+3. **어떤 가정에 도전할 수 있습니까?** 각각에 대해 다음과 같이 질문하십시오. "이것이 실제로 물리 법칙입니까, 아니면 단지 어떻게 이루어졌습니까?"
+4. **진실에서 나온 Rebuild.** 근본적인 진실만 갖고 있다면 무엇을 build로 하시겠습니까?
 
-**Best for:** Breaking out of incremental thinking. When every idea feels like a small improvement on the status quo.
+**최적의 용도:** 점진적인 사고에서 벗어나세요. 모든 아이디어가 현 상태에 대한 작은 개선처럼 느껴질 때.
 
-## Jobs to Be Done (JTBD)
+## 수행해야 할 작업 (JTBD)
 
-Focus on what the user is trying to accomplish, not what they say they want:
+사용자가 원한다고 말하는 것이 아니라 사용자가 달성하려는 것이 무엇인지에 집중하세요.
 
-- **Functional job:** What task are they trying to complete?
-- **Emotional job:** How do they want to feel?
-- **Social job:** How do they want to be perceived?
+- **기능적 직업:** 그들이 완료하려는 작업은 무엇입니까?
+- **감정적 직업:** 그들은 어떤 느낌을 원하는가?
+- **사회적 직업:** 그들은 어떻게 인식되기를 원합니까?
 
-Format: "When I [situation], I want to [motivation], so I can [expected outcome]."
+Format: "내가 [상황]할 때 [동기 부여]를 하고 싶기 때문에 [기대 결과]를 얻을 수 있습니다."
 
-**Key insight:** People don't buy products — they hire them to do a job. The competing product isn't always in the same category. (Netflix competes with sleep, not just other streaming services.)
+**주요 통찰:** 사람들은 제품을 구매하는 것이 아니라 일을 하기 위해 제품을 고용합니다. 경쟁 제품이 항상 동일한 카테고리에 속하지는 않습니다. (넷플릭스는 다른 스트리밍 서비스뿐만 아니라 수면과 경쟁합니다.)
 
-**Best for:** Understanding the real problem. When you're not sure if you're solving the right thing.
+**최적의 대상:** 실제 문제를 이해합니다. 문제를 올바르게 해결하고 있는지 확신이 서지 않을 때.
 
-## Constraint-Based Ideation
+## 제약 기반 아이디어
 
-Deliberately impose constraints to force creative solutions:
+창의적인 솔루션을 강제하기 위해 의도적으로 제약을 가합니다.
 
-- **Time constraint:** "What if you only had 1 day to build this?"
-- **Feature constraint:** "What if it could only have one feature?"
-- **Tech constraint:** "What if you couldn't use [the obvious technology]?"
-- **Cost constraint:** "What if it had to be free forever?"
-- **Audience constraint:** "What if your user had never used a computer before?"
-- **Scale constraint:** "What if it needed to work for 1 billion users? What about just 10?"
+- **시간 제약:** "이것을 build할 수 있는 시간이 하루밖에 없다면 어떨까요?"
+- **기능 제약:** "하나의 기능만 가질 수 있다면 어떨까요?"
+- **기술적 제약:** "[당연한 기술]을 사용할 수 없다면 어떻게 될까요?"
+- **비용 제약:** "영원히 무료로 제공되어야 한다면 어떨까요?"
+- **대상 제약:** "사용자가 이전에 컴퓨터를 사용해 본 적이 없다면 어떨까요?"
+- **규모 제약:** "10억 명의 사용자를 대상으로 작업해야 한다면 어떨까요? 단 10명은 어떨까요?"
 
-**Best for:** Cutting through complexity. When the idea is growing too large or too vague.
+**최적의 용도:** 복잡성을 해소합니다. 아이디어가 너무 커지거나 너무 모호해질 때.
 
-## Pre-mortem
+## 사전 부검
 
-Imagine the idea has already failed. Work backwards:
+그 아이디어가 이미 실패했다고 상상해 보세요. 뒤로 작업wards:
 
-1. It's 12 months from now. The project shipped and flopped. What went wrong?
-2. List every plausible reason for failure — technical, market, team, timing
-3. For each failure mode: Is this preventable? Is this a signal the idea needs to change?
-4. Which failure modes are you willing to accept? Which ones would kill the project?
+1. 이제 12개월 남았습니다. 프로젝트가 출시되고 실패했습니다. 무엇이 잘못되었나요?
+2. 기술, 시장, 팀, 타이밍 등 실패에 대한 그럴듯한 모든 이유를 나열하십시오.
+3. 각 실패 모드에 대해: 이를 예방할 수 있습니까? 이것은 아이디어가 바뀌어야 한다는 신호인가요?
+4. 어떤 실패 모드를 받아들일 의향이 있습니까? 어느 것이 프로젝트를 죽일 것인가?
 
-**Best for:** Phase 2 evaluation. Stress-testing ideas that feel good but haven't been pressure-tested.
+**최적의 용도:** 2단계 평가. 기분은 좋지만 pressure-tested에서는 그렇지 않은 스트레스 테스트 아이디어.
 
-## Analogous Inspiration
+## 유사한 영감
 
-Look at how other domains solved similar problems:
+다른 domains가 비슷한 문제를 어떻게 해결했는지 살펴보세요.
 
-- What industry has already solved a version of this problem?
-- What would this look like if [specific company/product] built it?
-- What natural system works this way?
-- What historical precedent exists?
+- 이미 이 문제를 해결한 업계는 무엇입니까?
+- [특정회사/product] built 하면 어떤 모습일까요?
+- 어떤 자연 시스템이 이런 식으로 작동하나요?
+- 어떤 역사적 선례가 있나요?
 
-The key is finding *structural* similarities, not surface-level ones. "Uber for X" is surface-level. "A two-sided marketplace that solves a trust problem between strangers" is structural.
+핵심은 surface-level 유사점이 아니라 *구조적* 유사점을 찾는 것입니다. 'X용 Uber'는 surface-level입니다. "낯선 사람 사이의 신뢰 문제를 해결하는 two-sided marketplace"는 구조적입니다.
 
-**Best for:** Phase 1 expansion. Generating variations that feel genuinely different from the obvious approach.
+**최적의 용도:** 1단계 확장. 뻔한 접근 방식과는 전혀 다른 genui 느낌의 변형을 생성합니다.

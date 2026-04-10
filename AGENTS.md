@@ -1,39 +1,39 @@
 # AGENTS.md
 
-This file provides guidance to AI coding agents (Claude Code, Cursor, Copilot, Antigravity, etc.) when working with code in this repository.
+이 파일은 이 repository의 코드로 작업할 때 agents(Claude Code, Cursor, Copilot, Antigravity 등)를 코딩하는 AI에 대한 guidance를 제공합니다.
 
-## Repository Overview
+## Repository 개요
 
-A collection of skills for Claude.ai and Claude Code for senior software engineers. Skills are packaged instructions and scripts that extend Claude and your coding agents capabilities.
+수석 소프트웨어 엔지니어를 위한 Claude.ai 및 Claude Code용 skills 컬렉션입니다. Skills는 Claude와 코딩 agents 기능을 확장하는 패키지 지침 및 스크립트입니다.
 
-## OpenCode Integration
+## OpenCode 통합
 
-OpenCode uses a **skill-driven execution model** powered by the `skill` tool and this repository's `/skills` directory.
+OpenCode는 `skill` 도구와 이 repository의 `/skills` 디렉터리로 구동되는 **skill-driven 실행 모델**을 사용합니다.
 
-### Core Rules
+### 핵심 규칙
 
-- If a task matches a skill, you MUST invoke it
-- Skills are located in `skills/<skill-name>/SKILL.md`
-- Never implement directly if a skill applies
-- Always follow the skill instructions exactly (do not partially apply them)
+- 작업이 skill와 일치하면 MUST를 호출합니다.
+- Skills는 `skills/<skill-name>/SKILL.md`에 위치합니다.
+- skill가 적용되는 경우 직접 구현하지 마십시오.
+- 항상 skill 지침을 정확하게 따르십시오(부분적으로 적용하지 마십시오).
 
-### Intent → Skill Mapping
+### 의도 → Skill 매핑
 
-The agent should automatically map user intent to skills:
+agent는 사용자 의도를 skills에 자동으로 매핑해야 합니다.
 
-- Feature / new functionality → `spec-driven-development`, then `incremental-implementation`, `test-driven-development`
-- Planning / breakdown → `planning-and-task-breakdown`
-- Bug / failure / unexpected behavior → `debugging-and-error-recovery`
-- Code review → `code-review-and-quality`
-- Refactoring / simplification → `code-simplification`
-- API or interface design → `api-and-interface-design`
-- UI work → `frontend-ui-engineering`
+- 특징/새로운 기능 → `spec-driven-development`, 그 다음 `incremental-implementation`, `test-driven-development`
+- 기획/구분 → `planning-and-task-breakdown`
+- 버그/실패/예상치 못한 동작 → `debugging-and-error-recovery`
+- 코드 리뷰 → `code-review-and-quality`
+- 리팩토링/단순화 → `code-simplification`
+- API 또는 인터페이스 디자인 → `api-and-interface-design`
+- UI 작업 → `frontend-ui-engineering`
 
-### Lifecycle Mapping (Implicit Commands)
+### 수명 주기 매핑(암시적 명령)
 
-OpenCode does not support slash commands like `/spec` or `/plan`.
+OpenCode는 `/spec` 또는 `/plan`와 같은 slash commands를 지원하지 않습니다.
 
-Instead, the agent must internally follow this lifecycle:
+대신 agent는 내부적으로 다음 수명 주기를 따라야 합니다.
 
 - DEFINE → `spec-driven-development`
 - PLAN → `planning-and-task-breakdown`
@@ -42,32 +42,32 @@ Instead, the agent must internally follow this lifecycle:
 - REVIEW → `code-review-and-quality`
 - SHIP → `shipping-and-launch`
 
-### Execution Model
+### 실행 모델
 
-For every request:
+모든 요청에 대해:
 
-1. Determine if any skill applies (even 1% chance)
-2. Invoke the appropriate skill using the `skill` tool
-3. Follow the skill workflow strictly
-4. Only proceed to implementation after required steps (spec, plan, etc.) are complete
+1. skill가 적용되는지 확인합니다(1%의 확률이라도).
+2. `skill` 도구를 사용하여 적절한 skill를 호출합니다.
+3. skill workflow를 엄격히 따르십시오.
+4. 필수 단계(사양, 계획 등)가 완료된 후에만 구현을 진행하세요.
 
-### Anti-Rationalization
+### 반합리화
 
-The following thoughts are incorrect and must be ignored:
+다음 생각은 잘못된 것이므로 무시해야 합니다.
 
-- "This is too small for a skill"
-- "I can just quickly implement this"
-- "I’ll gather context first"
+- "skill에 비해 너무 작습니다."
+- "이것을 quickly로 구현할 수 있습니다."
+- "먼저 맥락을 수집하겠다"
 
-Correct behavior:
+올바른 행동:
 
-- Always check for and use skills first
+- 항상 skills를 먼저 확인하고 사용하세요.
 
-This ensures OpenCode behaves similarly to Claude Code with full workflow enforcement.
+이를 통해 OpenCode는 전체 workflow 적용을 통해 Claude Code와 유사하게 작동합니다.
 
-## Creating a New Skill
+## 새 Skill 만들기
 
-### Directory Structure
+### 디렉토리 구조
 
 ```
 skills/
@@ -78,12 +78,12 @@ skills/
   {skill-name}.zip        # Required: packaged for distribution
 ```
 
-### Naming Conventions
+### 명명 규칙
 
-- **Skill directory**: `kebab-case` (e.g. `web-quality`)
-- **SKILL.md**: Always uppercase, always this exact filename
-- **Scripts**: `kebab-case.sh` (e.g., `deploy.sh`, `fetch-logs.sh`)
-- **Zip file**: Must match directory name exactly: `{skill-name}.zip`
+- **Skill 디렉터리**: `kebab-case`(예: `web-quality`)
+- **SKILL.md**: 항상 대문자, 항상 정확한 파일 이름
+- **스크립트**: `kebab-case.sh`(예: `deploy.sh`, `fetch-logs.sh`)
+- **Zip 파일**: 디렉터리 이름과 정확히 일치해야 합니다: `{skill-name}.zip`
 
 ### SKILL.md Format
 
@@ -126,37 +126,37 @@ bash /mnt/skills/user/{skill-name}/scripts/{script}.sh [args]
 {Common issues and solutions, especially network/permissions errors}
 ```
 
-### Best Practices for Context Efficiency
+### 상황 효율성을 위한 모범 사례
 
-Skills are loaded on-demand — only the skill name and description are loaded at startup. The full `SKILL.md` loads into context only when the agent decides the skill is relevant. To minimize context usage:
+Skills가 로드됩니다. on-demand — 시작 시 skill 이름과 설명만 로드됩니다. 전체 `SKILL.md`는 agent가 skill가 관련이 있다고 결정할 때만 컨텍스트에 로드됩니다. 컨텍스트 사용을 최소화하려면 다음을 수행하십시오.
 
-- **Keep SKILL.md under 500 lines** — put detailed reference material in separate files
-- **Write specific descriptions** — helps the agent know exactly when to activate the skill
-- **Use progressive disclosure** — reference supporting files that get read only when needed
-- **Prefer scripts over inline code** — script execution doesn't consume context (only output does)
-- **File references work one level deep** — link directly from SKILL.md to supporting files
+- **SKILL.md를 500줄 미만으로 유지** — 자세한 참조 자료를 별도의 파일에 넣습니다.
+- **구체적인 설명 작성** — agent가 skill를 활성화할 시기를 정확히 알 수 있도록 도와줍니다.
+- **점진적 공개 사용** — 필요할 때만 읽을 수 있는 지원 파일을 참조하세요.
+- **인라인 코드보다 스크립트를 선호** — 스크립트 실행은 컨텍스트를 소비하지 않습니다(출력만 소비함).
+- **파일 참조는 한 수준 깊이로 작동** — SKILL.md에서 지원 파일로 직접 연결
 
-### Script Requirements
+### 스크립트 요청 uirements
 
-- Use `#!/bin/bash` shebang
-- Use `set -e` for fail-fast behavior
-- Write status messages to stderr: `echo "Message" >&2`
-- Write machine-readable output (JSON) to stdout
-- Include a cleanup trap for temp files
-- Reference the script path as `/mnt/skills/user/{skill-name}/scripts/{script}.sh`
+- `#!/bin/bash` 셰뱅을 사용하세요.
+- fail-fast 동작에는 `set -e`를 사용하세요.
+- stderr에 상태 메시지 쓰기: `echo "Message" >&2`
+- machine-readable 출력(JSON)을 stdout에 씁니다.
+- 임시 파일에 대한 정리 트랩 포함
+- 스크립트 경로를 `/mnt/skills/user/{skill-name}/scripts/{script}.sh`로 참조하세요.
 
-### Creating the Zip Package
+### Zip 패키지 만들기
 
-After creating or updating a skill:
+skill를 생성하거나 업데이트한 후:
 
 ```bash
 cd skills
 zip -r {skill-name}.zip {skill-name}/
 ```
 
-### End-User Installation
+### 최종 사용자 설치
 
-Document these two installation methods for users:
+사용자를 위해 다음 두 가지 설치 방법을 문서화하십시오.
 
 **Claude Code:**
 ```bash
@@ -164,6 +164,6 @@ cp -r skills/{skill-name} ~/.claude/skills/
 ```
 
 **claude.ai:**
-Add the skill to project knowledge or paste SKILL.md contents into the conversation.
+프로젝트 지식에 skill를 추가하거나 대화에 SKILL.md 내용을 붙여넣으세요.
 
-If the skill requires network access, instruct users to add required domains at `claude.ai/settings/capabilities`.
+skill가 네트워크 액세스를 요구하는 경우 사용자에게 `claude.ai/settings/capabilities`에 required domains를 추가하도록 지시합니다.

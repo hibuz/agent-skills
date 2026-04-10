@@ -1,37 +1,37 @@
 ---
 name: code-simplification
-description: Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.
+description: 명확성을 위해 코드를 단순화합니다. 동작을 변경하지 않고 명확성을 위해 코드를 리팩터링할 때 사용합니다. 코드가 작동하지만 읽기, 유지 관리 또는 확장이 예상보다 어려운 경우에 사용하세요. 불필요하게 복잡해진 코드를 검토할 때 사용합니다.
 ---
 
-# Code Simplification
+# 코드 단순화
 
-> Inspired by the [Claude Code Simplifier plugin](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-simplifier/agents/code-simplifier.md). Adapted here as a model-agnostic, process-driven skill for any AI coding agent.
+> [Claude Code Simplifier plugin](https://github.com/anthropics/claude-plugins-official/blob/main/plugins/code-simplifier/agents/code-simplifier.md)에서 영감을 얻었습니다. 여기에서는 AI 코딩 agent에 대해 model-agnostic, process-driven skill로 적용되었습니다.
 
-## Overview
+## 개요
 
-Simplify code by reducing complexity while preserving exact behavior. The goal is not fewer lines — it's code that is easier to read, understand, modify, and debug. Every simplification must pass a simple test: "Would a new team member understand this faster than the original?"
+정확한 동작을 유지하면서 복잡성을 줄여 코드를 단순화합니다. 목표는 줄 수를 줄이는 것이 아니라 읽고, 이해하고, 수정하고, 디버깅하기 쉬운 코드입니다. 모든 단순화는 다음과 같은 간단한 테스트를 통과해야 합니다. "새로운 팀원이 원래 팀원보다 이것을 더 빨리 이해할 수 있을까요?"
 
-## When to Use
+## 사용 시기
 
-- After a feature is working and tests pass, but the implementation feels heavier than it needs to be
-- During code review when readability or complexity issues are flagged
-- When you encounter deeply nested logic, long functions, or unclear names
-- When refactoring code written under time pressure
-- When consolidating related logic scattered across files
-- After merging changes that introduced duplication or inconsistency
+- 기능이 작동하고 테스트를 통과했지만 구현이 필요 이상으로 무겁게 느껴지는 경우
+- 코드 검토 중 가독성이나 복잡성 문제가 표시된 경우
+- 깊게 중첩된 논리, 긴 함수 또는 불분명한 이름을 접하는 경우
+- 시간적 압박 속에서 작성된 코드를 리팩토링할 때
+- 파일에 흩어져 있는 관련 로직을 통합하는 경우
+- 중복이나 불일치가 발생한 변경 사항을 병합한 후
 
-**When NOT to use:**
+**사용하지 말아야 할 때:**
 
-- Code is already clean and readable — don't simplify for the sake of it
-- You don't understand what the code does yet — comprehend before you simplify
-- The code is performance-critical and the "simpler" version would be measurably slower
-- You're about to rewrite the module entirely — simplifying throwaway code wastes effort
+- 코드는 이미 깨끗하고 읽기 쉽습니다. 코드를 단순화하지 마세요.
+- 아직 코드의 기능을 이해하지 못합니다. 단순화하기 전에 먼저 이해하세요.
+- 코드는 performance-critical이며 "간단한" 버전은 상당히 느릴 것입니다.
+- 모듈을 완전히 다시 작성하려고 합니다. 일회용 코드를 단순화하면 노력이 낭비됩니다.
 
-## The Five Principles
+## 5가지 원칙
 
-### 1. Preserve Behavior Exactly
+### 1. 동작을 정확하게 유지
 
-Don't change what the code does — only how it expresses it. All inputs, outputs, side effects, error behavior, and edge cases must remain identical. If you're not sure a simplification preserves behavior, don't make it.
+코드의 기능을 변경하지 말고 코드가 표현하는 방식만 변경하세요. 모든 입력, 출력, 부작용, 오류 동작 및 예외 사례는 동일하게 유지되어야 합니다. 단순화로 동작이 유지되는지 확신할 수 없다면 단순화하지 마세요.
 
 ```
 ASK BEFORE EVERY CHANGE:
@@ -41,9 +41,9 @@ ASK BEFORE EVERY CHANGE:
 → Do all existing tests still pass without modification?
 ```
 
-### 2. Follow Project Conventions
+### 2. 프로젝트 규칙을 따르세요.
 
-Simplification means making code more consistent with the codebase, not imposing external preferences. Before simplifying:
+단순화란 외부 환경 설정을 강요하지 않고 코드를 코드베이스와 더욱 일관성 있게 만드는 것을 의미합니다. 단순화하기 전에:
 
 ```
 1. Read CLAUDE.md / project conventions
@@ -56,11 +56,11 @@ Simplification means making code more consistent with the codebase, not imposing
    - Type annotation depth
 ```
 
-Simplification that breaks project consistency is not simplification — it's churn.
+프로젝트 일관성을 깨뜨리는 단순화는 단순화가 아니라 이탈입니다.
 
-### 3. Prefer Clarity Over Cleverness
+### 3. 영리함보다 명확성을 선호하세요
 
-Explicit code is better than compact code when the compact version requires a mental pause to parse.
+압축 버전에서 구문 분석을 위해 잠시 휴식을 취해야 하는 경우 명시적 코드가 압축 코드보다 낫습니다.
 
 ```typescript
 // UNCLEAR: Dense ternary chain
@@ -89,24 +89,24 @@ for (const item of items) {
 }
 ```
 
-### 4. Maintain Balance
+### 4. 균형 유지
 
-Simplification has a failure mode: over-simplification. Watch for these traps:
+단순화에는 실패 모드가 있습니다: over-simplification. 다음 함정을 조심하세요.
 
-- **Inlining too aggressively** — removing a helper that gave a concept a name makes the call site harder to read
-- **Combining unrelated logic** — two simple functions merged into one complex function is not simpler
-- **Removing "unnecessary" abstraction** — some abstractions exist for extensibility or testability, not complexity
-- **Optimizing for line count** — fewer lines is not the goal; easier comprehension is
+- **너무 공격적으로 인라인** — 개념에 이름을 부여한 도우미를 제거하면 호출 사이트를 읽기가 더 어려워집니다.
+- **관련되지 않은 로직 결합** — 두 개의 간단한 함수를 하나의 복잡한 함수로 병합하는 것은 더 간단하지 않습니다.
+- **"불필요한" 추상화 제거** — 일부 추상화는 복잡성이 아닌 확장성 또는 테스트 가능성을 위해 존재합니다.
+- **줄 수 최적화** — 줄 수를 줄이는 것이 목표는 아닙니다. 더 쉬운 이해는
 
-### 5. Scope to What Changed
+### 5. 변경된 범위
 
-Default to simplifying recently modified code. Avoid drive-by refactors of unrelated code unless explicitly asked to broaden scope. Unscoped simplification creates noise in diffs and risks unintended regressions.
+최근 수정된 코드를 단순화하는 것이 기본값입니다. 범위를 넓히도록 명시적으로 요청하지 않는 한 관련 없는 코드의 drive-by 리팩터링을 피하세요. 범위가 지정되지 않은 단순화는 차이점에 노이즈를 발생시키고 의도하지 않은 회귀 위험을 초래합니다.
 
-## The Simplification Process
+## 단순화 프로세스
 
-### Step 1: Understand Before Touching (Chesterton's Fence)
+### 1단계: 만지기 전에 이해하기(체스터튼의 울타리)
 
-Before changing or removing anything, understand why it exists. This is Chesterton's Fence: if you see a fence across a road and don't understand why it's there, don't tear it down. First understand the reason, then decide if the reason still applies.
+무엇이든 변경하거나 제거하기 전에 그것이 존재하는 이유를 이해하십시오. 이것이 Chesterton의 울타리입니다. 길 건너편에 울타리가 있는데 왜 거기 있는지 이해하지 못한다면, 그것을 허물지 마십시오. 먼저 이유를 이해한 다음 그 이유가 여전히 적용되는지 결정하십시오.
 
 ```
 BEFORE SIMPLIFYING, ANSWER:
@@ -118,45 +118,45 @@ BEFORE SIMPLIFYING, ANSWER:
 - Check git blame: what was the original context for this code?
 ```
 
-If you can't answer these, you're not ready to simplify. Read more context first.
+이에 답할 수 없다면 단순화할 준비가 되지 않은 것입니다. 먼저 자세한 내용을 읽어보세요.
 
-### Step 2: Identify Simplification Opportunities
+### 2단계: 단순화 기회 식별
 
-Scan for these patterns — each one is a concrete signal, not a vague smell:
+다음 패턴을 검색하세요. 각 패턴은 막연한 냄새가 아닌 구체적인 신호입니다.
 
-**Structural complexity:**
+**구조적 복잡성:**
 
-| Pattern | Signal | Simplification |
+| 패턴 | 신호 | 단순화 |
 |---------|--------|----------------|
-| Deep nesting (3+ levels) | Hard to follow control flow | Extract conditions into guard clauses or helper functions |
-| Long functions (50+ lines) | Multiple responsibilities | Split into focused functions with descriptive names |
-| Nested ternaries | Requires mental stack to parse | Replace with if/else chains, switch, or lookup objects |
-| Boolean parameter flags | `doThing(true, false, true)` | Replace with options objects or separate functions |
-| Repeated conditionals | Same `if` check in multiple places | Extract to a well-named predicate function |
+| 깊은 중첩(3개 이상의 레벨) | 제어 흐름을 따르기 어려움 | 조건을 보호 절이나 도우미 함수로 추출 |
+| 긴 기능(50줄 이상) | 다양한 책임 | 설명적인 이름을 사용하여 집중된 함수로 분할 |
+| 중첩된 삼항 | 구문 분석할 Requires 정신 스택 | if/else 체인, 스위치 또는 조회 객체로 바꾸기 |
+| 부울 매개변수 플래그 | `doThing(true, false, true)` | 옵션 개체 또는 별도의 함수로 바꾸기 |
+| 반복되는 조건 | 여러 곳에서 동일한 `if` 확인 | well-named 술어 함수로 추출 |
 
-**Naming and readability:**
+**이름 지정 및 가독성:**
 
-| Pattern | Signal | Simplification |
+| 패턴 | 신호 | 단순화 |
 |---------|--------|----------------|
-| Generic names | `data`, `result`, `temp`, `val`, `item` | Rename to describe the content: `userProfile`, `validationErrors` |
-| Abbreviated names | `usr`, `cfg`, `btn`, `evt` | Use full words unless the abbreviation is universal (`id`, `url`, `api`) |
-| Misleading names | Function named `get` that also mutates state | Rename to reflect actual behavior |
-| Comments explaining "what" | `// increment counter` above `count++` | Delete the comment — the code is clear enough |
-| Comments explaining "why" | `// Retry because the API is flaky under load` | Keep these — they carry intent the code can't express |
+| 일반 이름 | `data`, `result`, `temp`, `val`, `item` | 내용을 설명하기 위해 이름을 바꿉니다. `userProfile`, `validationErrors` |
+| 약칭 | `usr`, `cfg`, `btn`, `evt` | 약어가 보편적인 경우가 아니면 전체 words를 사용하십시오(`id`, `url`, `api`) |
+| 오해의 소지가 있는 이름 | 상태를 변경하는 `get`라는 함수 | 실제 동작을 반영하도록 이름 바꾸기 |
+| "무엇"을 설명하는 댓글 | `count++` 위의 `// increment counter` | 주석 삭제 - 코드가 충분히 명확합니다 |
+| "이유"를 설명하는 댓글 | `// Retry because the API is flaky under load` | 이를 유지하십시오 - 코드가 표현할 수 없는 의도를 담고 있습니다 |
 
-**Redundancy:**
+**중복성:**
 
-| Pattern | Signal | Simplification |
+| 패턴 | 신호 | 단순화 |
 |---------|--------|----------------|
-| Duplicated logic | Same 5+ lines in multiple places | Extract to a shared function |
-| Dead code | Unreachable branches, unused variables, commented-out blocks | Remove (after confirming it's truly dead) |
-| Unnecessary abstractions | Wrapper that adds no value | Inline the wrapper, call the underlying function directly |
-| Over-engineered patterns | Factory-for-a-factory, strategy-with-one-strategy | Replace with the simple direct approach |
-| Redundant type assertions | Casting to a type that's already inferred | Remove the assertion |
+| 중복된 논리 | 여러 위치에 동일한 5줄 이상 | 공유 기능으로 추출 |
+| 데드 코드 | 도달할 수 없는 분기, 사용되지 않는 변수, commented-out 블록 | 제거(정말로 죽었는지 확인한 후) |
+| 불필요한 추상화 | 가치를 추가하지 않는 래퍼 | 래퍼를 인라인하고 기본 함수를 직접 호출 |
+| 과도하게 설계된 패턴 | 공장-for-a-factory, strategy-with-one-strategy | 간단한 직접 접근 방식으로 대체 |
+| 중복 유형 어설션 | 이미 추론된 유형으로 캐스팅 | 어설션 제거 |
 
-### Step 3: Apply Changes Incrementally
+### 3단계: 변경 사항을 점진적으로 적용
 
-Make one simplification at a time. Run tests after each change. **Submit refactoring changes separately from feature or bug fix changes.** A PR that refactors and adds a feature is two PRs — split them.
+한 번에 하나씩 단순화하십시오. 각 변경 후에 테스트를 실행합니다. **기능 또는 버그 수정 변경 사항과 별도로 리팩토링 변경 사항을 제출하세요.** 기능을 리팩터링하고 추가하는 PR는 두 개의 PRs — 분할됩니다.
 
 ```
 FOR EACH SIMPLIFICATION:
@@ -166,13 +166,13 @@ FOR EACH SIMPLIFICATION:
 4. If tests fail → revert and reconsider
 ```
 
-Avoid batching multiple simplifications into a single untested change. If something breaks, you need to know which simplification caused it.
+여러 단순화를 테스트되지 않은 단일 변경 사항으로 일괄 처리하지 마세요. 문제가 발생한 경우 어떤 단순화로 인해 문제가 발생했는지 알아야 합니다.
 
-**The Rule of 500:** If a refactoring would touch more than 500 lines, invest in automation (codemods, sed scripts, AST transforms) rather than making the changes by hand. Manual edits at that scale are error-prone and exhausting to review.
+**500의 법칙:** 리팩토링이 500줄을 초과하는 경우 수동으로 변경하는 대신 자동화(codemods, sed 스크립트, AST transforms)에 투자하세요. 해당 규모의 수동 편집은 error-prone이며 검토하기가 어렵습니다.
 
-### Step 4: Verify the Result
+### 4단계: 결과 확인
 
-After all simplifications, step back and evaluate the whole:
+모든 단순화를 마친 후에는 한 걸음 물러나 전체를 평가해 보십시오.
 
 ```
 COMPARE BEFORE AND AFTER:
@@ -182,9 +182,9 @@ COMPARE BEFORE AND AFTER:
 - Would a teammate approve this change?
 ```
 
-If the "simplified" version is harder to understand or review, revert. Not every simplification attempt succeeds.
+"단순화된" 버전이 이해하거나 검토하기 더 어려운 경우 되돌리세요. 모든 단순화 시도가 성공하는 것은 아닙니다.
 
-## Language-Specific Guidance
+## 언어별 Guidance
 
 ### TypeScript / JavaScript
 
@@ -235,7 +235,7 @@ function isValid(input: string): boolean {
 }
 ```
 
-### Python
+### 파이썬
 
 ```python
 # SIMPLIFY: Verbose dictionary building
@@ -294,38 +294,38 @@ function UserBadge({ user }: Props) {
 // This is a judgment call — flag it, don't auto-refactor.
 ```
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "It's working, no need to touch it" | Working code that's hard to read will be hard to fix when it breaks. Simplifying now saves time on every future change. |
-| "Fewer lines is always simpler" | A 1-line nested ternary is not simpler than a 5-line if/else. Simplicity is about comprehension speed, not line count. |
-| "I'll just quickly simplify this unrelated code too" | Unscoped simplification creates noisy diffs and risks regressions in code you didn't intend to change. Stay focused. |
-| "The types make it self-documenting" | Types document structure, not intent. A well-named function explains *why* better than a type signature explains *what*. |
-| "This abstraction might be useful later" | Don't preserve speculative abstractions. If it's not used now, it's complexity without value. Remove it and re-add when needed. |
-| "The original author must have had a reason" | Maybe. Check git blame — apply Chesterton's Fence. But accumulated complexity often has no reason; it's just the residue of iteration under pressure. |
-| "I'll refactor while adding this feature" | Separate refactoring from feature work. Mixed changes are harder to review, revert, and understand in history. |
+| "작동 중입니다. 만질 필요가 없습니다." | 읽기 어려운 작업 코드는 깨졌을 때 수정하기가 어렵습니다. 이제 단순화하면 향후 모든 변경에 소요되는 시간이 절약됩니다. |
+| "줄이 적을수록 항상 더 간단합니다" | 1줄 중첩 삼항은 5줄 if/else보다 간단하지 않습니다. 단순성은 줄 수가 아니라 이해 속도에 관한 것입니다. |
+| "이 관련 없는 코드도 quickly 단순화하겠습니다." | 범위가 지정되지 않은 단순화는 시끄러운 차이를 만들고 변경하지 않으려는 코드에서 회귀 위험을 초래합니다. 집중하세요. |
+| "The types make it self-documenting" | 의도가 아닌 문서 구조를 입력합니다. well-named 함수는 *무엇*을 설명하는 형식 서명보다 *이유*를 더 잘 설명합니다. |
+| "이 추상화는 나중에 유용할 수 있습니다." | 추측성 추상화를 유지하지 마세요. 지금 사용하지 않으면 가치가 없는 복잡성입니다. 필요한 경우 이를 제거하고 re-add를 제거하십시오. |
+| "원저자에게도 이유가 있었을 거에요" | 아마도. 자식 비난을 확인하세요. Chesterton's Fence를 적용하세요. 그러나 축적된 복잡성에는 이유가 없는 경우가 많습니다. 그것은 단지 압력을 받는 반복의 잔여물일 뿐입니다. |
+| "이 기능을 추가하면서 리팩토링하겠습니다" | 기능 작업과 리팩토링을 분리하세요. 혼합된 변경 사항은 기록에서 검토, 되돌리기 및 이해하기가 더 어렵습니다. |
 
-## Red Flags
+## 위험 신호
 
-- Simplification that requires modifying tests to pass (you likely changed behavior)
-- "Simplified" code that is longer and harder to follow than the original
-- Renaming things to match your preferences rather than project conventions
-- Removing error handling because "it makes the code cleaner"
-- Simplifying code you don't fully understand
-- Batching many simplifications into one large, hard-to-review commit
-- Refactoring code outside the scope of the current task without being asked
+- 통과하기 위해 테스트 수정을 요구하는 단순화(동작이 변경되었을 가능성이 높음)
+- 원본보다 더 길고 따라하기 어려운 "단순화된" 코드
+- 프로젝트 규칙보다는 선호도에 맞게 이름을 바꿉니다.
+- "코드를 더 깔끔하게 만들기" 때문에 오류 처리 제거
+- 완전히 이해하지 못하는 코드 단순화
+- 많은 단순화를 하나의 대규모 hard-to-review 커밋으로 일괄 처리
+- 요청 없이 현재 작업 범위 밖의 코드 리팩토링
 
-## Verification
+## 확인
 
-After completing a simplification pass:
+단순화 패스를 완료한 후:
 
-- [ ] All existing tests pass without modification
+- [ ] 수정 없이 기존 테스트 모두 통과
 - [ ] Build succeeds with no new warnings
-- [ ] Linter/formatter passes (no style regressions)
-- [ ] Each simplification is a reviewable, incremental change
-- [ ] The diff is clean — no unrelated changes mixed in
-- [ ] Simplified code follows project conventions (checked against CLAUDE.md or equivalent)
-- [ ] No error handling was removed or weakened
-- [ ] No dead code was left behind (unused imports, unreachable branches)
-- [ ] A teammate or review agent would approve the change as a net improvement
+- [ ] Linter/formatter 통과(스타일 회귀 없음)
+- [ ] 각 단순화는 검토 가능한 점진적 변경입니다.
+- [ ] diff가 깨끗합니다. 관련 없는 변경 사항이 섞여 있지 않습니다.
+- [ ] 단순화된 코드는 프로젝트 규칙을 따릅니다(CLAUDE.md 또는 equivalent에 대해 확인).
+- [ ] 오류 처리가 제거되거나 약화되지 않았습니다.
+- [ ] 데드 코드가 남지 않았습니다(사용하지 않은 가져오기, 도달할 수 없는 분기).
+- [ ] 팀 동료 또는 검토자 agent가 변경 사항을 순 개선으로 승인할 것입니다.

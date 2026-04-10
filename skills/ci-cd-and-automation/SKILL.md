@@ -1,29 +1,29 @@
 ---
 name: ci-cd-and-automation
-description: Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.
+description: CI/CD 파이프라인 설정을 자동화합니다. build 및 배포 파이프라인을 설정하거나 수정할 때 사용합니다. 품질 게이트를 자동화하거나, CI에서 테스트 실행기를 구성하거나, 배포 전략을 수립해야 할 때 사용하세요.
 ---
 
-# CI/CD and Automation
+# CI/CD 및 자동화
 
-## Overview
+## 개요
 
-Automate quality gates so that no change reaches production without passing tests, lint, type checking, and build. CI/CD is the enforcement mechanism for every other skill — it catches what humans and agents miss, and it does so consistently on every single change.
+테스트, 린트, 유형 확인 및 build를 통과하지 않고 변경 사항이 생산에 도달하지 않도록 품질 게이트를 자동화합니다. CI/CD는 다른 모든 skill에 대한 적용 메커니즘입니다. 이는 인간과 agents가 놓친 부분을 포착하고 모든 단일 변경 사항에서 일관되게 수행합니다.
 
-**Shift Left:** Catch problems as early in the pipeline as possible. A bug caught in linting costs minutes; the same bug caught in production costs hours. Move checks upstream — static analysis before tests, tests before staging, staging before production.
+**Shift Left:** 파이프라인에서 가능한 한 빨리 문제를 파악하세요. Linting에 걸린 버그는 몇 분만 소요됩니다. 생산 과정에서 발견된 동일한 버그로 인해 몇 시간이 소요됩니다. 검사 업스트림 이동 - 테스트 전 정적 분석, 준비 전 테스트, 생산 전 준비.
 
-**Faster is Safer:** Smaller batches and more frequent releases reduce risk, not increase it. A deployment with 3 changes is easier to debug than one with 30. Frequent releases build confidence in the release process itself.
+**빠를수록 안전합니다.** 배치 규모가 작고 릴리스 빈도가 높을수록 위험이 커지는 것이 아니라 줄어듭니다. 3개의 변경 사항이 있는 배포는 30개의 변경 사항이 있는 배포보다 디버그하기가 더 쉽습니다. 빈번한 릴리스 build 릴리스 프로세스 자체에 대한 확신이 있습니다.
 
-## When to Use
+## 사용 시기
 
-- Setting up a new project's CI pipeline
-- Adding or modifying automated checks
-- Configuring deployment pipelines
-- When a change should trigger automated verification
-- Debugging CI failures
+- 새 프로젝트의 CI 파이프라인 설정
+- 자동 검사 추가 또는 수정
+- 배포 파이프라인 구성
+- 변경사항으로 인해 자동 확인이 실행되어야 하는 경우
+- CI 오류 디버깅
 
-## The Quality Gate Pipeline
+## 품질 게이트 파이프라인
 
-Every change goes through these gates before merge:
+모든 변경 사항은 병합 전에 다음 게이트를 통과합니다.
 
 ```
 Pull Request Opened
@@ -51,11 +51,11 @@ Pull Request Opened
   Ready for review
 ```
 
-**No gate can be skipped.** If lint fails, fix lint — don't disable the rule. If a test fails, fix the code — don't skip the test.
+**어떤 게이트도 건너뛸 수 없습니다.** Lint가 실패하면 Lint를 수정하세요. 규칙을 비활성화하지 마세요. 테스트가 실패하면 코드를 수정하세요. 테스트를 건너뛰지 마세요.
 
-## GitHub Actions Configuration
+## GitHub 작업 구성
 
-### Basic CI Pipeline
+### 기본 CI 파이프라인
 
 ```yaml
 # .github/workflows/ci.yml
@@ -97,7 +97,7 @@ jobs:
         run: npm audit --audit-level=high
 ```
 
-### With Database Integration Tests
+### 데이터베이스 통합 테스트 포함
 
 ```yaml
   integration:
@@ -134,9 +134,9 @@ jobs:
           DATABASE_URL: postgresql://ci_user:${{ secrets.CI_DB_PASSWORD }}@localhost:5432/testdb
 ```
 
-> **Note:** Even for CI-only test databases, use GitHub Secrets for credentials rather than hardcoding values. This builds good habits and prevents accidental reuse of test credentials in other contexts.
+> **참고:** CI 전용 테스트 데이터베이스의 경우에도 자격 증명에 값을 하드코딩하는 대신 GitHub 비밀을 사용하세요. 이 builds는 좋은 습관을 들이고 다른 상황에서 테스트 자격 증명이 실수로 재사용되는 것을 방지합니다.
 
-### E2E Tests
+### E2E 테스트
 
 ```yaml
   e2e:
@@ -161,9 +161,9 @@ jobs:
           path: playwright-report/
 ```
 
-## Feeding CI Failures Back to Agents
+## CI 오류를 Agents로 다시 공급
 
-The power of CI with AI agents is the feedback loop. When CI fails:
+AI agents가 포함된 CI의 성능은 피드백 루프입니다. CI가 실패하는 경우:
 
 ```
 CI fails
@@ -181,7 +181,7 @@ Fix the issue and verify locally before pushing again."
 Agent fixes → pushes → CI runs again
 ```
 
-**Key patterns:**
+**주요 패턴:**
 
 ```
 Lint failure → Agent runs `npm run lint --fix` and commits
@@ -190,11 +190,11 @@ Test failure → Agent follows debugging-and-error-recovery skill
 Build error → Agent checks config and dependencies
 ```
 
-## Deployment Strategies
+## 배포 전략
 
-### Preview Deployments
+### 배포 미리보기
 
-Every PR gets a preview deployment for manual testing:
+모든 PR에는 수동 테스트를 위한 미리 보기 배포가 제공됩니다.
 
 ```yaml
 # Deploy preview on PR (Vercel/Netlify/etc.)
@@ -209,12 +209,12 @@ deploy-preview:
 
 ### Feature Flags
 
-Feature flags decouple deployment from release. Deploy incomplete or risky features behind flags so you can:
+Feature flags는 릴리스에서 배포를 분리합니다. 불완전하거나 위험한 기능을 플래그 뒤에 배포하여 다음을 수행할 수 있습니다.
 
-- **Ship code without enabling it.** Merge to main early, enable when ready.
-- **Roll back without redeploying.** Disable the flag instead of reverting code.
-- **Canary new features.** Enable for 1% of users, then 10%, then 100%.
-- **Run A/B tests.** Compare behavior with and without the feature.
+- **활성화하지 않고 코드를 배송합니다.** 초기에 메인에 병합하고 준비가 되면 활성화합니다.
+- **재배포 없이 롤백합니다.** 코드를 되돌리는 대신 플래그를 비활성화합니다.
+- **카나리아의 새로운 기능.** 사용자의 1%, 10%, 100%에 대해 활성화됩니다.
+- **A/B 테스트를 실행합니다.** 기능이 있는 경우와 없는 경우의 동작을 비교합니다.
 
 ```typescript
 // Simple feature flag pattern
@@ -224,9 +224,9 @@ if (featureFlags.isEnabled('new-checkout-flow', { userId })) {
 return renderLegacyCheckout();
 ```
 
-**Flag lifecycle:** Create → Enable for testing → Canary → Full rollout → Remove the flag and dead code. Flags that live forever become technical debt — set a cleanup date when you create them.
+**플래그 수명 주기:** 생성 → 테스트용 활성화 → Canary → 전체 출시 → 플래그 및 데드 코드 제거. 영원히 지속되는 플래그는 기술적 부채가 됩니다. 플래그를 만들 때 정리 날짜를 설정하세요.
 
-### Staged Rollouts
+### 단계적 출시
 
 ```
 PR merged to main
@@ -244,9 +244,9 @@ PR merged to main
     └── Clean → Done
 ```
 
-### Rollback Plan
+### Rollback 계획
 
-Every deployment should be reversible:
+모든 배포는 되돌릴 수 있어야 합니다.
 
 ```yaml
 # Manual rollback workflow
@@ -268,7 +268,7 @@ jobs:
           npx vercel rollback ${{ inputs.version }}
 ```
 
-## Environment Management
+## 환경관리
 
 ```
 .env.example       → Committed (template for developers)
@@ -278,11 +278,11 @@ CI secrets          → Stored in GitHub Secrets / vault
 Production secrets  → Stored in deployment platform / vault
 ```
 
-CI should never have production secrets. Use separate secrets for CI testing.
+CI에는 프로덕션 비밀이 있어서는 안 됩니다. CI 테스트에는 별도의 비밀을 사용하세요.
 
-## Automation Beyond CI
+## CI를 넘어서는 자동화
 
-### Dependabot / Renovate
+### 의존봇 / 혁신
 
 ```yaml
 # .github/dependabot.yml
@@ -295,18 +295,18 @@ updates:
     open-pull-requests-limit: 5
 ```
 
-### Build Cop Role
+### Build 경찰 역할
 
-Designate someone responsible for keeping CI green. When the build breaks, the Build Cop's job is to fix or revert — not the person whose change caused the break. This prevents broken builds from accumulating while everyone assumes someone else will fix it.
+CI를 녹색으로 유지할 책임이 있는 사람을 지정하십시오. build가 중단되면 Build 경찰의 임무는 중단을 초래한 변경 사항을 적용한 사람이 아니라 문제를 해결하거나 되돌리는 것입니다. 이렇게 하면 모두가 다른 사람이 문제를 고칠 것이라고 가정하는 동안 손상된 builds가 누적되는 것을 방지할 수 있습니다.
 
-### PR Checks
+### PR 확인
 
-- **Required reviews:** At least 1 approval before merge
-- **Required status checks:** CI must pass before merge
-- **Branch protection:** No force-pushes to main
-- **Auto-merge:** If all checks pass and approved, merge automatically
+- **Required 검토 필요:** 병합 전 최소 1번의 승인
+- **Required 상태 확인 필요:** CI는 병합 전에 통과해야 합니다.
+- **분기 보호:** 메인에 force-pushes 없음
+- **자동 병합:** 모든 검사를 통과하고 승인되면 자동으로 병합됩니다.
 
-## CI Optimization
+## CI 최적화
 
 When the pipeline exceeds 10 minutes, apply these strategies in order of impact:
 
@@ -326,7 +326,7 @@ Slow CI pipeline?
     └── GitHub-hosted larger runners or self-hosted for CPU-heavy builds
 ```
 
-**Example: caching and parallelism**
+**예: 캐싱 및 병렬 처리**
 ```yaml
 jobs:
   lint:
@@ -357,34 +357,34 @@ jobs:
       - run: npm test -- --coverage
 ```
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "CI is too slow" | Optimize the pipeline (see CI Optimization below), don't skip it. A 5-minute pipeline prevents hours of debugging. |
-| "This change is trivial, skip CI" | Trivial changes break builds. CI is fast for trivial changes anyway. |
-| "The test is flaky, just re-run" | Flaky tests mask real bugs and waste everyone's time. Fix the flakiness. |
-| "We'll add CI later" | Projects without CI accumulate broken states. Set it up on day one. |
-| "Manual testing is enough" | Manual testing doesn't scale and isn't repeatable. Automate what you can. |
+| "CI가 너무 느립니다." | Optimize the pipeline (see CI Optimization below), don't skip it. 5분 파이프라인으로 인해 몇 시간의 디버깅 시간이 단축됩니다. |
+| "이 변경 사항은 간단합니다. CI를 건너뛰세요." | 사소한 변경으로 인해 builds가 중단됩니다. 어쨌든 CI는 사소한 변경에도 빠릅니다. |
+| "테스트가 불안정합니다. 단지 re-run" | 불안정한 테스트는 실제 버그를 가리고 모든 사람의 시간을 낭비합니다. 벗겨짐을 수정합니다. |
+| "나중에 CI를 추가하겠습니다" | CI가 없는 프로젝트는 손상된 상태를 누적합니다. 첫날부터 설정하세요. |
+| "수동 테스트로 충분합니다" | 수동 테스트는 확장되지 않으며 반복 가능하지 않습니다. 가능한 것을 자동화하세요. |
 
-## Red Flags
+## 위험 신호
 
-- No CI pipeline in the project
-- CI failures ignored or silenced
+- 프로젝트에 CI 파이프라인이 없습니다.
+- CI 오류가 무시되거나 침묵되었습니다.
 - Tests disabled in CI to make the pipeline pass
-- Production deploys without staging verification
-- No rollback mechanism
-- Secrets stored in code or CI config files (not secrets manager)
-- Long CI times with no optimization effort
+- 스테이징 검증 없이 프로덕션 배포
+- rollback 메커니즘 없음
+- 코드 또는 CI 구성 파일에 저장된 비밀(비밀 관리자 아님)
+- 최적화 노력 없이 긴 CI 시간
 
-## Verification
+## 확인
 
-After setting up or modifying CI:
+CI를 설정하거나 수정한 후:
 
-- [ ] All quality gates are present (lint, types, tests, build, audit)
-- [ ] Pipeline runs on every PR and push to main
-- [ ] Failures block merge (branch protection configured)
-- [ ] CI results feed back into the development loop
-- [ ] Secrets are stored in the secrets manager, not in code
-- [ ] Deployment has a rollback mechanism
-- [ ] Pipeline runs in under 10 minutes for the test suite
+- [ ] 모든 품질 게이트가 존재합니다(린트, 유형, 테스트, build, 감사).
+- [ ] 파이프라인은 모든 PR에서 실행되고 기본으로 푸시됩니다.
+- [ ] 실패 블록 병합(분기 보호 구성됨)
+- [ ] CI 결과는 개발 루프에 다시 피드백됩니다.
+- [ ] 비밀은 코드가 아닌 비밀 관리자에 저장됩니다.
+- [ ] 배포에는 rollback 메커니즘이 있습니다.
+- [ ] suite 테스트를 위해 파이프라인이 10분 이내에 실행됩니다.

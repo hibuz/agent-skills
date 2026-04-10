@@ -1,8 +1,8 @@
-# Security Checklist
+# 보안 체크리스트
 
-Quick reference for web application security. Use alongside the `security-and-hardening` skill.
+웹 애플리케이션 보안에 대한 Quick 참조입니다. `security-and-hardening` skill와 함께 사용하세요.
 
-## Table of Contents
+## 목차
 
 - [Pre-Commit Checks](#pre-commit-checks)
 - [Authentication](#authentication)
@@ -15,43 +15,43 @@ Quick reference for web application security. Use alongside the `security-and-ha
 - [Error Handling](#error-handling)
 - [OWASP Top 10 Quick Reference](#owasp-top-10-quick-reference)
 
-## Pre-Commit Checks
+## 커밋 전 확인
 
-- [ ] No secrets in code (`git diff --cached | grep -i "password\|secret\|api_key\|token"`)
-- [ ] `.gitignore` covers: `.env`, `.env.local`, `*.pem`, `*.key`
-- [ ] `.env.example` uses placeholder values (not real secrets)
+- [ ] 코드에 비밀이 없습니다(`git diff --cached | grep -i "password\|secret\|api_key\|token"`)
+- [ ] `.gitignore` 커버: `.env`, `.env.local`, `*.pem`, `*.key`
+- [ ] `.env.example`는 자리 표시자 값을 사용합니다(실제 비밀 아님).
 
-## Authentication
+## 인증
 
-- [ ] Passwords hashed with bcrypt (≥12 rounds), scrypt, or argon2
-- [ ] Session cookies: `httpOnly`, `secure`, `sameSite: 'lax'`
-- [ ] Session expiration configured (reasonable max-age)
+- [ ] bcrypt(≥12 라운드), scrypt 또는 argon2로 해시된 Passwords
+- [ ] 세션 쿠키: `httpOnly`, `secure`, `sameSite: 'lax'`
+- [ ] 세션 만료가 구성됨(합리적인 max-age)
 - [ ] Rate limiting on login endpoint (≤10 attempts per 15 minutes)
-- [ ] Password reset tokens: time-limited (≤1 hour), single-use
-- [ ] Account lockout after repeated failures (optional, with notification)
-- [ ] MFA supported for sensitive operations (optional but recommended)
+- [ ] 비밀번호 재설정 토큰: time-limited(1시간 이하), single-use
+- [ ] 반복적인 실패 후 계정 잠금(선택 사항, 알림 포함)
+- [ ] MFA 민감한 작업에 지원됨(선택 사항이지만 권장됨)
 
-## Authorization
+## 승인
 
-- [ ] Every protected endpoint checks authentication
-- [ ] Every resource access checks ownership/role (prevents IDOR)
-- [ ] Admin endpoints require admin role verification
-- [ ] API keys scoped to minimum necessary permissions
-- [ ] JWT tokens validated (signature, expiration, issuer)
+- [ ] 보호된 모든 엔드포인트는 인증을 확인합니다.
+- [ ] 모든 리소스 액세스는 소유권을 확인합니다./role(IDOR 방지)
+- [ ] 관리 엔드포인트 require 관리 역할 확인 필요
+- [ ] API 키는 필요한 최소 권한으로 범위가 지정되었습니다.
+- [ ] JWT 토큰이 검증되었습니다(서명, 만료, 발급자).
 
-## Input Validation
+## 입력 유효성 검사
 
-- [ ] All user input validated at system boundaries (API routes, form handlers)
-- [ ] Validation uses allowlists (not denylists)
-- [ ] String lengths constrained (min/max)
-- [ ] Numeric ranges validated
-- [ ] Email, URL, and date formats validated with proper libraries
-- [ ] File uploads: type restricted, size limited, content verified
-- [ ] SQL queries parameterized (no string concatenation)
-- [ ] HTML output encoded (use framework auto-escaping)
-- [ ] URLs validated before redirect (prevent open redirect)
+- [ ] 시스템 경계에서 검증된 모든 사용자 입력(API 경로, form 핸들러)
+- [ ] 검증에서는 허용 목록(거부 목록 아님)을 사용합니다.
+- [ ] 문자열 길이가 제한됨(min/max)
+- [ ] 검증된 숫자 범위
+- [ ] 이메일, URL 및 날짜 formats가 적절한 라이브러리로 검증됨
+- [ ] 파일 업로드: rest형, 크기 제한, 콘텐츠 확인됨
+- [ ] SQL 쿼리가 매개변수화됨(문자열 연결 없음)
+- [ ] HTML 출력 인코딩됨(프레임워크 auto-escaping 사용)
+- [ ] 리디렉션 전에 URLs가 검증되었습니다(열린 리디렉션 방지).
 
-## Security Headers
+## 보안 헤더
 
 ```
 Content-Security-Policy: default-src 'self'; script-src 'self'
@@ -63,7 +63,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 ```
 
-## CORS Configuration
+## CORS 구성
 
 ```typescript
 // Restrictive (recommended)
@@ -78,15 +78,15 @@ cors({
 cors({ origin: '*' })  // Allows any origin
 ```
 
-## Data Protection
+## 데이터 보호
 
-- [ ] Sensitive fields excluded from API responses (`passwordHash`, `resetToken`, etc.)
-- [ ] Sensitive data not logged (passwords, tokens, full CC numbers)
-- [ ] PII encrypted at rest (if required by regulation)
-- [ ] HTTPS for all external communication
-- [ ] Database backups encrypted
+- [ ] API 응답에서 제외된 민감한 필드(`passwordHash`, `resetToken` 등)
+- [ ] 민감한 데이터가 기록되지 않음(passwords, 토큰, 전체 CC 숫자)
+- [ ] rest에서 암호화된 PII(규정에 따라 quired가 필요한 경우)
+- [ ] HTTPS 모든 외부 통신용
+- [ ] 데이터베이스 백업이 암호화됨
 
-## Dependency Security
+## 종속성 보안
 
 ```bash
 # Audit dependencies
@@ -102,7 +102,7 @@ npm audit --audit-level=critical
 npx npm-check-updates
 ```
 
-## Error Handling
+## 오류 처리
 
 ```typescript
 // Production: generic error, no internals
@@ -118,17 +118,17 @@ res.status(500).json({
 });
 ```
 
-## OWASP Top 10 Quick Reference
+## OWASP 상위 10개 Quick 참조
 
-| # | Vulnerability | Prevention |
+| # | 취약점 | 예방 |
 |---|---|---|
-| 1 | Broken Access Control | Auth checks on every endpoint, ownership verification |
-| 2 | Cryptographic Failures | HTTPS, strong hashing, no secrets in code |
-| 3 | Injection | Parameterized queries, input validation |
-| 4 | Insecure Design | Threat modeling, spec-driven development |
-| 5 | Security Misconfiguration | Security headers, minimal permissions, audit deps |
-| 6 | Vulnerable Components | `npm audit`, keep deps updated, minimal deps |
-| 7 | Auth Failures | Strong passwords, rate limiting, session management |
-| 8 | Data Integrity Failures | Verify updates/dependencies, signed artifacts |
-| 9 | Logging Failures | Log security events, don't log secrets |
-| 10 | SSRF | Validate/allowlist URLs, restrict outbound requests |
+| 1 | 손상된 액세스 제어 | 모든 엔드포인트에 대한 인증 확인, 소유권 확인 |
+| 2 | 암호화 실패 | HTTPS, 강력한 해싱, 코드에 비밀 없음 |
+| 3 | 주입 | 매개변수화된 쿼리, 입력 유효성 검사 |
+| 4 | 안전하지 않은 디자인 | 위협 모델링, spec-driven 개발 |
+| 5 | 보안 구성 오류 | 보안 헤더, 최소 권한, 감사 부서 |
+| 6 | 취약한 구성요소 | `npm audit`, Deps 업데이트 유지, 최소 Deps |
+| 7 | 인증 실패 | 강력한 비밀번호rds, 속도 제한, 세션 관리 |
+| 8 | 데이터 무결성 실패 | 업데이트/dependencies, 서명된 아티팩트 확인 |
+| 9 | 로깅 실패 | 보안 이벤트를 기록하고 비밀은 기록하지 않음 |
+| 10 | SSRF | /allowlist URLs, restrict 아웃바운드 요청 확인 |

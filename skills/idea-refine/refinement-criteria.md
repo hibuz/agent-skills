@@ -1,113 +1,113 @@
-# Refinement & Evaluation Criteria
+# 개선 및 평가 기준
 
-Use this rubric during Phase 2 (Evaluate & Converge) to stress-test idea directions. Not every criterion applies to every idea — use judgment about which dimensions matter most for the specific context.
+stress-test 아이디어 방향에 대한 2단계(평가 및 수렴) 동안 이 루브릭을 사용하세요. 모든 기준이 모든 아이디어에 적용되는 것은 아닙니다. 특정 맥락에서 어떤 차원이 가장 중요한지 판단하세요.
 
-## Core Evaluation Dimensions
+## 핵심 평가 차원
 
-### 1. User Value
+### 1. 사용자 가치
 
-The most important dimension. If the value isn't clear, nothing else matters.
+가장 중요한 차원. 값이 명확하지 않으면 다른 것은 중요하지 않습니다.
 
-**Painkiller vs. Vitamin:**
-- **Painkiller:** Solves an acute, frequent problem. Users will actively seek this out. They'll switch from their current solution. Signs: people describe the problem with emotion, they've built workarounds, they'll pay for a solution.
-- **Vitamin:** Nice to have. Makes something marginally better. Users won't go out of their way. Signs: people nod politely, say "that's cool," then don't change behavior.
+**진통제 대 비타민:**
+- **진통제:** 심각하고 자주 발생하는 문제를 해결합니다. 사용자는 이를 적극적으로 찾아볼 것입니다. 그들은 현재 솔루션에서 전환할 것입니다. Signs: people describe the problem with emotion, they've built workarounds, they'll pay for a solution.
+- **비타민:** 가지고 있으면 좋아요. 뭔가를 약간 더 좋게 만듭니다. 사용자는 자신의 길을 벗어나지 않을 것입니다. 징후: 사람들은 정중하게 고개를 끄덕이고 "멋지네요"라고 말한 다음 행동을 바꾸지 않습니다.
 
-**Questions to ask:**
-- Can you name 3 specific people who have this problem right now?
-- What are they doing today instead? (The real competitor is always the current workaround.)
-- Would they switch from their current approach? What would make them switch?
-- How often do they encounter this problem? (Daily problems > monthly problems)
-- Is this a "pull" problem (users are asking for this) or a "push" problem (you think they should want this)?
+**질문사항:**
+- 현재 이 문제를 겪고 있는 구체적인 사람 3명의 이름을 말씀해 주실 수 있나요?
+- 대신 오늘은 뭐해요? (실제 경쟁자는 항상 현재 해결 방법입니다.)
+- 현재 접근 방식에서 전환할 것인가? 무엇이 그들을 바꾸게 만들까요?
+- 이 문제가 얼마나 자주 발생합니까? (일상 문제 > 월간 문제)
+- 이것은 "풀(pull)" 문제(사용자가 요구하는 것)인가, 아니면 "푸시(push)" 문제(사용자가 이것을 원한다고 생각하는가)인가?
 
-**Red flags:**
-- "Everyone could use this" — if you can't name a specific user, the value isn't clear
-- "It's like X but better" — marginal improvements rarely drive adoption
-- The problem is real but rare — high intensity but low frequency rarely justifies a product
+**위험 신호:**
+- "Everyone could use this" — 특정 사용자의 이름을 지정할 수 없으면 값이 명확하지 않습니다.
+- "X와 비슷하지만 더 좋습니다" - 한계 개선으로 채택이 거의 이루어지지 않음
+- 문제는 실제적이지만 드물다. 강도는 높지만 빈도가 낮으면 제품을 정당화하는 경우가 거의 없습니다.
 
-### 2. Feasibility
+### 2. 타당성
 
-Can you actually build this? Not just technically, but practically.
+실제로 이것을 build할 수 있습니까? 기술적으로뿐만 아니라 실제로도 마찬가지입니다.
 
-**Technical feasibility:**
-- Does the core technology exist and work reliably?
-- What's the hardest technical problem? Is it a known-hard problem or a novel one?
-- Are there dependencies on third parties, APIs, or data sources you don't control?
-- What's the minimum technical stack needed? (If the answer is "a lot," that's a signal.)
+**기술적 타당성:**
+- 핵심기술이 존재하고 안정적으로 작동하는가?
+- 가장 어려운 기술적인 문제는 무엇인가요? known-hard 문제인가요, 아니면 새로운 문제인가요?
+- 제3자, APIs 또는 귀하가 제어할 수 없는 데이터 소스에 대한 종속성이 있습니까?
+- 필요한 최소한의 기술 스택은 무엇입니까? (대답이 "많다"라면 이는 신호입니다.)
 
-**Resource feasibility:**
-- What's the minimum team/effort to build an MVP?
-- Does it require specialized expertise you don't have?
-- Are there regulatory, legal, or compliance requirements?
+**리소스 타당성:**
+- build 및 MVP에 대한 최소 team/effort는 무엇입니까?
+- 당신이 가지고 있지 않은 전문적인 전문 지식이 필요합니까?
+- 규정, 법률 또는 규정 준수 요구 사항이 있습니까?
 
-**Time-to-value:**
-- How quickly can you get something in front of users?
-- Is there a version that delivers value in days/weeks, not months?
-- What's the critical path? What has to happen first?
+**시간-to-value:**
+- quickly는 어떻게 사용자 앞에서 무언가를 얻을 수 있습니까?
+- 몇 달이 아닌 며칠 /weeks 단위로 가치를 전달하는 버전이 있나요?
+- 임계 경로는 무엇입니까? 먼저 무슨 일이 일어나야 합니까?
 
-**Red flags:**
-- "We just need to solve [very hard research problem] first"
-- Multiple dependencies that all need to work simultaneously
-- MVP still requires months of work — likely not minimal enough
+**위험 신호:**
+- "먼저 [매우 어려운 연구 문제]를 해결하면 됩니다."
+- 모두 동시에 작동해야 하는 여러 종속성
+- MVP는 여전히 몇 달의 작업이 필요합니다. 최소한의 작업은 아닐 것입니다.
 
-### 3. Differentiation
+### 3. 차별화
 
-What makes this genuinely different? Not better — *different*.
+이 genuinely 다른 점은 무엇입니까? 더 좋지는 않습니다 — *다르다*.
 
-**Questions to ask:**
-- If a user described this to a friend, what would they say? Is that description compelling?
-- What's the one thing this does that nothing else does? (If you can't name one, that's a problem.)
-- Is this differentiation durable? Can a competitor copy it in a week?
-- Is the difference something users actually care about, or just something builders find interesting?
+**질문사항:**
+- 사용자가 친구에게 이 내용을 설명하면 뭐라고 말할까요? 그 설명이 설득력이 있나요?
+- 다른 것은 하지 않지만 이것이 하는 유일한 일은 무엇입니까? (이름을 밝힐 수 없다면 문제가 됩니다.)
+- 이러한 차별화가 지속 가능한가? 경쟁업체가 일주일 안에 이를 복사할 수 있습니까?
+- 차이점은 사용자가 실제로 관심을 갖는 부분인가요, 아니면 builders가 interesting에서 찾는 부분인가요?
 
-**Types of differentiation (strongest to weakest):**
-1. **New capability:** Does something that was previously impossible
-2. **10x improvement:** So much better on a key dimension that it changes behavior
-3. **New audience:** Brings an existing capability to people who were excluded
-4. **New context:** Works in a situation where existing solutions fail
-5. **Better UX:** Same capability, dramatically simpler experience
-6. **Cheaper:** Same thing, lower cost (weakest — easily competed away)
+**차별화 유형(가장 강한 것에서 가장 약한 것까지):**
+1. **새로운 기능:** 이전에는 불가능했던 작업을 수행합니다.
+2. **10배 개선:** 핵심 차원에서 훨씬 더 좋아져서 동작이 변경됩니다.
+3. **새로운 대상:** 제외된 사람들에게 기존 기능을 제공합니다.
+4. **새 컨텍스트:** 기존 솔루션이 실패하는 상황에서 작동합니다.
+5. **더 나은 UX:** 동일한 기능, 훨씬 더 간단한 경험
+6. **저렴함:** 동일, 저비용(가장 약함 – 쉽게 경쟁할 수 있음)
 
-**Red flags:**
-- Differentiation is entirely about technology, not user experience
-- "We're faster/cheaper/prettier" without a structural reason why
-- The feature that differentiates is not the feature users care most about
+**위험 신호:**
+- 차별화는 전적으로 기술에 관한 것이지 사용자 경험에 관한 것이 아닙니다.
+- 구조적인 이유 없이 "우리가 더 빠릅니다/cheaper/prettier"
+- 차별화되는 기능은 사용자가 가장 중요하게 생각하는 기능이 아닙니다.
 
-## Assumption Audit
+## 가정 감사
 
-For every idea direction, explicitly list assumptions in three categories:
+모든 아이디어 방향에 대해 세 가지 범주로 가정을 명시적으로 나열하세요.
 
-### Must Be True (Dealbreakers)
-Assumptions that, if wrong, kill the idea entirely. These need validation before building.
+### 사실이어야 함(거래 중단자)
+만약 틀렸다면 그 아이디어를 완전히 죽이는 가정. building 전에 검증이 필요합니다.
 
-Example: "Users will share their data with us" — if they won't, the entire product doesn't work.
+예: "사용자는 자신의 데이터를 우리와 공유할 것입니다." — 그렇지 않으면 전체 제품이 작동하지 않습니다.
 
-### Should Be True (Important)
-Assumptions that significantly impact success but don't kill the idea. You can adjust the approach if these are wrong.
+### True여야 함(중요)
+성공에 큰 영향을 주지만 아이디어를 죽이지는 않는 가정. 이것이 잘못된 경우 접근 방식을 조정할 수 있습니다.
 
-Example: "Users prefer self-serve over talking to a person" — if wrong, you need a different go-to-market, but the core product can still work.
+예: "사용자는 사람과 대화하는 것보다 self-serve를 선호합니다." — 잘못된 경우 다른 go-to-market가 필요하지만 핵심 제품은 계속 작동할 수 있습니다.
 
-### Might Be True (Nice to Have)
-Assumptions about secondary features or optimizations. Don't validate these until the core is proven.
+### 사실일 수도 있음(있으면 좋음)
+보조 기능 또는 최적화에 대한 가정. 핵심이 입증될 때까지 이를 검증하지 마세요.
 
-Example: "Users will want to share their results with teammates" — a growth feature, not a core value proposition.
+예: "사용자는 자신의 결과를 팀원과 공유하기를 원할 것입니다"는 핵심 가치 제안이 아닌 성장 기능입니다.
 
-## Decision Framework
+## 의사결정 프레임워크
 
-When choosing between directions, rank on this matrix:
+방향 중에서 선택할 때 다음 매트릭스에 순위를 매기십시오.
 
-|                    | High Feasibility | Low Feasibility |
+|                    | 높은 타당성 | 낮은 타당성 |
 |--------------------|-------------------|-----------------|
-| **High Value**     | Do this first     | Worth the risk   |
-| **Low Value**      | Only if trivial   | Don't do this    |
+| **높은 가치** | 이 작업을 먼저 수행 | 위험을 감수할 가치가 있다 |
+| **낮은 가치** | 사소한 경우에만 | 이러지 마세요 |
 
-Then use differentiation as the tiebreaker between options in the same quadrant.
+그런 다음 동일한 quadrant의 옵션 간 결정자로 차별화를 사용합니다.
 
-## MVP Scoping Principles
+## MVP 범위 지정 원칙
 
-When defining MVP scope for the chosen direction:
+선택한 방향에 대해 MVP 범위를 정의하는 경우:
 
-1. **One job, done well.** The MVP should nail exactly one user job. Not three jobs done partially.
-2. **The riskiest assumption first.** The MVP's primary purpose is to test the assumption most likely to be wrong.
-3. **Time-box, not feature-list.** "What can we build and test in [timeframe]?" is better than "What features do we need?"
-4. **The 'Not Doing' list is mandatory.** Explicitly name what you're cutting and why. This prevents scope creep and forces honest prioritization.
-5. **If it's not embarrassing, you waited too long.** The first version should feel incomplete to the builder. If it doesn't, you over-built.
+1. **하나의 작업이 잘 완료되었습니다.** MVP는 정확히 하나의 사용자 작업을 완료해야 합니다. 세 가지 작업이 부분적으로 완료되지 않았습니다.
+2. **가장 위험한 가정이 먼저입니다.** MVP의 주요 목적은 틀릴 가능성이 가장 높은 가정을 테스트하는 것입니다.
+3. **feature-list가 아닌 시간 상자.** "[기간]에 build를 테스트하고 무엇을 테스트할 수 있습니까?" "어떤 기능이 필요한가요?"보다 낫습니다.
+4. **'하지 않음' 목록은 필수입니다.** 자르려는 항목과 그 이유를 명시적으로 지정하세요. 이는 범위 확장을 방지하고 정직한 우선순위를 강제합니다.
+5. **부끄럽지 않다면 너무 오래 기다리신 것입니다.** builder에게는 첫 번째 버전이 불완전하게 느껴질 것입니다. 그렇지 않으면 over-built입니다.

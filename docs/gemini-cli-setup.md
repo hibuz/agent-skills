@@ -1,43 +1,43 @@
-# Using agent-skills with Gemini CLI
+# Gemini CLI와 함께 agent-skills 사용하기
 
-## Setup
+## 설정
 
-### Option 1: Install as Skills (Recommended)
+### 옵션 1: Skills로 설치(권장)
 
-Gemini CLI has a native skills system that auto-discovers `SKILL.md` files in `.gemini/skills/` or `.agents/skills/` directories. Each skill activates on demand when it matches your task.
+Gemini CLI에는 auto-discovers `SKILL.md`가 `.gemini/skills/` 또는 `.agents/skills/` 디렉터리에 파일을 저장하는 기본 skills 시스템이 있습니다. 각 skill는 작업과 일치할 때 요청 시 활성화됩니다.
 
-**Install from the repo:**
+**repo에서 설치:**
 
 ```bash
 gemini skills install https://github.com/addyosmani/agent-skills.git --path skills
 ```
 
-**Or install from a local clone:**
+**또는 로컬 클론에서 설치:**
 
 ```bash
 git clone https://github.com/addyosmani/agent-skills.git
 gemini skills install /path/to/agent-skills/skills/
 ```
 
-**Install for a specific workspace only:**
+**특정 작업공간에만 설치:**
 
 ```bash
 gemini skills install /path/to/agent-skills/skills/ --scope workspace
 ```
 
-Skills installed at workspace scope go into `.gemini/skills/` (or `.agents/skills/`). User-level skills go into `~/.gemini/skills/`.
+작업 공간 범위에 설치된 Skills는 `.gemini/skills/`(또는 `.agents/skills/`)로 이동합니다. 사용자 수준 skills는 `~/.gemini/skills/`로 이동합니다.
 
-Once installed, verify with:
+설치가 완료되면 다음을 통해 확인하세요.
 
 ```
 /skills list
 ```
 
-Gemini CLI injects skill names and descriptions into the prompt automatically. When it recognizes a matching task, it asks permission to activate the skill before loading its full instructions.
+Gemini CLI는 skill 이름과 설명을 프롬프트에 자동으로 삽입합니다. 일치하는 작업을 인식하면 전체 지침을 로드하기 전에 skill를 활성화할 수 있는 권한을 요청합니다.
 
-### Option 2: GEMINI.md (Persistent Context)
+### 옵션 2: GEMINI.md(영구 컨텍스트)
 
-For skills you want always loaded as persistent project context (rather than on-demand activation), add them to your project's `GEMINI.md`:
+skills의 경우 항상 영구 프로젝트 컨텍스트(on-demand 활성화가 아닌)로 로드하려면 프로젝트의 `GEMINI.md`에 추가하세요.
 
 ```bash
 # Create GEMINI.md with core skills as persistent context
@@ -46,7 +46,7 @@ echo -e "\n---\n" >> GEMINI.md
 cat /path/to/agent-skills/skills/code-review-and-quality/SKILL.md >> GEMINI.md
 ```
 
-You can also modularize by importing from separate files:
+별도의 파일에서 가져와서 모듈화할 수도 있습니다.
 
 ```markdown
 # Project Instructions
@@ -55,59 +55,59 @@ You can also modularize by importing from separate files:
 @skills/incremental-implementation/SKILL.md
 ```
 
-Use `/memory show` to verify loaded context, and `/memory reload` to refresh after changes.
+로드된 컨텍스트를 확인하려면 `/memory show`를 사용하고 변경 후 새로 고치려면 `/memory reload`를 사용하세요.
 
-> **Skills vs GEMINI.md:** Skills are on-demand expertise that activate only when relevant, keeping your context window clean. GEMINI.md provides persistent context loaded for every prompt. Use skills for phase-specific workflows and GEMINI.md for always-on project conventions.
+> **Skills 대 GEMINI.md:** Skills는 관련성이 있는 경우에만 활성화되어 컨텍스트 창을 깨끗하게 유지하는 on-demand 전문 기술입니다. GEMINI.md는 모든 프롬프트에 대해 로드된 영구 컨텍스트를 제공합니다. phase-specific workflows에는 skills를 사용하고 always-on 프로젝트 규칙에는 GEMINI.md를 사용합니다.
 
-## Recommended Configuration
+## 권장 구성
 
-### Always-On (GEMINI.md)
+### 상시 가동(GEMINI.md)
 
-Add these as persistent context for every session:
+모든 세션에 대해 영구 컨텍스트로 다음을 추가합니다.
 
-- `incremental-implementation` — Build in small verifiable slices
-- `code-review-and-quality` — Five-axis review
+- `incremental-implementation` — 검증 가능한 작은 조각의 Build
+- `code-review-and-quality` — 5축 검토
 
-### On-Demand (Skills)
+### 온디맨드(Skills)
 
-Install these as skills so they activate only when relevant:
+관련된 경우에만 활성화되도록 skills로 설치하십시오.
 
-- `test-driven-development` — Activates when implementing logic or fixing bugs
-- `spec-driven-development` — Activates when starting a new project or feature
-- `frontend-ui-engineering` — Activates when building UI
-- `security-and-hardening` — Activates during security reviews
-- `performance-optimization` — Activates during performance work
+- `test-driven-development` — 로직을 구현하거나 버그를 수정할 때 활성화됩니다.
+- `spec-driven-development` — 새 프로젝트나 기능을 시작할 때 활성화됩니다.
+- `frontend-ui-engineering` — build가 UI일 때 활성화됩니다.
+- `security-and-hardening` — 보안 검토 중에 활성화됩니다.
+- `performance-optimization` — performance 작업 중에 활성화됩니다.
 
-## Advanced Configuration
+## 고급 구성
 
-### MCP Integration
+### MCP 통합
 
-Many skills in this pack leverage [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools to interact with the environment. For example:
+이 팩에 포함된 많은 skills는 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) 도구를 활용하여 환경과 상호 작용합니다. 예를 들면:
 
-- `browser-testing-with-devtools` uses the `chrome-devtools` MCP extension.
-- `performance-optimization` can benefit from performance-related MCP tools.
+- `browser-testing-with-devtools`는 `chrome-devtools` MCP 확장을 사용합니다.
+- `performance-optimization`는 performance-related MCP 도구의 이점을 누릴 수 있습니다.
 
-To enable these, ensure you have the relevant MCP extensions installed in your Gemini CLI configuration (`~/.gemini/config.json`).
+이를 활성화하려면 Gemini CLI 구성(`~/.gemini/config.json`)에 관련 MCP 확장이 설치되어 있는지 확인하세요.
 
-### Session Hooks
+### 세션 후크
 
-Gemini CLI supports session lifecycle hooks. You can use these to automatically inject context or run validation scripts at the start of a session.
+Gemini CLI는 세션 수명주기 후크를 지원합니다. 이를 사용하여 세션 시작 시 자동으로 컨텍스트를 삽입하거나 유효성 검사 스크립트를 실행할 수 있습니다.
 
-To replicate the `agent-skills` experience from other tools, you can configure a `SessionStart` hook that reminds you of the available skills or loads a meta-skill.
+다른 도구에서 `agent-skills` 경험을 복제하려면 사용 가능한 skills를 상기시키거나 meta-skill를 로드하는 `SessionStart` 후크를 구성할 수 있습니다.
 
-### Explicit Context Loading
+### 명시적 컨텍스트 로딩
 
-You can explicitly load any skill into your current session by referencing it with the `@` symbol in your prompt:
+프롬프트에서 `@` 기호를 사용하여 skill를 참조하여 현재 세션에 명시적으로 로드할 수 있습니다.
 
 ```markdown
 Use the @skills/test-driven-development/SKILL.md skill to implement this fix.
 ```
 
-This is useful when you want to ensure a specific workflow is followed without waiting for auto-discovery.
+이는 auto-discovery를 기다리지 않고 특정 workflow를 따르려는 경우에 유용합니다.
 
-## Usage Tips
+## 사용 팁
 
-1. **Prefer skills over GEMINI.md** — Skills activate on demand and keep your context window focused. Only put skills in GEMINI.md if you want them always loaded.
-2. **Skill descriptions matter** — Each SKILL.md has a `description` field in its frontmatter that tells agents when to activate it. The descriptions in this repo are optimized for auto-discovery across all supported tools (Claude Code, Gemini CLI, etc.) by clearly stating both *what* the skill does and *when* it should be triggered.
-3. **Use agents for review** — Copy `agents/code-reviewer.md` content when requesting structured code reviews.
-4. **Combine with references** — Reference checklists from `references/` when working on specific quality areas like testing or performance.
+1. **GEMINI.md보다 skills를 선호합니다** — Skills는 요청 시 활성화하고 컨텍스트 창에 집중합니다. 항상 로드하려면 GEMINI.md에 skills만 넣으세요.
+2. **Skill 설명이 중요합니다** — 각 SKILL.md에는 frontmatter에 agents를 활성화할 시기를 알려주는 `description` 필드가 있습니다. 이 repo의 설명은 skill가 수행하는 *무엇*과 트리거되어야 하는 *언제*를 모두 명확하게 명시하여 지원되는 모든 도구(Claude Code, Gemini CLI 등) 전반에 걸쳐 auto-discovery에 최적화되어 있습니다.
+3. **검토를 위해 agents 사용** — 구조화된 코드 검토를 요청할 때 `agents/code-reviewer.md` 콘텐츠를 복사합니다.
+4. **참조와 결합** — 테스트 또는 performance와 같은 특정 품질 영역에서 작업할 때 `references/`의 참조 체크리스트입니다.

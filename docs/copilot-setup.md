@@ -1,10 +1,10 @@
-# Using agent-skills with GitHub Copilot
+# GitHub Copilot과 함께 agent-skills 사용
 
-## Setup
+## 설정
 
-### Copilot Instructions
+### 부조종사 지침
 
-Copilot supports creating agent skills using a `.github/skills`, `.claude/skills`, or `.agents/skills` directory in your repository.
+Copilot은 repository에서 `.github/skills`, `.claude/skills` 또는 `.agents/skills` 디렉터리를 사용하여 agent skills 생성을 지원합니다.
 
 ```bash
 mkdir -p .github
@@ -14,11 +14,11 @@ cat /path/to/agent-skills/skills/test-driven-development/SKILL.md > .github/skil
 cat /path/to/agent-skills/skills/code-review-and-quality/SKILL.md > .github/skills/code-review-and-quality/SKILL.md
 ```
 
-For more details, refer [Creating agent skills for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills).
+자세한 내용은 [Creating agent skills for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills)를 참조하세요.
 
-### Agent Personas (agents.md)
+### Agent 페르소나(agents.md)
 
-Copilot supports specialized agent personas. Use the agent-skills agents:
+Copilot은 특수한 agent 페르소나를 지원합니다. agent-skills agents를 사용하세요.
 
 ```bash
 # Copy agent definitions
@@ -27,23 +27,23 @@ cp /path/to/agent-skills/agents/test-engineer.md .github/agents/test-engineer.md
 cp /path/to/agent-skills/agents/security-auditor.md .github/agents/security-auditor.md
 ```
 
-Invoke agents in Copilot Chat:
+Copilot Chat에서 agents를 호출합니다.
 - `@code-reviewer Review this PR`
 - `@test-engineer Analyze test coverage for this module`
 - `@security-auditor Check this endpoint for vulnerabilities`
 
-### Custom Instructions (User Level)
+### 맞춤 지침(사용자 수준)
 
-For skills you want across all repositories:
+skills의 경우 모든 repositories에서 원하는:
 
-1. Open VS Code → Settings → GitHub Copilot → Custom Instructions
-2. Add your most-used skill summaries
+1. VS 코드 열기 → 설정 → GitHub Copilot → 사용자 정의 지침
+2. most-used skill 요약을 추가하세요.
 
-## Recommended Configuration
+## 권장 구성
 
 ### .github/copilot-instructions.md
 
-GitHub Copilot supports project-level instructions via `.github/copilot-instructions.md`.
+GitHub Copilot은 `.github/copilot-instructions.md`를 통해 project-level 지침을 지원합니다.
 
 ```markdown
 # Project Coding Standards
@@ -70,13 +70,13 @@ GitHub Copilot supports project-level instructions via `.github/copilot-instruct
 - Never: Commit secrets, remove failing tests, skip verification
 ```
 
-### Specialized Agents
+### 전문 Agents
 
-Use the agents for targeted review workflows in Copilot Chat.
+Copilot Chat에서 대상 검토 workflows를 위해 agents를 사용하세요.
 
-## Usage Tips
+## 사용 팁
 
-1. **Keep instructions concise** — Copilot instructions work best when focused. Summarize the key rules rather than including full skill files.
-2. **Use agents for review** — The code-reviewer, test-engineer, and security-auditor agents are designed for Copilot's agent model.
-3. **Reference in chat** — When working on a specific phase, paste the relevant skill content into Copilot Chat for context.
-4. **Combine with PR reviews** — Set up Copilot to review PRs using the code-reviewer agent persona.
+1. **지침을 간결하게 유지하세요** — Copilot 지침은 집중할 때 가장 잘 작동합니다. 전체 skill 파일을 포함하는 대신 주요 규칙을 요약합니다.
+2. **검토를 위해 agents 사용** — code-reviewer, test-engineer 및 security-auditor agents는 Copilot의 agent 모델용으로 설계되었습니다.
+3. **채팅 참조** — 특정 단계에서 작업할 때 관련 skill 콘텐츠를 Copilot Chat에 붙여넣어 맥락을 파악하세요.
+4. **PR 리뷰와 결합** — code-reviewer agent 페르소나를 사용하여 PRs를 검토하도록 Copilot을 설정합니다.

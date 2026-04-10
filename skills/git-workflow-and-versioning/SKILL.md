@@ -1,23 +1,23 @@
 ---
 name: git-workflow-and-versioning
-description: Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.
+description: git workflow 방식의 구조. 코드를 변경할 때 사용하세요. 커밋, 분기, 충돌 해결 시 또는 여러 병렬 스트림에 걸쳐 작업을 구성해야 할 때 사용하세요.
 ---
 
-# Git Workflow and Versioning
+# Git Workflow 및 버전 관리
 
-## Overview
+## 개요
 
-Git is your safety net. Treat commits as save points, branches as sandboxes, and history as documentation. With AI agents generating code at high speed, disciplined version control is the mechanism that keeps changes manageable, reviewable, and reversible.
+Git은 안전망입니다. 커밋을 저장 지점으로, 분기를 샌드박스로, 기록을 문서로 처리합니다. AI agents가 고속으로 코드를 생성하는 방식을 통해 엄격한 버전 제어는 변경 사항을 관리, 검토 및 되돌릴 수 있도록 유지하는 메커니즘입니다.
 
-## When to Use
+## 사용 시기
 
-Always. Every code change flows through git.
+항상. 모든 코드 변경은 git을 통해 이루어집니다.
 
-## Core Principles
+## 핵심 원칙
 
-### Trunk-Based Development (Recommended)
+### Trunk-Based Development(권장)
 
-Keep `main` always deployable. Work in short-lived feature branches that merge back within 1-3 days. Long-lived development branches are hidden costs — they diverge, create merge conflicts, and delay integration. DORA research consistently shows trunk-based development correlates with high-performing engineering teams.
+`main`를 항상 배포 가능하게 유지하세요. 1~3일 이내에 다시 병합되는 short-lived 기능 분기에서 작업하세요. 수명이 긴 개발 브랜치는 숨겨진 비용입니다. 분기하고, 병합 충돌을 일으키고, 통합을 지연시킵니다. DORA 연구는 trunk-based 개발이 high-performing 엔지니어링 팀과 상관관계가 있음을 일관되게 보여줍니다.
 
 ```
 main ──●──●──●──●──●──●──●──●──●──  (always deployable)
@@ -25,15 +25,15 @@ main ──●──●──●──●──●──●──●──●─
          ●──●─╱    ●──╱    ← short-lived feature branches (1-3 days)
 ```
 
-This is the recommended default. Teams using gitflow or long-lived branches can adapt the principles (atomic commits, small changes, descriptive messages) to their branching model — the commit discipline matters more than the specific branching strategy.
+이는 권장되는 기본값입니다. gitflow 또는 long-lived 분기를 사용하는 팀은 원칙(원자적 커밋, 작은 변경, 설명 메시지)을 분기 모델에 적용할 수 있습니다. 커밋 원칙은 특정 분기 전략보다 중요합니다.
 
-- **Dev branches are costs.** Every day a branch lives, it accumulates merge risk.
-- **Release branches are acceptable.** When you need to stabilize a release while main moves forward.
-- **Feature flags > long branches.** Prefer deploying incomplete work behind flags rather than keeping it on a branch for weeks.
+- **개발 브랜치는 비용입니다.** 브랜치가 매일 존재하면서 병합 위험이 누적됩니다.
+- **릴리스 분기가 허용됩니다.** 메인이 진행되는 동안 릴리스를 안정화해야 하는 경우.
+- **Feature flags > 긴 분기.** 몇 주 동안 분기에 보관하는 것보다 플래그 뒤에 불완전한 작업을 배포하는 것을 선호합니다.
 
-### 1. Commit Early, Commit Often
+### 1. 일찍 커밋하고 자주 커밋하세요.
 
-Each successful increment gets its own commit. Don't accumulate large uncommitted changes.
+성공적인 각 증분에는 자체 커밋이 적용됩니다. 커밋되지 않은 대규모 변경 사항을 누적하지 마세요.
 
 ```
 Work pattern:
@@ -43,11 +43,11 @@ Not this:
   Implement everything → Hope it works → Giant commit
 ```
 
-Commits are save points. If the next change breaks something, you can revert to the last known-good state instantly.
+커밋은 저장 포인트입니다. 다음 변경으로 인해 문제가 발생하면 즉시 마지막 known-good 상태로 되돌릴 수 있습니다.
 
-### 2. Atomic Commits
+### 2. 원자적 커밋
 
-Each commit does one logical thing:
+각 커밋은 하나의 논리적 작업을 수행합니다.
 
 ```
 # Good: Each commit is self-contained
@@ -62,9 +62,9 @@ git log --oneline
 x1y2z3a Add task feature, fix sidebar, update deps, refactor utils
 ```
 
-### 3. Descriptive Messages
+### 3. 설명 메시지
 
-Commit messages explain the *why*, not just the *what*:
+커밋 메시지는 *무엇*뿐만 아니라 *이유*를 설명합니다.
 
 ```
 # Good: Explains intent
@@ -85,17 +85,17 @@ update auth.ts
 <optional body explaining why, not what>
 ```
 
-**Types:**
-- `feat` — New feature
-- `fix` — Bug fix
-- `refactor` — Code change that neither fixes a bug nor adds a feature
-- `test` — Adding or updating tests
-- `docs` — Documentation only
-- `chore` — Tooling, dependencies, config
+**유형:**
+- `feat` — 새로운 기능
+- `fix` — 버그 수정
+- `refactor` — 버그를 수정하지도 않고 기능을 추가하지도 않는 코드 변경
+- `test` — 테스트 추가 또는 업데이트
+- `docs` — 문서 전용
+- `chore` — 도구, 종속성, 구성
 
-### 4. Keep Concerns Separate
+### 4. 우려 사항을 별도로 유지
 
-Don't combine formatting changes with behavior changes. Don't combine refactors with features. Each type of change should be a separate commit — and ideally a separate PR:
+formatting 변경 사항과 동작 변경 사항을 결합하지 마십시오. 리팩터링을 기능과 결합하지 마세요. 각 변경 유형은 별도의 커밋이어야 하며 이상적으로는 별도의 PR여야 합니다.
 
 ```
 # Good: Separate concerns
@@ -106,11 +106,11 @@ git commit -m "feat: add phone number validation to registration"
 git commit -m "refactor validation and add phone number field"
 ```
 
-**Separate refactoring from feature work.** A refactoring change and a feature change are two different changes — submit them separately. This makes each change easier to review, revert, and understand in history. Small cleanups (renaming a variable) can be included in a feature commit at reviewer discretion.
+**기능 작업과 별도의 리팩토링.** 리팩토링 변경과 기능 변경은 서로 다른 두 가지 변경 사항이므로 별도로 제출하세요. 이렇게 하면 기록에서 각 변경 사항을 더 쉽게 검토하고, 되돌리고, 이해할 수 있습니다. 검토자의 재량에 따라 작은 정리(변수 이름 바꾸기)가 기능 커밋에 포함될 수 있습니다.
 
-### 5. Size Your Changes
+### 5. 변경 사항의 크기를 조정하세요.
 
-Target ~100 lines per commit/PR. Changes over ~1000 lines should be split. See the splitting strategies in `code-review-and-quality` for how to break down large changes.
+commit/PR당 최대 100줄을 목표로 합니다. 1000줄 이상의 변경 사항은 분할되어야 합니다. 큰 변경 사항을 분석하는 방법은 `code-review-and-quality`의 분할 전략을 참조하세요.
 
 ```
 ~100 lines  → Easy to review, easy to revert
@@ -118,9 +118,9 @@ Target ~100 lines per commit/PR. Changes over ~1000 lines should be split. See t
 ~1000 lines → Split into smaller changes
 ```
 
-## Branching Strategy
+## 분기 전략
 
-### Feature Branches
+### 기능 분기
 
 ```
 main (always deployable)
@@ -130,12 +130,12 @@ main (always deployable)
   └── fix/duplicate-tasks      ← Bug fixes
 ```
 
-- Branch from `main` (or the team's default branch)
-- Keep branches short-lived (merge within 1-3 days) — long-lived branches are hidden costs
-- Delete branches after merge
-- Prefer feature flags over long-lived branches for incomplete features
+- `main`에서 분기(또는 팀의 기본 분기)
+- 지점 short-lived 유지(1~3일 이내에 병합) — long-lived 지점은 숨겨진 비용입니다.
+- 병합 후 분기 삭제
+- 불완전한 기능을 위해 long-lived 분기보다 feature flags를 선호합니다.
 
-### Branch Naming
+### 지점 이름 지정
 
 ```
 feature/<short-description>   → feature/task-creation
@@ -144,9 +144,9 @@ chore/<short-description>     → chore/update-deps
 refactor/<short-description>  → refactor/auth-module
 ```
 
-## Working with Worktrees
+## 작업 트리 작업
 
-For parallel AI agent work, use git worktrees to run multiple branches simultaneously:
+병렬 AI agent 작업의 경우 git worktrees를 사용하여 여러 분기를 동시에 실행합니다.
 
 ```bash
 # Create a worktree for a feature branch
@@ -164,13 +164,13 @@ ls ../
 git worktree remove ../project-feature-a
 ```
 
-Benefits:
-- Multiple agents can work on different features simultaneously
-- No branch switching needed (each directory has its own branch)
-- If one experiment fails, delete the worktree — nothing is lost
-- Changes are isolated until explicitly merged
+혜택:
+- 여러 agents는 서로 다른 기능을 동시에 작동할 수 있습니다.
+- 분기 전환이 필요하지 않습니다(각 디렉터리에는 자체 분기가 있음).
+- 하나의 실험이 실패하면 작업 트리를 삭제하세요. 아무것도 손실되지 않습니다.
+- 변경 사항은 명시적으로 병합될 때까지 격리됩니다.
 
-## The Save Point Pattern
+## 저장 포인트 패턴
 
 ```
 Agent starts work
@@ -186,11 +186,11 @@ Agent starts work
     └── Feature complete → All commits form a clean history
 ```
 
-This pattern means you never lose more than one increment of work. If an agent goes off the rails, `git reset --hard HEAD` takes you back to the last successful state.
+이 패턴은 작업 증가분을 두 번 이상 잃지 않는다는 것을 의미합니다. agent가 레일을 벗어나면 `git reset --hard HEAD`가 마지막 성공 상태로 돌아갑니다.
 
-## Change Summaries
+## 변경 요약
 
-After any modification, provide a structured summary. This makes review easier, documents scope discipline, and surfaces unintended changes:
+수정 후에는 구조화된 요약을 제공하세요. 이렇게 하면 검토가 더 쉬워지고 문서 범위 규율이 향상되며 의도하지 않은 변경 사항이 드러납니다.
 
 ```
 CHANGES MADE:
@@ -206,11 +206,11 @@ POTENTIAL CONCERNS:
 - Added zod as a dependency (72KB gzipped) — already in package.json
 ```
 
-This pattern catches wrong assumptions early and gives reviewers a clear map of the change. The "DIDN'T TOUCH" section is especially important — it shows you exercised scope discipline and didn't go on an unsolicited renovation.
+이 패턴은 잘못된 가정을 조기에 파악하고 검토자에게 변경 사항에 대한 명확한 지도를 제공합니다. "DIDN'T TOUCH" 섹션은 특히 중요합니다. 이는 범위 규율을 연습했고 원치 않는 개조 작업을 진행하지 않았음을 보여줍니다.
 
-## Pre-Commit Hygiene
+## 사전 커밋 위생
 
-Before every commit:
+모든 커밋 전:
 
 ```bash
 # 1. Check what you're about to commit
@@ -229,7 +229,7 @@ npm run lint
 npx tsc --noEmit
 ```
 
-Automate this with git hooks:
+git Hooks를 사용하여 이를 자동화하세요:
 
 ```json
 // package.json (using lint-staged + husky)
@@ -241,13 +241,13 @@ Automate this with git hooks:
 }
 ```
 
-## Handling Generated Files
+## 생성된 파일 처리
 
-- **Commit generated files** only if the project expects them (e.g., `package-lock.json`, Prisma migrations)
-- **Don't commit** build output (`dist/`, `.next/`), environment files (`.env`), or IDE config (`.vscode/settings.json` unless shared)
-- **Have a `.gitignore`** that covers: `node_modules/`, `dist/`, `.env`, `.env.local`, `*.pem`
+- **생성된 파일을 커밋** 프로젝트에서 예상하는 경우에만(예: `package-lock.json`, Prisma 마이그레이션)
+- **커밋하지 마세요** build 출력(`dist/`, `.next/`), 환경 파일(`.env`) 또는 IDE 구성(공유되지 않는 경우 `.vscode/settings.json`)
+- **`node_modules/`, `dist/`, `.env`, `.env.local`, `*.pem`를 포함하는 `.gitignore`**를 보유하십시오.
 
-## Using Git for Debugging
+## 디버깅을 위해 Git 사용하기
 
 ```bash
 # Find which commit introduced a bug
@@ -267,34 +267,34 @@ git blame src/services/task.ts
 git log --grep="validation" --oneline
 ```
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "I'll commit when the feature is done" | One giant commit is impossible to review, debug, or revert. Commit each slice. |
-| "The message doesn't matter" | Messages are documentation. Future you (and future agents) will need to understand what changed and why. |
-| "I'll squash it all later" | Squashing destroys the development narrative. Prefer clean incremental commits from the start. |
-| "Branches add overhead" | Short-lived branches are free and prevent conflicting work from colliding. Long-lived branches are the problem — merge within 1-3 days. |
-| "I'll split this change later" | Large changes are harder to review, riskier to deploy, and harder to revert. Split before submitting, not after. |
-| "I don't need a .gitignore" | Until `.env` with production secrets gets committed. Set it up immediately. |
+| "기능이 완료되면 커밋하겠습니다" | 하나의 거대한 커밋은 검토, 디버그 또는 되돌리기가 불가능합니다. 각 슬라이스를 커밋합니다. |
+| "메시지는 중요하지 않습니다" | 메시지는 문서입니다. 미래의 귀하(및 미래의 agents)는 변경된 내용과 이유를 이해해야 합니다. |
+| "나중에 모두 없애겠습니다" | 스쿼싱은 개발 내러티브를 파괴합니다. 처음부터 깨끗한 증분 커밋을 선호합니다. |
+| "분기는 오버헤드를 추가합니다" | 단기 분기는 무료이며 충돌하는 작업이 충돌하는 것을 방지합니다. 수명이 긴 브랜치가 문제입니다. 1~3일 이내에 병합됩니다. |
+| "이 변경 사항은 나중에 분할하겠습니다." | 큰 변경 사항은 검토하기 어렵고 배포하기 위험하며 되돌리기가 더 어렵습니다. 분할은 제출 후가 아니라 제출 전에 분할됩니다. |
+| ".gitignore가 필요하지 않습니다." | 생산 비밀이 포함된 `.env`가 커밋될 때까지. 즉시 설정하세요. |
 
-## Red Flags
+## 위험 신호
 
-- Large uncommitted changes accumulating
-- Commit messages like "fix", "update", "misc"
-- Formatting changes mixed with behavior changes
-- No `.gitignore` in the project
-- Committing `node_modules/`, `.env`, or build artifacts
-- Long-lived branches that diverge significantly from main
-- Force-pushing to shared branches
+- 커밋되지 않은 대규모 변경 사항이 누적됩니다.
+- "수정", "업데이트", "기타"와 같은 커밋 메시지
+- Formatting 변경 사항과 동작 변경 사항이 혼합됨
+- 프로젝트에 `.gitignore`가 없습니다.
+- `node_modules/`, `.env` 또는 build 아티팩트 커밋
+- 메인에서 크게 갈라지는 수명이 긴 가지
+- 공유 브랜치로 강제 푸시
 
-## Verification
+## 확인
 
-For every commit:
+모든 커밋에 대해:
 
-- [ ] Commit does one logical thing
-- [ ] Message explains the why, follows type conventions
-- [ ] Tests pass before committing
-- [ ] No secrets in the diff
-- [ ] No formatting-only changes mixed with behavior changes
-- [ ] `.gitignore` covers standard exclusions
+- [ ] 커밋은 하나의 논리적인 작업을 수행합니다.
+- [ ] 메시지는 유형 규칙에 따라 이유를 설명합니다.
+- [ ] 커밋하기 전에 테스트를 통과했습니다.
+- [ ] 차이점에 비밀이 없습니다.
+- [ ] 동작 변경과 혼합된 formatting-only 변경 사항 없음
+- [ ] `.gitignore`는 표준 제외 사항을 포함합니다.

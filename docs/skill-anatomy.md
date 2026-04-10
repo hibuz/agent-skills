@@ -1,10 +1,10 @@
-# Skill Anatomy
+# Skill 해부학
 
-This document describes the structure and format of agent-skills skill files. Use this as a guide when contributing new skills or understanding existing ones.
+이 문서에서는 agent-skills skill 파일의 구조와 format에 대해 설명합니다. 새로운 skills에 기여하거나 기존 uide를 이해할 때 이를 guide로 사용하세요.
 
-## File Location
+## 파일 위치
 
-Every skill lives in its own directory under `skills/`:
+모든 skill는 `skills/` 아래의 자체 디렉토리에 있습니다.
 
 ```
 skills/
@@ -24,13 +24,13 @@ description: Brief statement of what the skill does. Use when [specific trigger 
 ---
 ```
 
-**Rules:**
-- `name`: Lowercase, hyphen-separated. Must match the directory name.
-- `description`: Starts with what the skill does (third person), followed by trigger conditions. Include both *what* and *when*. Maximum 1024 characters.
+**규칙:**
+- `name`: 소문자, hyphen-separated. 디렉터리 이름과 일치해야 합니다.
+- `description`: skill가 수행하는 작업(3인칭)으로 시작하고 이어서 트리거 조건이 따릅니다. *무엇*과 *언제*를 모두 포함하세요. 최대 1024자입니다.
 
-**Why this matters:** Agents discover skills by reading descriptions. The description is injected into the system prompt, so it must tell the agent both what the skill provides and when to activate it. Do not summarize the workflow — if the description contains process steps, the agent may follow the summary instead of reading the full skill.
+**이것이 중요한 이유:** Agents 설명을 읽고 skills를 발견하세요. 설명은 시스템 프롬프트에 삽입되므로 skill가 제공하는 내용과 활성화 시기를 모두 agent에 알려야 합니다. workflow를 요약하지 마십시오. 설명에 프로세스 단계가 포함된 경우 agent는 전체 skill를 읽는 대신 요약을 따를 수 있습니다.
 
-### Standard Sections
+### 표준 섹션
 
 ```markdown
 # Skill Title
@@ -66,63 +66,63 @@ After completing the skill's process, confirm:
 - [ ] Evidence requirements
 ```
 
-## Section Purposes
+## 섹션 목적
 
-### Overview
-The "elevator pitch" for the skill. Should answer: What does this skill do, and why should an agent follow it?
+### 개요
+skill의 "엘리베이터 피치"입니다. 답변해야 합니다: 이 skill는 무엇을 하며, agent가 이를 따라야 하는 이유는 무엇입니까?
 
-### When to Use
-Helps agents and humans decide if this skill applies to the current task. Include both positive triggers ("Use when X") and negative exclusions ("NOT for Y").
+### 사용 시기
+agents와 사람이 이 skill가 현재 작업에 적용되는지 결정하는 데 도움이 됩니다. 긍정적인 트리거("X일 때 사용")와 부정적인 제외("Y의 경우 NOT")를 모두 포함합니다.
 
-### Core Process
-The heart of the skill. This is the step-by-step workflow the agent follows. Must be specific and actionable — not vague advice.
+### 핵심 프로세스
+skill의 핵심입니다. 이는 step-by-step workflow이며 agent는 다음과 같습니다. 막연한 조언이 아니라 구체적이고 실행 가능해야 합니다.
 
-**Good:** "Run `npm test` and verify all tests pass"
-**Bad:** "Make sure the tests work"
+**좋음:** "`npm test`를 실행하고 모든 테스트가 통과하는지 확인하세요."
+**나쁨:** "테스트가 제대로 작동하는지 확인하세요."
 
-### Common Rationalizations
-The most distinctive feature of well-crafted skills. These are excuses agents use to skip important steps, paired with rebuttals. They prevent the agent from rationalizing its way out of following the process.
+### 일반적인 합리화
+well-crafted skills의 가장 독특한 특징입니다. 이는 agents가 반박과 함께 중요한 단계를 건너뛰기 위해 사용하는 변명입니다. 이는 agent가 프로세스를 따르지 않는 길을 합리화하는 것을 방지합니다.
 
-Think of every time an agent has said "I'll add tests later" or "This is simple enough to skip the spec" — those go here with a factual counter-argument.
+agent가 "나중에 테스트를 추가하겠습니다" 또는 "이것은 사양을 건너뛸 만큼 간단합니다"라고 말할 때마다 생각해 보십시오. 여기에는 사실적인 counter-argument가 포함됩니다.
 
-### Red Flags
-Observable signs that the skill is being violated. Useful during code review and self-monitoring.
+### 위험 신호
+skill가 위반되고 있음을 나타내는 관찰 가능한 징후입니다. 코드 검토 및 self-monitoring 중에 유용합니다.
 
-### Verification
-The exit criteria. A checklist the agent uses to confirm the skill's process is complete. Every checkbox should be verifiable with evidence (test output, build result, screenshot, etc.).
+### 확인
+종료 기준. agent가 skill의 프로세스가 완료되었는지 확인하는 데 사용하는 체크리스트입니다. 모든 체크박스는 증거(테스트 출력, build 결과, 스크린샷 등)로 검증 가능해야 합니다.
 
-## Supporting Files
+## 지원 파일
 
-Create supporting files only when:
-- Reference material exceeds 100 lines (keep the main SKILL.md focused)
-- Code tools or scripts are needed
-- Checklists are long enough to justify separate files
+다음과 같은 경우에만 지원 파일을 만듭니다.
+- 참조 자료가 100줄을 초과합니다(주 SKILL.md에 초점을 맞추세요).
+- 코드 도구나 스크립트가 필요합니다.
+- 체크리스트는 별도의 파일을 정당화할 만큼 충분히 깁니다.
 
-Keep patterns and principles inline when under 50 lines.
+50줄 미만인 경우 패턴과 원칙을 인라인으로 유지하세요.
 
-## Writing Principles
+## 작성 원칙
 
-1. **Process over knowledge.** Skills are workflows, not reference docs. Steps, not facts.
-2. **Specific over general.** "Run `npm test`" beats "verify the tests".
-3. **Evidence over assumption.** Every verification checkbox requires proof.
+1. **지식을 통한 프로세스.** Skills는 참조 문서가 아닌 workflows입니다. 사실이 아닌 단계.
+2. **일반보다는 특정.** "`npm test` 실행"은 "테스트 확인"을 능가합니다.
+3. **가정에 대한 증거.** 모든 확인 확인란에는 증거가 필요합니다.
 4. **Anti-rationalization.** Every skip-worthy step needs a counter-argument in the rationalizations table.
-5. **Progressive disclosure.** Main SKILL.md is the entry point. Supporting files are loaded only when needed.
-6. **Token-conscious.** Every section must justify its inclusion. If removing it wouldn't change agent behavior, remove it.
+5. **점진적 공개.** 메인 SKILL.md가 진입점입니다. 지원 파일은 필요할 때만 로드됩니다.
+6. **토큰을 고려합니다.** 모든 섹션은 해당 항목의 포함을 정당화해야 합니다. 이를 제거해도 agent 동작이 변경되지 않으면 제거하십시오.
 
-## Naming Conventions
+## 명명 규칙
 
-- Skill directories: `lowercase-hyphen-separated`
-- Skill files: `SKILL.md` (always uppercase)
-- Supporting files: `lowercase-hyphen-separated.md`
-- References: stored in `references/` at the project root, not inside skill directories
+- Skill 디렉토리: `lowercase-hyphen-separated`
+- Skill 파일: `SKILL.md`(항상 대문자)
+- 지원 파일: `lowercase-hyphen-separated.md`
+- 참조: skill 디렉터리 내부가 아닌 프로젝트 루트의 `references/`에 저장됩니다.
 
-## Cross-Skill References
+## 교차 Skill 참조
 
-Reference other skills by name:
+다른 skills를 이름으로 참조:
 
 ```markdown
 Follow the `test-driven-development` skill for writing tests.
 If the build breaks, use the `debugging-and-error-recovery` skill.
 ```
 
-Don't duplicate content between skills — reference and link instead.
+skills 간에 콘텐츠를 복제하지 마세요. 대신 참조와 링크를 사용하세요.

@@ -1,10 +1,10 @@
-# Using agent-skills with Cursor
+# Cursor와 함께 agent-skills 사용
 
-## Setup
+## 설정
 
-### Option 1: Rules Directory (Recommended)
+### 옵션 1: 규칙 디렉터리(권장)
 
-Cursor supports a `.cursor/rules/` directory for project-specific rules:
+Cursor는 project-specific 규칙에 대해 `.cursor/rules/` 디렉터리를 지원합니다.
 
 ```bash
 # Create the rules directory
@@ -16,11 +16,11 @@ cp /path/to/agent-skills/skills/code-review-and-quality/SKILL.md .cursor/rules/c
 cp /path/to/agent-skills/skills/incremental-implementation/SKILL.md .cursor/rules/incremental-implementation.md
 ```
 
-Rules in this directory are automatically loaded into Cursor's context.
+이 디렉토리의 규칙은 Cursor의 컨텍스트에 자동으로 로드됩니다.
 
-### Option 2: .cursorrules File
+### 옵션 2:.cursorrules 파일
 
-Create a `.cursorrules` file in your project root with the essential skills inlined:
+필수 skills가 인라인된 프로젝트 루트에 `.cursorrules` 파일을 만듭니다.
 
 ```bash
 # Generate a combined rules file
@@ -29,39 +29,39 @@ echo "\n---\n" >> .cursorrules
 cat /path/to/agent-skills/skills/code-review-and-quality/SKILL.md >> .cursorrules
 ```
 
-### Option 3: Notepads
+### 옵션 3: 메모장
 
-Cursor's Notepads feature lets you store reusable context. Create a notepad for each skill you use frequently:
+Cursor의 메모장 기능을 사용하면 재사용 가능한 컨텍스트를 저장할 수 있습니다. 자주 사용하는 각 skill에 대해 메모장을 만듭니다.
 
-1. Open Cursor → Settings → Notepads
-2. Create a new notepad named "swe: Test-Driven Development"
-3. Paste the content of `skills/test-driven-development/SKILL.md`
-4. Reference it in chat with `@notepad swe: Test-Driven Development`
+1. Cursor 열기 → 설정 → 메모장
+2. "swe: Test-Driven Development"라는 이름의 새 메모장을 만듭니다.
+3. `skills/test-driven-development/SKILL.md`의 내용을 붙여넣습니다.
+4. `@notepad swe: Test-Driven Development`와의 채팅에서 참고하세요.
 
-## Recommended Configuration
+## 권장 구성
 
-### Essential Skills (Always Load)
+### 필수 Skills(항상 로드)
 
-Add these to `.cursor/rules/`:
+`.cursor/rules/`에 다음을 추가합니다.
 
-1. `test-driven-development.md` — TDD workflow and Prove-It pattern
-2. `code-review-and-quality.md` — Five-axis review
-3. `incremental-implementation.md` — Build in small verifiable slices
+1. `test-driven-development.md` — TDD workflow 및 증명 패턴
+2. `code-review-and-quality.md` — 5축 검토
+3. `incremental-implementation.md` - 검증 가능한 작은 조각의 Build
 
-### Phase-Specific Skills (Load as Notepads)
+### 단계별 Skills(메모장으로 로드)
 
-Create notepads for skills you use contextually:
+상황에 맞게 사용하는 skills에 대한 메모장을 만듭니다.
 
-- "swe: Spec Development" → `spec-driven-development/SKILL.md`
-- "swe: Frontend UI" → `frontend-ui-engineering/SKILL.md`
-- "swe: Security" → `security-and-hardening/SKILL.md`
+- "swe: 사양 개발" → `spec-driven-development/SKILL.md`
+- "swe: 프런트엔드 UI" → `frontend-ui-engineering/SKILL.md`
+- "swe: 보안" → `security-and-hardening/SKILL.md`
 - "swe: Performance" → `performance-optimization/SKILL.md`
 
-Reference them with `@notepad` when working on relevant tasks.
+관련 작업을 할 때 `@notepad`로 참고하세요.
 
-## Usage Tips
+## 사용 팁
 
-1. **Don't load all skills at once** — Cursor has context limits. Load 2-3 skills as rules and keep others as notepads.
-2. **Reference skills explicitly** — Tell Cursor "Follow the test-driven-development rules for this change" to ensure it reads the loaded rules.
-3. **Use agents for review** — Copy `agents/code-reviewer.md` content and tell Cursor to "review this diff using this code review framework."
-4. **Load references on demand** — When working on performance, reference `@notepad performance-checklist` or paste the checklist content.
+1. **모든 skills를 한 번에 로드하지 마세요** — Cursor에는 컨텍스트 제한이 있습니다. 2-3 skills를 규칙으로 로드하고 나머지는 메모장으로 유지합니다.
+2. **skills를 명시적으로 참조** — Cursor에 "이 변경 사항에 대해서는 test-driven-development 규칙을 따르십시오"라고 지시하여 로드된 규칙을 읽도록 합니다.
+3. **검토를 위해 agents 사용** — `agents/code-reviewer.md` 콘텐츠를 복사하고 Cursor에게 "이 코드 검토 프레임워크를 사용하여 이 차이점을 검토"하라고 지시합니다.
+4. **요청 시 참조 로드** — performance 작업 시 `@notepad performance-checklist`를 참조하거나 체크리스트 내용을 붙여넣습니다.

@@ -1,42 +1,42 @@
 ---
 name: deprecation-and-migration
-description: Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when deciding whether to maintain or sunset existing code.
+description: 지원 중단 및 마이그레이션을 관리합니다. 기존 시스템, APIs 또는 기능을 제거할 때 사용합니다. 한 구현에서 다른 구현으로 사용자를 마이그레이션할 때 사용합니다. 기존 코드를 유지할지, 종료할지 결정할 때 사용합니다.
 ---
 
-# Deprecation and Migration
+# 지원 중단 및 마이그레이션
 
-## Overview
+## 개요
 
-Code is a liability, not an asset. Every line of code has ongoing maintenance cost — bugs to fix, dependencies to update, security patches to apply, and new engineers to onboard. Deprecation is the discipline of removing code that no longer earns its keep, and migration is the process of moving users safely from the old to the new.
+코드는 자산이 아니라 부채입니다. 모든 코드 줄에는 수정해야 할 버그, 업데이트해야 할 종속성, 적용해야 할 보안 패치, 온보딩해야 할 새로운 엔지니어 등 지속적인 유지 관리 비용이 있습니다. 지원 중단은 더 이상 유지되지 않는 코드를 제거하는 규율이며, 마이그레이션은 사용자를 이전 버전에서 새 코드로 안전하게 이동하는 프로세스입니다.
 
-Most engineering organizations are good at building things. Few are good at removing them. This skill addresses that gap.
+대부분의 엔지니어링 조직은 building 작업에 능숙합니다. 그것들을 제거하는 데 능숙한 사람은 거의 없습니다. 이 skill는 이러한 격차를 해소합니다.
 
-## When to Use
+## 사용 시기
 
-- Replacing an old system, API, or library with a new one
-- Sunsetting a feature that's no longer needed
-- Consolidating duplicate implementations
-- Removing dead code that nobody owns but everybody depends on
-- Planning the lifecycle of a new system (deprecation planning starts at design time)
-- Deciding whether to maintain a legacy system or invest in migration
+- 기존 시스템, API 또는 라이브러리를 새 시스템으로 교체
+- 더 이상 필요하지 않은 기능을 종료합니다.
+- 중복 구현 통합
+- 아무도 소유하지 않지만 모두가 의존하는 데드 코드 제거
+- 새로운 시스템의 수명주기 계획(지원 중단 계획은 설계 시점에 시작됨)
+- 레거시 시스템을 유지할 것인지 마이그레이션에 투자할 것인지 결정
 
-## Core Principles
+## 핵심 원칙
 
-### Code Is a Liability
+### 코드는 책임이다
 
-Every line of code has ongoing cost: it needs tests, documentation, security patches, dependency updates, and mental overhead for anyone working nearby. The value of code is the functionality it provides, not the code itself. When the same functionality can be provided with less code, less complexity, or better abstractions — the old code should go.
+모든 코드 줄에는 지속적인 비용이 발생합니다. 테스트, 문서화, 보안 패치, 종속성 업데이트 및 근처에서 작업하는 모든 사람을 위한 정신적 오버헤드가 필요합니다. 코드의 가치는 코드 자체가 아니라 코드가 제공하는 기능입니다. 더 적은 코드, 더 적은 복잡성 또는 더 나은 추상화로 동일한 기능을 제공할 수 있다면 이전 코드는 사라져야 합니다.
 
-### Hyrum's Law Makes Removal Hard
+### Hyrum's Law로 인해 제거가 어려워짐
 
-With enough users, every observable behavior becomes depended on — including bugs, timing quirks, and undocumented side effects. This is why deprecation requires active migration, not just announcement. Users can't "just switch" when they depend on behaviors the replacement doesn't replicate.
+사용자가 충분하면 버그, quirks 타이밍, 문서화되지 않은 부작용을 포함하여 관찰 가능한 모든 동작이 이에 따라 달라집니다. 이것이 바로 발표뿐만 아니라 지원 중단이 활성 마이그레이션을 요구하는 이유입니다. 사용자는 교체가 복제되지 않는 동작에 의존하는 경우 "단순히 전환"할 수 없습니다.
 
-### Deprecation Planning Starts at Design Time
+### 지원 중단 계획은 디자인 타임부터 시작됩니다.
 
-When building something new, ask: "How would we remove this in 3 years?" Systems designed with clean interfaces, feature flags, and minimal surface area are easier to deprecate than systems that leak implementation details everywhere.
+build가 새로운 것을 발견할 때 "3년 안에 이것을 어떻게 제거할 것인가?"라고 질문하십시오. 깔끔한 인터페이스, feature flags 및 최소한의 표면적을 사용하여 설계된 시스템은 구현 세부 정보가 어디에서나 유출되는 시스템보다 더 이상 사용되지 않습니다.
 
-## The Deprecation Decision
+## 지원 중단 결정
 
-Before deprecating anything, answer these questions:
+더 이상 사용되지 않는 항목을 사용하기 전에 다음 질문에 답하세요.
 
 ```
 1. Does this system still provide unique value?
@@ -55,26 +55,26 @@ Before deprecating anything, answer these questions:
    → Security risk, engineer time, opportunity cost of complexity.
 ```
 
-## Compulsory vs Advisory Deprecation
+## 필수 및 권고 지원 중단
 
-| Type | When to Use | Mechanism |
+| 유형 | 사용 시기 | 메커니즘 |
 |------|-------------|-----------|
-| **Advisory** | Migration is optional, old system is stable | Warnings, documentation, nudges. Users migrate on their own timeline. |
-| **Compulsory** | Old system has security issues, blocks progress, or maintenance cost is unsustainable | Hard deadline. Old system will be removed by date X. Provide migration tooling. |
+| **권고** | 마이그레이션은 선택 사항이며 기존 시스템은 안정적입니다 | 경고, 문서화, 넛지. 사용자는 자신의 타임라인에 따라 마이그레이션합니다. |
+| **필수** | 오래된 시스템에는 보안 문제가 있거나, 진행이 차단되거나, 유지 관리 비용이 지속 불가능합니다 | 마감 기한이 빡빡합니다. 이전 시스템은 X 날짜까지 제거됩니다. 마이그레이션 도구를 제공합니다. |
 
-**Default to advisory.** Use compulsory only when the maintenance cost or risk justifies forcing migration. Compulsory deprecation requires providing migration tooling, documentation, and support — you can't just announce a deadline.
+**기본값은 권고입니다.** 유지 관리 비용이나 위험으로 인해 강제 마이그레이션을 정당화할 경우에만 필수를 사용하십시오. 마이그레이션 도구, 문서 및 지원을 제공하는 필수 지원 중단 requires — 마감일만 발표할 수는 없습니다.
 
-## The Migration Process
+## 마이그레이션 프로세스
 
-### Step 1: Build the Replacement
+### 1단계: Build 교체
 
-Don't deprecate without a working alternative. The replacement must:
+효과적인 대안 없이는 더 이상 사용하지 마십시오. 교체품은 다음을 충족해야 합니다.
 
-- Cover all critical use cases of the old system
-- Have documentation and migration guides
-- Be proven in production (not just "theoretically better")
+- 기존 시스템의 중요한 사용 사례를 모두 다룹니다.
+- 문서화 및 마이그레이션 guides 보유
+- 프로덕션에서 입증되어야 함(단지 "이론적으로 더 나은" 것이 아님)
 
-### Step 2: Announce and Document
+### 2단계: 발표 및 문서화
 
 ```markdown
 ## Deprecation Notice: OldService
@@ -91,9 +91,9 @@ Don't deprecate without a working alternative. The replacement must:
 3. Run the migration verification script: `npx migrate-check`
 ```
 
-### Step 3: Migrate Incrementally
+### 3단계: 증분 마이그레이션
 
-Migrate consumers one at a time, not all at once. For each consumer:
+소비자를 한 번에 모두 마이그레이션하지 않고 한 번에 하나씩 마이그레이션합니다. 각 소비자에 대해:
 
 ```
 1. Identify all touchpoints with the deprecated system
@@ -103,11 +103,11 @@ Migrate consumers one at a time, not all at once. For each consumer:
 5. Confirm no regressions
 ```
 
-**The Churn Rule:** If you own the infrastructure being deprecated, you are responsible for migrating your users — or providing backward-compatible updates that require no migration. Don't announce deprecation and leave users to figure it out.
+** 이탈 규칙:** 더 이상 사용되지 않는 인프라를 소유한 경우 사용자를 마이그레이션하거나 마이그레이션이 필요하지 않은 backward-compatible 업데이트를 제공할 책임이 있습니다. 지원 중단을 알리거나 사용자가 이를 알아내도록 두지 마세요.
 
-### Step 4: Remove the Old System
+### 4단계: 기존 시스템 제거
 
-Only after all consumers have migrated:
+모든 소비자가 마이그레이션된 후에만:
 
 ```
 1. Verify zero active usage (metrics, logs, dependency analysis)
@@ -117,11 +117,11 @@ Only after all consumers have migrated:
 5. Celebrate — removing code is an achievement
 ```
 
-## Migration Patterns
+## 마이그레이션 패턴
 
-### Strangler Pattern
+### 교살자 패턴
 
-Run old and new systems in parallel. Route traffic incrementally from old to new. When the old system handles 0% of traffic, remove it.
+기존 시스템과 새 시스템을 병렬로 실행하세요. 기존 항목에서 새 항목으로 점진적으로 트래픽을 라우팅합니다. 기존 시스템이 트래픽의 0%를 처리하면 이를 제거합니다.
 
 ```
 Phase 1: New system handles 0%, old handles 100%
@@ -131,9 +131,9 @@ Phase 4: New system handles 100%, old system idle
 Phase 5: Remove old system
 ```
 
-### Adapter Pattern
+### 어댑터 패턴
 
-Create an adapter that translates calls from the old interface to the new implementation. Consumers keep using the old interface while you migrate the backend.
+이전 인터페이스의 호출을 새 구현으로 변환하는 어댑터를 만듭니다. 백엔드를 마이그레이션하는 동안 소비자는 이전 인터페이스를 계속 사용합니다.
 
 ```typescript
 // Adapter: old interface, new implementation
@@ -148,9 +148,9 @@ class LegacyTaskService implements OldTaskAPI {
 }
 ```
 
-### Feature Flag Migration
+### Feature Flag 마이그레이션
 
-Use feature flags to switch consumers from old to new system one at a time:
+소비자를 이전 시스템에서 새 시스템으로 한 번에 하나씩 전환하려면 feature flags를 사용하십시오.
 
 ```typescript
 function getTaskService(userId: string): TaskService {
@@ -161,46 +161,46 @@ function getTaskService(userId: string): TaskService {
 }
 ```
 
-## Zombie Code
+## 좀비 코드
 
-Zombie code is code that nobody owns but everybody depends on. It's not actively maintained, has no clear owner, and accumulates security vulnerabilities and compatibility issues. Signs:
+좀비 코드는 누구도 소유하지 않지만 모두가 의존하는 코드입니다. 적극적으로 유지관리되지 않고, 명확한 소유자가 없으며, 보안 취약점과 호환성 문제가 누적됩니다. 징후:
 
-- No commits in 6+ months but active consumers exist
-- No assigned maintainer or team
-- Failing tests that nobody fixes
-- Dependencies with known vulnerabilities that nobody updates
-- Documentation that references systems that no longer exist
+- 6개월 이상 커밋이 없지만 활성 소비자가 존재함
+- 지정된 관리자나 팀이 없습니다.
+- 아무도 고치지 않는 실패한 테스트
+- 아무도 업데이트하지 않는 알려진 취약점이 있는 종속성
+- 더 이상 존재하지 않는 시스템을 참조하는 문서
 
-**Response:** Either assign an owner and maintain it properly, or deprecate it with a concrete migration plan. Zombie code cannot stay in limbo — it either gets investment or removal.
+**답변:** 소유자를 할당하고 적절하게 유지관리하거나 구체적인 마이그레이션 계획을 통해 사용을 중단하세요. 좀비 코드는 림보에 머물 수 없습니다. 투자를 받거나 제거됩니다.
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "It still works, why remove it?" | Working code that nobody maintains accumulates security debt and complexity. Maintenance cost grows silently. |
-| "Someone might need it later" | If it's needed later, it can be rebuilt. Keeping unused code "just in case" costs more than rebuilding. |
-| "The migration is too expensive" | Compare migration cost to ongoing maintenance cost over 2-3 years. Migration is usually cheaper long-term. |
-| "We'll deprecate it after we finish the new system" | Deprecation planning starts at design time. By the time the new system is done, you'll have new priorities. Plan now. |
-| "Users will migrate on their own" | They won't. Provide tooling, documentation, and incentives — or do the migration yourself (the Churn Rule). |
-| "We can maintain both systems indefinitely" | Two systems doing the same thing is double the maintenance, testing, documentation, and onboarding cost. |
+| "여전히 작동하는데 왜 제거하나요?" | 아무도 유지 관리하지 않는 작업 코드는 보안 부채와 복잡성을 축적합니다. 유지관리 비용은 소리 없이 증가합니다. |
+| "나중에 필요할 수도 있습니다." | 나중에 필요하다면 rebuilt일 수 있습니다. 사용하지 않는 코드를 "만약의 경우"에 보관하는 것은 rebuilding보다 비용이 더 많이 듭니다. |
+| "마이그레이션 비용이 너무 많이 듭니다." | 마이그레이션 비용과 2~3년간의 지속적인 유지 관리 비용을 비교해 보세요. 마이그레이션은 일반적으로 long-term보다 저렴합니다. |
+| "새 시스템이 완성되면 더 이상 사용하지 않을 예정입니다." | 지원 중단 계획은 디자인 타임부터 시작됩니다. 새로운 시스템이 완성될 때쯤에는 새로운 우선순위를 갖게 될 것입니다. 지금 계획하세요. |
+| "사용자가 스스로 마이그레이션합니다" | 그렇지 않습니다. 도구, 문서 및 인센티브를 제공하거나 직접 마이그레이션을 수행하십시오(변동 규칙). |
+| "두 시스템을 무기한 유지 관리할 수 있습니다." | 동일한 작업을 수행하는 두 시스템은 유지 관리, 테스트, 문서화 및 온보딩 비용이 두 배로 늘어납니다. |
 
-## Red Flags
+## 위험 신호
 
-- Deprecated systems with no replacement available
-- Deprecation announcements with no migration tooling or documentation
-- "Soft" deprecation that's been advisory for years with no progress
-- Zombie code with no owner and active consumers
-- New features added to a deprecated system (invest in the replacement instead)
-- Deprecation without measuring current usage
-- Removing code without verifying zero active consumers
+- 교체가 불가능한 더 이상 사용되지 않는 시스템
+- 마이그레이션 도구나 문서가 없는 지원 중단 공지
+- 수년 동안 아무런 진전도 없이 권장되었던 "소프트" 지원 중단
+- 소유자도 없고 활성 소비자도 없는 좀비 코드
+- 더 이상 사용되지 않는 시스템에 새로운 기능 추가(대신 대체 시스템에 투자)
+- 현재 사용량을 측정하지 않고 지원 중단
+- 활성 소비자가 0인지 확인하지 않고 코드 제거
 
-## Verification
+## 확인
 
-After completing a deprecation:
+지원 중단을 완료한 후:
 
-- [ ] Replacement is production-proven and covers all critical use cases
-- [ ] Migration guide exists with concrete steps and examples
-- [ ] All active consumers have been migrated (verified by metrics/logs)
-- [ ] Old code, tests, documentation, and configuration are fully removed
-- [ ] No references to the deprecated system remain in the codebase
+- [ ] 교체는 production-proven이며 모든 중요한 사용 사례를 포괄합니다.
+- [ ] 마이그레이션 guide가 구체적인 단계와 예시와 함께 존재합니다.
+- [ ] 모든 활성 소비자가 마이그레이션되었습니다(metric/logs로 확인).
+- [ ] 이전 코드, 테스트, 문서 및 구성이 완전히 제거되었습니다.
+- [ ] 더 이상 사용되지 않는 시스템에 대한 참조가 코드베이스에 남아 있지 않습니다.
 - [ ] Deprecation notices are removed (they served their purpose)

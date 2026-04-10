@@ -1,8 +1,8 @@
-# Testing Patterns Reference
+# 테스트 패턴 참조
 
-Quick reference for common testing patterns across the stack. Use alongside the `test-driven-development` skill.
+스택 전체의 일반적인 테스트 패턴에 대한 Quick 참조입니다. Use alongside the `test-driven-development` skill.
 
-## Table of Contents
+## 목차
 
 - [Test Structure (Arrange-Act-Assert)](#test-structure-arrange-act-assert)
 - [Test Naming Conventions](#test-naming-conventions)
@@ -13,7 +13,7 @@ Quick reference for common testing patterns across the stack. Use alongside the 
 - [E2E Testing (Playwright)](#e2e-testing-playwright)
 - [Test Anti-Patterns](#test-anti-patterns)
 
-## Test Structure (Arrange-Act-Assert)
+## 테스트 구조(Arrange-Act-Assert)
 
 ```typescript
 it('describes expected behavior', () => {
@@ -30,7 +30,7 @@ it('describes expected behavior', () => {
 });
 ```
 
-## Test Naming Conventions
+## 테스트 명명 규칙
 
 ```typescript
 // Pattern: [unit] [expected behavior] [condition]
@@ -42,7 +42,7 @@ describe('TaskService.createTask', () => {
 });
 ```
 
-## Common Assertions
+## 일반적인 주장
 
 ```typescript
 // Equality
@@ -81,9 +81,9 @@ await expect(asyncFn()).resolves.toBe(value);
 await expect(asyncFn()).rejects.toThrow(Error);
 ```
 
-## Mocking Patterns
+## 조롱 패턴
 
-### Mock Functions
+### 모의 함수
 
 ```typescript
 const mockFn = jest.fn();
@@ -96,7 +96,7 @@ expect(mockFn).toHaveBeenCalledWith('arg1', 'arg2');
 expect(mockFn).toHaveBeenCalledTimes(3);
 ```
 
-### Mock Modules
+### 모의 모듈
 
 ```typescript
 // Mock an entire module
@@ -111,7 +111,7 @@ jest.mock('./utils', () => ({
 }));
 ```
 
-### Mock at Boundaries Only
+### 경계에서만 모의
 
 ```
 Mock these:                    Don't mock these:
@@ -122,7 +122,7 @@ Mock these:                    Don't mock these:
 └── Time/Date (when needed)    └── Pure functions
 ```
 
-## React/Component Testing
+## React/Component 테스트
 
 ```tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
@@ -154,7 +154,7 @@ describe('TaskForm', () => {
 });
 ```
 
-## API / Integration Testing
+## API / 통합 테스트
 
 ```typescript
 import request from 'supertest';
@@ -194,7 +194,7 @@ describe('POST /api/tasks', () => {
 });
 ```
 
-## E2E Testing (Playwright)
+## E2E 테스트(극작가)
 
 ```typescript
 import { test, expect } from '@playwright/test';
@@ -222,15 +222,15 @@ test('user can create and complete a task', async ({ page }) => {
 });
 ```
 
-## Test Anti-Patterns
+## 테스트 Anti-Patterns
 
-| Anti-Pattern | Problem | Better Approach |
+| Anti-Pattern | 문제 | 더 나은 접근 방식 |
 |---|---|---|
-| Testing implementation details | Breaks on refactor | Test inputs/outputs |
-| Snapshot everything | No one reviews snapshot diffs | Assert specific values |
-| Shared mutable state | Tests pollute each other | Setup/teardown per test |
-| Testing third-party code | Wastes time, not your bug | Mock the boundary |
-| Skipping tests to pass CI | Hides real bugs | Fix or delete the test |
-| Using `test.skip` permanently | Dead code | Remove or fix it |
-| Overly broad assertions | Doesn't catch regressions | Be specific |
-| No async error handling | Swallowed errors, false passes | Always `await` async tests |
+| 테스트 구현 세부정보 | 리팩터링 중단 | 테스트 입력/outputs |
+| 모든 것을 스냅샷 | 스냅샷 차이점을 검토하는 사람이 없습니다 | 특정 값 주장 |
+| 공유 변경 가능 상태 | 테스트는 서로를 오염시킨다 | 테스트당 Setup/teardown |
+| third-party 코드 테스트 | 버그가 아닌 시간 낭비 | 경계를 조롱 |
+| CI를 통과하기 위해 테스트 건너뛰기 | 실제 버그를 숨깁니다 | 테스트 수정 또는 삭제 |
+| `test.skip`를 영구적으로 사용 | 데드 코드 | 제거 또는 수정 |
+| 지나치게 광범위한 주장 | 회귀를 포착하지 못함 | 구체적으로 |
+| 비동기 오류 처리 없음 | 삼킨 오류, 잘못된 통과 | 항상 `await` 비동기 테스트 |

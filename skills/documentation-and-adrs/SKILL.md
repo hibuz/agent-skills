@@ -1,41 +1,41 @@
 ---
 name: documentation-and-adrs
-description: Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.
+description: Records 결정 및 문서화. 아키텍처 결정을 내릴 때, 공개 APIs 변경, 기능 제공 또는 미래 엔지니어와 agents가 코드베이스를 이해하는 데 필요한 컨텍스트를 기록해야 할 때 사용합니다.
 ---
 
-# Documentation and ADRs
+# 문서 및 ADRs
 
-## Overview
+## 개요
 
-Document decisions, not just code. The most valuable documentation captures the *why* — the context, constraints, and trade-offs that led to a decision. Code shows *what* was built; documentation explains *why it was built this way* and *what alternatives were considered*. This context is essential for future humans and agents working in the codebase.
+코드뿐만 아니라 의사결정도 문서화하세요. 가장 가치 있는 문서는 *이유*, 즉 결정을 내리게 된 맥락, 제약 조건, trade-offs를 포착합니다. 코드는 *무엇*이 built인지 보여줍니다. 문서에는 *왜 built가 이런 식으로 이루어졌는지*와 *어떤 대안이 고려되었는지* 설명되어 있습니다. 이 컨텍스트는 코드베이스에서 작업하는 미래의 인간과 agents에게 필수적입니다.
 
-## When to Use
+## 사용 시기
 
-- Making a significant architectural decision
-- Choosing between competing approaches
-- Adding or changing a public API
-- Shipping a feature that changes user-facing behavior
-- Onboarding new team members (or agents) to the project
-- When you find yourself explaining the same thing repeatedly
+- 중요한 아키텍처 결정을 내립니다.
+- 경쟁적인 접근 방식 중에서 선택
+- 공개 API 추가 또는 변경
+- user-facing 동작을 변경하는 기능 제공
+- 프로젝트에 새로운 팀 구성원(또는 agents) 온보딩
+- 같은 내용을 반복해서 설명하고 있는 자신을 발견할 때
 
-**When NOT to use:** Don't document obvious code. Don't add comments that restate what the code already says. Don't write docs for throwaway prototypes.
+**사용하지 말아야 할 때:** 명백한 코드를 문서화하지 마세요. 코드에 이미 표시된 내용을 restate하는 주석을 추가하지 마세요. 일회용 프로토타입에 대한 문서를 작성하지 마십시오.
 
 ## Architecture Decision Records (ADRs)
 
-ADRs capture the reasoning behind significant technical decisions. They're the highest-value documentation you can write.
+ADRs는 중요한 기술적 결정의 이면에 있는 추론을 포착합니다. 이는 귀하가 작성할 수 있는 highest-value 문서입니다.
 
-### When to Write an ADR
+### ADR를 작성해야 하는 경우
 
-- Choosing a framework, library, or major dependency
-- Designing a data model or database schema
-- Selecting an authentication strategy
-- Deciding on an API architecture (REST vs. GraphQL vs. tRPC)
-- Choosing between build tools, hosting platforms, or infrastructure
-- Any decision that would be expensive to reverse
+- 프레임워크, 라이브러리 또는 주요 종속성 선택
+- 데이터 모델 또는 데이터베이스 스키마 설계
+- 인증 전략 선택
+- API 아키텍처 결정(REST 대 GraphQL 대 tRPC)
+- build 도구, 호스팅 플랫폼 orm 또는 인프라 중에서 선택
+- 취소하는 데 비용이 많이 드는 결정
 
-### ADR Template
+### ADR 템플릿
 
-Store ADRs in `docs/decisions/` with sequential numbering:
+일련번호를 사용하여 ADRs를 `docs/decisions/`에 저장합니다.
 
 ```markdown
 # ADR-001: Use PostgreSQL for primary database
@@ -80,20 +80,20 @@ Use PostgreSQL with Prisma ORM.
 - Hosting on managed service (Supabase, Neon, or RDS)
 ```
 
-### ADR Lifecycle
+### ADR 수명주기
 
 ```
 PROPOSED → ACCEPTED → (SUPERSEDED or DEPRECATED)
 ```
 
-- **Don't delete old ADRs.** They capture historical context.
-- When a decision changes, write a new ADR that references and supersedes the old one.
+- **이전 ADRs를 삭제하지 마세요.** 역사적 맥락을 포착합니다.
+- 결정이 변경되면 이전 결정을 참조하고 대체하는 새로운 ADR를 작성합니다.
 
-## Inline Documentation
+## 인라인 문서
 
-### When to Comment
+### 댓글을 작성해야 하는 경우
 
-Comment the *why*, not the *what*:
+*무엇*이 아닌 *이유*를 댓글로 달아주세요.
 
 ```typescript
 // BAD: Restates the code
@@ -109,7 +109,7 @@ if (now - windowStart > WINDOW_SIZE_MS) {
 }
 ```
 
-### When NOT to Comment
+### NOT가 댓글을 달 때
 
 ```typescript
 // Don't comment self-explanatory code
@@ -124,7 +124,7 @@ function calculateTotal(items: CartItem[]): number {
 // const oldImplementation = () => { ... }  ← Delete it, git has history
 ```
 
-### Document Known Gotchas
+### 문서에 알려진 문제
 
 ```typescript
 /**
@@ -139,11 +139,11 @@ export function initializeTheme(theme: Theme): void {
 }
 ```
 
-## API Documentation
+## API 문서
 
-For public APIs (REST, GraphQL, library interfaces):
+공용 APIs(REST, GraphQL, 라이브러리 인터페이스)의 경우:
 
-### Inline with Types (Preferred for TypeScript)
+### 유형이 포함된 인라인(TypeScript에 권장됨)
 
 ```typescript
 /**
@@ -187,9 +187,9 @@ paths:
           description: Validation error
 ```
 
-## README Structure
+## README 구조
 
-Every project should have a README that covers:
+모든 프로젝트에는 다음을 포함하는 README가 있어야 합니다.
 
 ```markdown
 # Project Name
@@ -218,9 +218,9 @@ Link to ADRs for details.
 How to contribute, coding standards, PR process.
 ```
 
-## Changelog Maintenance
+## 변경 로그 유지 관리
 
-For shipped features:
+제공되는 기능의 경우:
 
 ```markdown
 # Changelog
@@ -237,42 +237,42 @@ For shipped features:
 - Task list now loads 50 items per page (was 20) for better UX (#126)
 ```
 
-## Documentation for Agents
+## Agents에 대한 문서
 
-Special consideration for AI agent context:
+AI agent 컨텍스트에 대한 특별 고려사항:
 
-- **CLAUDE.md / rules files** — Document project conventions so agents follow them
-- **Spec files** — Keep specs updated so agents build the right thing
-- **ADRs** — Help agents understand why past decisions were made (prevents re-deciding)
-- **Inline gotchas** — Prevent agents from falling into known traps
+- **CLAUDE.md / 규칙 파일** — agents가 이를 따르도록 프로젝트 규칙을 문서화합니다.
+- **사양 파일** — agents build가 올바르게 작동하도록 사양을 계속 업데이트하세요.
+- **ADRs** — agents가 과거 결정이 내려진 이유를 이해하도록 도와줍니다(re-deciding 방지).
+- **인라인 문제** — agents가 알려진 함정에 빠지는 것을 방지합니다.
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "The code is self-documenting" | Code shows what. It doesn't show why, what alternatives were rejected, or what constraints apply. |
-| "We'll write docs when the API stabilizes" | APIs stabilize faster when you document them. The doc is the first test of the design. |
-| "Nobody reads docs" | Agents do. Future engineers do. Your 3-months-later self does. |
-| "ADRs are overhead" | A 10-minute ADR prevents a 2-hour debate about the same decision six months later. |
-| "Comments get outdated" | Comments on *why* are stable. Comments on *what* get outdated — that's why you only write the former. |
+| "코드는 self-documenting입니다" | 코드는 무엇을 보여줍니다. 이유, 거부된 대안 또는 적용되는 제약 조건은 표시되지 않습니다. |
+| "API가 안정되면 문서를 작성하겠습니다" | APIs는 문서화 시 더욱 빠르게 안정화됩니다. 문서는 디자인의 첫 번째 테스트입니다. |
+| "아무도 문서를 읽지 않습니다" | Agents 않습니다. 미래의 엔지니어들은 그렇습니다. 귀하의 3-months-later 자체가 그렇습니다. |
+| "ADRs가 오버헤드입니다." | 10분 ADR는 6개월 후 동일한 결정에 대한 2시간 토론을 방지합니다. |
+| "댓글이 오래되었습니다." | *이유*에 대한 댓글은 안정적입니다. *무엇*에 대한 댓글은 오래된 것입니다. 그래서 former만 작성하는 것입니다. |
 
-## Red Flags
+## 위험 신호
 
-- Architectural decisions with no written rationale
-- Public APIs with no documentation or types
-- README that doesn't explain how to run the project
-- Commented-out code instead of deletion
-- TODO comments that have been there for weeks
-- No ADRs in a project with significant architectural choices
-- Documentation that restates the code instead of explaining intent
+- 서면 근거가 없는 아키텍처 결정
+- 문서나 유형이 없는 공개 APIs
+- 프로젝트 실행 방법을 설명하지 않는 README
+- 삭제 대신 주석 처리된 코드
+- 몇 주 동안 있었던 TODO 댓글
+- 중요한 아키텍처 선택이 있는 프로젝트에는 ADRs가 없습니다.
+- 의도를 설명하는 대신 restates 코드를 설명하는 문서
 
-## Verification
+## 확인
 
-After documenting:
+문서화한 후:
 
-- [ ] ADRs exist for all significant architectural decisions
-- [ ] README covers quick start, commands, and architecture overview
-- [ ] API functions have parameter and return type documentation
-- [ ] Known gotchas are documented inline where they matter
-- [ ] No commented-out code remains
-- [ ] Rules files (CLAUDE.md etc.) are current and accurate
+- [ ] ADRs는 모든 중요한 아키텍처 결정에 존재합니다.
+- [ ] README는 quick 시작, 명령 및 아키텍처 개요를 다룹니다.
+- [ ] API 함수에는 매개변수 및 반환 유형 문서가 있습니다.
+- [ ] 알려진 문제는 중요한 위치에 인라인으로 문서화됩니다.
+- [ ] commented-out 코드가 남아 있지 않습니다.
+- [ ] 규칙 파일(CLAUDE.md 등)이 최신이고 정확합니다.

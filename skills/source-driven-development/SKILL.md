@@ -1,30 +1,30 @@
 ---
 name: source-driven-development
-description: Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.
+description: 공식 문서의 모든 구현 결정을 근거로 삼습니다. 오래된 패턴이 없는 신뢰할 수 있는 source-cited 코드를 원할 때 사용하세요. 정확성이 중요한 프레임워크나 라이브러리와 함께 building을 수행할 때 사용하세요.
 ---
 
-# Source-Driven Development
+# 소스 중심 개발
 
-## Overview
+## 개요
 
-Every framework-specific code decision must be backed by official documentation. Don't implement from memory — verify, cite, and let the user see your sources. Training data goes stale, APIs get deprecated, best practices evolve. This skill ensures the user gets code they can trust because every pattern traces back to an authoritative source they can check.
+모든 framework-specific 코드 결정은 공식 문서의 뒷받침을 받아야 합니다. 외워서 구현하지 마세요. 확인하고, 인용하고, 사용자가 소스를 볼 수 있도록 하세요. 훈련 데이터는 오래되고 APIs는 더 이상 사용되지 않으며 모범 사례가 발전합니다. 이 skill는 모든 패턴이 확인할 수 있는 신뢰할 수 있는 소스를 추적하므로 사용자가 신뢰할 수 있는 코드를 얻을 수 있도록 보장합니다.
 
-## When to Use
+## 사용 시기
 
-- The user wants code that follows current best practices for a given framework
-- Building boilerplate, starter code, or patterns that will be copied across a project
-- The user explicitly asks for documented, verified, or "correct" implementation
-- Implementing features where the framework's recommended approach matters (forms, routing, data fetching, state management, auth)
-- Reviewing or improving code that uses framework-specific patterns
-- Any time you are about to write framework-specific code from memory
+- 사용자는 특정 프레임워크에 대한 현재 모범 사례를 따르는 코드를 원합니다.
+- 프로젝트 전체에 복사될 Building 상용구, 시작 코드 또는 패턴
+- 사용자가 명시적으로 문서화, 검증 또는 "올바른" 구현을 요구합니다.
+- 프레임워크의 권장 접근 방식이 중요한 기능 구현(forms, 라우팅, 데이터 가져오기, 상태 관리, 인증)
+- framework-specific 패턴을 사용하는 코드 검토 또는 개선
+- 메모리에서 framework-specific 코드를 작성하려고 할 때마다
 
-**When NOT to use:**
+**사용하지 말아야 할 때:**
 
-- Correctness does not depend on a specific version (renaming variables, fixing typos, moving files)
-- Pure logic that works the same across all versions (loops, conditionals, data structures)
-- The user explicitly wants speed over verification ("just do it quickly")
+- 정확성은 특정 버전에 의존하지 않습니다(변수 이름 바꾸기, 오타 수정, 파일 이동).
+- 모든 버전(루프, 조건부, 데이터 구조)에서 동일하게 작동하는 순수 논리
+- 사용자는 검증보다 속도를 명시적으로 원합니다("그냥 quickly로 하세요").
 
-## The Process
+## 프로세스
 
 ```
 DETECT ──→ FETCH ──→ IMPLEMENT ──→ CITE
@@ -35,9 +35,9 @@ DETECT ──→ FETCH ──→ IMPLEMENT ──→ CITE
             docs       patterns
 ```
 
-### Step 1: Detect Stack and Versions
+### 1단계: 스택 및 버전 감지
 
-Read the project's dependency file to identify exact versions:
+정확한 버전을 식별하려면 프로젝트의 종속성 파일을 읽으십시오.
 
 ```
 package.json    → Node/React/Vue/Angular/Svelte
@@ -48,7 +48,7 @@ Cargo.toml      → Rust
 Gemfile         → Ruby/Rails
 ```
 
-State what you found explicitly:
+발견한 내용을 명시적으로 기술하세요.
 
 ```
 STACK DETECTED:
@@ -58,29 +58,29 @@ STACK DETECTED:
 → Fetching official docs for the relevant patterns.
 ```
 
-If versions are missing or ambiguous, **ask the user**. Don't guess — the version determines which patterns are correct.
+버전이 누락되었거나 모호한 경우 **사용자에게 문의**하세요. 추측하지 마십시오. 버전에 따라 어떤 패턴이 올바른지 결정됩니다.
 
-### Step 2: Fetch Official Documentation
+### 2단계: 공식 문서 가져오기
 
-Fetch the specific documentation page for the feature you're implementing. Not the homepage, not the full docs — the relevant page.
+구현 중인 기능에 대한 특정 문서 페이지를 가져옵니다. 홈페이지나 전체 문서가 아닌 관련 페이지입니다.
 
-**Source hierarchy (in order of authority):**
+**소스 계층 구조(권한 순서):**
 
-| Priority | Source | Example |
+| 우선순위 | 소스 | 예 |
 |----------|--------|---------|
-| 1 | Official documentation | react.dev, docs.djangoproject.com, symfony.com/doc |
-| 2 | Official blog / changelog | react.dev/blog, nextjs.org/blog |
-| 3 | Web standards references | MDN, web.dev, html.spec.whatwg.org |
-| 4 | Browser/runtime compatibility | caniuse.com, node.green |
+| 1 | 공식 문서 | react.dev, docs.djangoproject.com, Symfony.com/doc |
+| 2 | 공식 블로그 / 변경 로그 | react.dev/blog, nextjs.org/blog |
+| 3 | 웹 표준rds 참조 | MDN, web.dev, html.spec.whatwg.org |
+| 4 | 브라우저/runtime 호환성 | caniuse.com, node.green |
 
-**Not authoritative — never cite as primary sources:**
+**신뢰할 수 있는 정보가 아닙니다. 주요 출처로 인용하지 마세요.**
 
-- Stack Overflow answers
-- Blog posts or tutorials (even popular ones)
-- AI-generated documentation or summaries
-- Your own training data (that is the whole point — verify it)
+- 스택 오버플로 답변
+- 블로그 게시물 또는 튜토리얼(인기 있는 게시물도 포함)
+- AI에서 생성된 문서 또는 요약
+- 자신만의 훈련 데이터(즉, 확인하세요)
 
-**Be precise with what you fetch:**
+**가져오는 내용을 정확하게 입력하세요.**
 
 ```
 BAD:  Fetch the React homepage
@@ -90,20 +90,20 @@ BAD:  Search "django authentication best practices"
 GOOD: Fetch docs.djangoproject.com/en/6.0/topics/auth/
 ```
 
-After fetching, extract the key patterns and note any deprecation warnings or migration guidance.
+가져온 후 주요 패턴을 추출하고 지원 중단 경고 또는 마이그레이션 guidance를 기록해 둡니다.
 
-When official sources conflict with each other (e.g. a migration guide contradicts the API reference), surface the discrepancy to the user and verify which pattern actually works against the detected version.
+공식 소스가 서로 충돌하는 경우(예: 마이그레이션 guide가 API 참조와 모순되는 경우) 사용자에게 불일치를 알리고 감지된 버전에 대해 실제로 작동하는 패턴이 무엇인지 확인하세요.
 
-### Step 3: Implement Following Documented Patterns
+### 3단계: 문서화된 다음 패턴 구현
 
-Write code that matches what the documentation shows:
+문서에 표시된 내용과 일치하는 코드를 작성하세요.
 
-- Use the API signatures from the docs, not from memory
-- If the docs show a new way to do something, use the new way
-- If the docs deprecate a pattern, don't use the deprecated version
-- If the docs don't cover something, flag it as unverified
+- 메모리가 아닌 문서의 API 서명을 사용하세요.
+- 문서에서 무언가를 수행하는 새로운 방법을 보여주면 새로운 방법을 사용하세요.
+- 문서에서 패턴을 더 이상 사용하지 않는 경우 더 이상 사용되지 않는 버전을 사용하지 마세요.
+- 문서에서 다루지 않는 내용이 있으면 확인되지 않은 것으로 표시하세요.
 
-**When docs conflict with existing project code:**
+**문서가 기존 프로젝트 코드와 충돌하는 경우:**
 
 ```
 CONFLICT DETECTED:
@@ -117,13 +117,13 @@ B) Match existing code (useState) — consistent with codebase
 → Which approach do you prefer?
 ```
 
-Surface the conflict. Don't silently pick one.
+갈등을 표면화하세요. 조용히 하나를 선택하지 마십시오.
 
-### Step 4: Cite Your Sources
+### 4단계: 출처 인용
 
-Every framework-specific pattern gets a citation. The user must be able to verify every decision.
+모든 framework-specific 패턴은 인용을 받습니다. 사용자는 모든 결정을 확인할 수 있어야 합니다.
 
-**In code comments:**
+**코드 주석에서:**
 
 ```typescript
 // React 19 form handling with useActionState
@@ -131,7 +131,7 @@ Every framework-specific pattern gets a citation. The user must be able to verif
 const [state, formAction, isPending] = useActionState(submitOrder, initialState);
 ```
 
-**In conversation:**
+**대화 중:**
 
 ```
 I'm using useActionState instead of manual useState for the
@@ -143,13 +143,13 @@ Source: https://react.dev/blog/2024/12/05/react-19#actions
 pending states automatically"
 ```
 
-**Citation rules:**
+**인용 규칙:**
 
-- Full URLs, not shortened
-- Prefer deep links with anchors where possible (e.g. `/useActionState#usage` over `/useActionState`) — anchors survive doc restructuring better than top-level pages
-- Quote the relevant passage when it supports a non-obvious decision
-- Include browser/runtime support data when recommending platform features
-- If you cannot find documentation for a pattern, say so explicitly:
+- 단축되지 않은 전체 URLs
+- 가능한 경우 앵커가 있는 딥 링크를 선호합니다(예: `/useActionState`보다 `/useActionState#usage`) — 앵커는 top-level 페이지보다 문서 rest 구조에서 더 잘 살아남습니다.
+- non-obvious 결정을 뒷받침하는 경우 관련 구절을 인용하세요.
+- platform 기능 추천 시 browser/runtime 지원 데이터 포함
+- 패턴에 대한 문서를 찾을 수 없다면 명시적으로 말하세요.
 
 ```
 UNVERIFIED: I could not find official documentation for this
@@ -157,38 +157,38 @@ pattern. This is based on training data and may be outdated.
 Verify before using in production.
 ```
 
-Honesty about what you couldn't verify is more valuable than false confidence.
+검증할 수 없는 것에 대한 솔직함이 잘못된 확신보다 더 가치 있습니다.
 
-## Common Rationalizations
+## 일반적인 합리화
 
-| Rationalization | Reality |
+| 합리화 | 현실 |
 |---|---|
-| "I'm confident about this API" | Confidence is not evidence. Training data contains outdated patterns that look correct but break against current versions. Verify. |
-| "Fetching docs wastes tokens" | Hallucinating an API wastes more. The user debugs for an hour, then discovers the function signature changed. One fetch prevents hours of rework. |
-| "The docs won't have what I need" | If the docs don't cover it, that's valuable information — the pattern may not be officially recommended. |
-| "I'll just mention it might be outdated" | A disclaimer doesn't help. Either verify and cite, or clearly flag it as unverified. Hedging is the worst option. |
-| "This is a simple task, no need to check" | Simple tasks with wrong patterns become templates. The user copies your deprecated form handler into ten components before discovering the modern approach exists. |
+| "나는 이 API에 대해 확신합니다" | 자신감은 증거가 아닙니다. 학습 데이터에는 올바르게 보이지만 현재 버전과 맞지 않는 오래된 패턴이 포함되어 있습니다. 확인하다. |
+| "문서를 가져오는 것은 토큰을 낭비합니다" | API를 환각시키는 것은 더 많은 것을 낭비합니다. 사용자는 한 시간 동안 디버깅한 후 함수 서명이 변경된 것을 발견합니다. 한 번의 가져오기로 몇 시간의 재작업을 방지할 수 있습니다. |
+| "문서에는 내가 필요한 것이 없습니다." | 문서에서 다루지 않으면 information이 중요합니다. 해당 패턴은 공식적으로 권장되지 않을 수 있습니다. |
+| "나는 그것이 구식일 수도 있다고 언급하겠습니다" | 면책 조항은 도움이 되지 않습니다. 확인하고 인용하거나 확인되지 않은 항목으로 명확하게 표시하세요. 헤징은 최악의 선택입니다. |
+| "이것은 간단한 작업이므로 확인할 필요가 없습니다." | 잘못된 패턴의 간단한 작업은 템플릿이 됩니다. 사용자는 최신 접근 방식이 존재한다는 사실을 발견하기 전에 더 이상 사용되지 않는 form 처리기를 10개의 구성 요소에 복사합니다. |
 
-## Red Flags
+## 위험 신호
 
-- Writing framework-specific code without checking the docs for that version
-- Using "I believe" or "I think" about an API instead of citing the source
-- Implementing a pattern without knowing which version it applies to
-- Citing Stack Overflow or blog posts instead of official documentation
-- Using deprecated APIs because they appear in training data
-- Not reading `package.json` / dependency files before implementing
-- Delivering code without source citations for framework-specific decisions
-- Fetching an entire docs site when only one page is relevant
+- 해당 버전에 대한 문서를 확인하지 않고 framework-specific 코드 작성
+- 출처를 인용하는 대신 API에 대해 "나는 믿는다" 또는 "나는 생각한다"를 사용합니다.
+- 어떤 버전에 적용되는지 모르고 패턴을 구현하는 경우
+- 공식 문서 대신 Stack Overflow나 블로그 게시물을 인용합니다.
+- 훈련 데이터에 나타나기 때문에 더 이상 사용되지 않는 APIs 사용
+- 구현하기 전에 `package.json`/종속성 파일을 읽지 않음
+- framework-specific 결정에 대해 소스 인용 없이 코드 제공
+- 단 한 페이지만 관련된 경우 전체 문서 사이트를 가져옵니다.
 
-## Verification
+## 확인
 
-After implementing with source-driven development:
+source-driven 개발로 구현한 후:
 
-- [ ] Framework and library versions were identified from the dependency file
-- [ ] Official documentation was fetched for framework-specific patterns
-- [ ] All sources are official documentation, not blog posts or training data
-- [ ] Code follows the patterns shown in the current version's documentation
-- [ ] Non-trivial decisions include source citations with full URLs
-- [ ] No deprecated APIs are used (checked against migration guides)
-- [ ] Conflicts between docs and existing code were surfaced to the user
-- [ ] Anything that could not be verified is explicitly flagged as unverified
+- [ ] 프레임워크 및 라이브러리 버전이 종속 파일에서 식별되었습니다.
+- [ ] framework-specific 패턴에 대한 공식 문서를 가져왔습니다.
+- [ ] 모든 소스는 블로그 게시물이나 교육 데이터가 아닌 공식 문서입니다.
+- [ ] 코드는 현재 버전의 문서에 표시된 패턴을 따릅니다.
+- [ ] 중요하지 않은 결정에는 전체 URLs가 포함된 소스 인용이 포함됩니다.
+- [ ] 더 이상 사용되지 않는 APIs가 사용되지 않습니다(마이그레이션 guides와 비교하여 확인).
+- [ ] 문서와 기존 코드 간의 충돌이 사용자에게 표시되었습니다.
+- [ ] 확인할 수 없는 모든 항목은 명시적으로 확인되지 않은 것으로 표시됩니다.

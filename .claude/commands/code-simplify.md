@@ -1,22 +1,22 @@
 ---
-description: Simplify code for clarity and maintainability — reduce complexity without changing behavior
+description: 명확성과 유지보수성을 위해 코드를 단순화합니다 — 동작은 바꾸지 않고 복잡도만 낮춥니다
 ---
 
-Invoke the agent-skills:code-simplification skill.
+agent-skills:code-simplification skill을 호출합니다.
 
-Simplify recently changed code (or the specified scope) while preserving exact behavior:
+정확한 동작을 유지하면서 최근에 변경된 코드(또는 지정된 범위)를 단순화합니다.
 
-1. Read CLAUDE.md and study project conventions
-2. Identify the target code — recent changes unless a broader scope is specified
-3. Understand the code's purpose, callers, edge cases, and test coverage before touching it
-4. Scan for simplification opportunities:
-   - Deep nesting → guard clauses or extracted helpers
-   - Long functions → split by responsibility
-   - Nested ternaries → if/else or switch
-   - Generic names → descriptive names
-   - Duplicated logic → shared functions
-   - Dead code → remove after confirming
-5. Apply each simplification incrementally — run tests after each change
-6. Verify all tests pass, the build succeeds, and the diff is clean
+1. `CLAUDE.md`를 읽고 프로젝트 규칙을 파악합니다.
+2. 대상 코드를 식별합니다. 더 넓은 범위가 지정되지 않았다면 최근 변경 사항을 기준으로 합니다.
+3. 코드를 건드리기 전에 목적, caller, edge case, test coverage를 이해합니다.
+4. 단순화 기회를 찾습니다.
+   - 깊은 중첩 → guard clause 또는 helper 추출
+   - 긴 함수 → 책임별 분리
+   - 중첩 ternary → `if/else` 또는 `switch`
+   - 모호한 이름 → 설명적인 이름
+   - 중복 로직 → 공통 함수로 추출
+   - dead code → 확인 후 제거
+5. 각 단순화를 점진적으로 적용하고, 변경 후마다 테스트를 실행합니다.
+6. 모든 테스트가 통과하고 build가 성공하며 diff가 깔끔한지 확인합니다.
 
-If tests fail after a simplification, revert that change and reconsider. Use `code-review-and-quality` to review the result.
+단순화 후 테스트가 실패하면 해당 변경을 되돌리고 다시 판단합니다. 결과 검토에는 `code-review-and-quality`를 사용하세요.

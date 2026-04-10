@@ -6,6 +6,8 @@
     // claude --dangerously-skip-permissions  | ChangeModel: /model meta-llama/llama-3.3-70b-instruct:free
     // openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$ANTHROPIC_AUTH_TOKEN"
     // openclaw doctor
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/copilot-cli:1": {},
     "ghcr.io/stu-bell/devcontainer-features/claude-code:0": {}
   },
   "containerEnv": {
@@ -25,9 +27,11 @@
     "ANTHROPIC_CUSTOM_MODEL_OPTION_NAME": "NVIDIA: Nemotron 3 Super",
     "ANTHROPIC_CUSTOM_MODEL_OPTION_DESCRIPTION": "NVIDIA: Nemotron 3 Super (free)"
   },
+  "postCreateCommand": "npm i -g @google/gemini-cli && npm i -g @openai/codex && mkdir -p /home/vscode/.codex && cp .devcontainer/config.toml /home/vscode/.codex/ && npm i -g openclaw@latest && mkdir -p /home/vscode/.openclaw && cp .devcontainer/openclaw.json /home/vscode/.openclaw/",
   "customizations": {
     "vscode": {
       "extensions": [
+        "kilocode.kilo-code",
         "saoudrizwan.claude-dev"
       ]
     }

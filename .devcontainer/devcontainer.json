@@ -1,0 +1,9 @@
+{
+  "name": "Claude Code Devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/stu-bell/devcontainer-features/claude-code:0": {}
+  }
+}
